@@ -8,17 +8,15 @@
 #include <tuple>
 #include <type_traits>
 #include <utility>
-#include "span.h"
 #include <stdexcept>
 
-// #include <lum_common_casts/lum_casts.h>
-// #include <lum_common_exceptions/init.h>
-// #include <lum_common_types/tcb::span.h>
+#include "span.h"
 
 namespace alt {
 namespace types {
 
-/// @brief A fixed-capacity, vector-like container that conforms to the standard layout and trivially copyable constraints.
+/// @brief A fixed-capacity, vector-like container that conforms to the standard layout and 
+/// trivially copyable constraints.
 ///
 /// AltVector provides a statically allocated buffer for up to @c MAX_SIZE elements of type
 /// @c T , without default-initializing the entire storage on construction. Elements are only
@@ -88,7 +86,6 @@ public:
   // clang-format on
 
   /// Sole constructor that does not zero-initialize memory.
-  // PRQA S:D0048 4206 2
   // NOLINTNEXTLINE(hicpp-use-equals-default,modernize-use-equals-default):D0009
   constexpr explicit AltVector() noexcept {}
 
@@ -99,7 +96,7 @@ public:
     if (count > MAX_SIZE)
     {
       throw std::runtime_error("alt_vector::assign: count > MAX_SIZE");
-      //throw exceptions::StaticContainerOverflowException{"alt_array::assign", MAX_SIZE, count};
+      //throw ContainerOverflow{"alt_array::assign", MAX_SIZE, count};
     }
     clear();
     for (size_type i{0U}; i < count; ++i)
@@ -115,7 +112,7 @@ public:
     if (dist > static_cast<difference_type>(MAX_SIZE))
     {
       throw std::runtime_error("alt_vector::assign: distance > MAX_SIZE");
-      //throw exceptions::StaticContainerOverflowException{
+      //throw ContainerOverflow{
         // "alt_array::assign", MAX_SIZE, static_cast<std::size_t>(dist)};
     }
     clear();
@@ -130,7 +127,7 @@ public:
     if (ilist.size() > MAX_SIZE)
     {
       throw std::runtime_error("alt_vector::assign: list.size() > MAX_SIZE");
-      //throw exceptions::StaticContainerOverflowException{
+      //throw ContainerOverflow{
         // "alt_array::assign", MAX_SIZE, ilist.size()};
     }
     clear();
@@ -162,7 +159,7 @@ public:
     {
       
       throw std::runtime_error("alt_vector::at: pos >= size_");
-      //throw exceptions::StaticContainerOverflowException{"alt_array::at", MAX_SIZE, pos + 1U};
+      //throw ContainerOverflow{"alt_array::at", MAX_SIZE, pos + 1U};
     }
 
     return *std::next(begin(), static_cast<difference_type>(pos));
@@ -174,7 +171,7 @@ public:
     {
 
       throw std::runtime_error("alt_vector::at const: pos >= size_");
-      //throw exceptions::StaticContainerOverflowException{
+      //throw ContainerOverflow{
         // "alt_array::at const", MAX_SIZE, pos + 1U};
     }
 
@@ -232,7 +229,7 @@ public:
     if (new_cap > MAX_SIZE)
     {
       throw std::runtime_error("alt_vector::reserve: new_cap > MAX_SIZE");
-      //throw exceptions::StaticContainerOverflowException{
+      //throw ContainerOverflow{
         // "alt_array::reserve", MAX_SIZE, new_cap};
     }
     // No-op since we already have the maximum capacity reserved
@@ -253,7 +250,7 @@ public:
     {
       
       throw std::runtime_error("alt_vector::resize: count > MAX_SIZE");
-      //throw exceptions::StaticContainerOverflowException{"alt_array::resize", MAX_SIZE, count};
+      //throw ContainerOverflow{"alt_array::resize", MAX_SIZE, count};
     }
 
     // If count is less than the current size, destroy the extra elements
@@ -275,7 +272,7 @@ public:
     if (count > MAX_SIZE)
     {
       throw std::runtime_error("alt_vector::resize: count > MAX_SIZE");
-      //throw exceptions::StaticContainerOverflowException{"alt_array::resize", MAX_SIZE, count};
+      //throw ContainerOverflow{"alt_array::resize", MAX_SIZE, count};
     }
 
     // If count is less than the current size, destroy the extra elements
@@ -298,7 +295,7 @@ public:
     if (size_ == MAX_SIZE)
     {
       throw std::runtime_error("alt_vector::push_back: size_ == MAX_SIZE");
-      //throw exceptions::StaticContainerOverflowException{
+      //throw ContainerOverflow{
         // "alt_array::push_back", MAX_SIZE, MAX_SIZE + 1U};
     }
     appendUnsafe(value);
@@ -310,7 +307,7 @@ public:
     if (size_ == MAX_SIZE)
     {
       throw std::runtime_error("alt_vector::push_back(T&&): size_ == MAX_SIZE");
-      // throw exceptions::StaticContainerOverflowException{
+      // throw ContainerOverflow{
       //   "alt_array::push_back(T&&)", MAX_SIZE, MAX_SIZE + 1U};
     }
     appendUnsafe(std::move(value));
@@ -324,7 +321,7 @@ public:
     if (size_ == MAX_SIZE)
     {
       throw std::runtime_error("alt_vector::emplace_back: size_ == MAX_SIZE");
-      // throw exceptions::StaticContainerOverflowException{
+      // throw ContainerOverflow{
         // "alt_array::emplace_back", MAX_SIZE, MAX_SIZE + 1U};
     }
 

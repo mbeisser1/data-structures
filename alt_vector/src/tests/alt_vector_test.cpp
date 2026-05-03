@@ -3,11 +3,8 @@
 #include <alt_vector/alt_vector.h>
 #include <alt_vector/construct.h>
 
-// PRQA S:P0000 ALL EOF # Ignore all Helix messages in tests
-
 namespace {
 
-// namespace ex = lum::common::exceptions;
 using FourInt32s = alt::types::AltVector<std::int32_t, 4U>;
 
 template <typename T>
