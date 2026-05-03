@@ -1,0 +1,62 @@
+# Build trees
+build/
+out/
+cmake-build-*/
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+install_manifest.txt
+_deps/
+Makefile
+*.ninja
+.ninja_deps
+.ninja_log
+build.ninja
+rules.ninja
+compile_commands.json
+
+# Compiled / link
+*.o
+*.obj
+*.slo
+*.lo
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.ilk
+*.pdb
+*.exp
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Dependency / module
+*.d
+*.mod
+*.smod
+
+# Debug / coverage
+*.gcda
+*.gcno
+*.gcov
+
+# IDE / OS
+.idea/
+.vs/
+*.suo
+*.user
+*.userosscache
+.DS_Store
+*~
+*.swp
+*.swo
