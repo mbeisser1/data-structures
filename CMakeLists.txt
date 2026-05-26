@@ -1,30 +1,29 @@
 cmake_minimum_required(VERSION 3.20)
 
-# Build from this directory (repository root):
+# Build instructions: see README.md
 #
+# Quick start (tests + IDE compile database):
 #   cmake -S . -B build -DBUILD_TESTING=ON
 #   cmake --build build
 #   ctest --test-dir build
 #
-#   rm -rf build
-#   OR
-#   cmake --build build --target clean
-#
-# Use -DBUILD_TESTING=OFF to skip the unit test executable (Catch2 is not required).
-#
-# Clang toolchain (pick one style):
-#   CC=clang CXX=clang++ cmake -S . -B build-clang ...
-#   cmake -S . -B build-clang -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ ...
-#
-# include-what-you-use (IWYU): install a build that matches your Clang (same LLVM major).
-# CMake runs IWYU, then the real compiler, on each C++ file when this is set at configure time:
-# CC=clang CXX=clang++ cmake -S . -B build-iwyu \
-#   -DBUILD_TESTING=ON \
-#   "-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use;-Xiwyu;--verbose=2"
-# cmake --build build-iwyu
+# Library only (no Catch2, no compile_commands for test TU):
+#   cmake -S . -B build
+#   cmake --build build
 
 
 project(data-structures LANGUAGES CXX)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+if(CMAKE_EXPORT_COMPILE_COMMANDS AND NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+  set(_compile_commands_link "${CMAKE_SOURCE_DIR}/compile_commands.json")
+  file(CREATE_LINK
+    "${CMAKE_BINARY_DIR}/compile_commands.json"
+    "${_compile_commands_link}"
+    SYMBOLIC
+  )
+  unset(_compile_commands_link)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -32,4 +31,5 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(CTest)
 
+add_subdirectory(exception)
 add_subdirectory(alt_vector)
