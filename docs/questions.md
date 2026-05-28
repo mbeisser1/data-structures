@@ -745,8 +745,6 @@
 
 <!-- /code_chunk_output -->
 
-
-
 ## C++ Basics and Language Features
 ### 1. What are the main *features* of *C++*?
 
