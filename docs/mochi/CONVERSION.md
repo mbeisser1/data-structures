@@ -174,6 +174,34 @@ The goal is **most/all concepts and code that matter for recall**, not a 1:1 lin
 - **Short fronts** — one clear question per card
 - **Code on its own card** when the question is “show me how”
 
+### Concept + code (two cards)
+
+When a subsection has both an idea and a code sample, use **two cards** — do not replace the concept question with `Show …`:
+
+| Card | Front | Back |
+| --- | --- | --- |
+| **Concept** | The subsection question (e.g. “What is the relationship between a class and an object?”) | Prose and/or bullets only |
+| **Code follow-on** | `Show …` + hint clause | Fenced `cpp` block only (or code + minimal output note) |
+
+Example pair (Q03):
+
+```markdown
+What is the relationship between a class and an object in C++? #q03 #oop
+
+---
+A **`class`** is the **blueprint**; an **object** is a **specific instance** …
+
+%%%MOCHI_CARD%%%
+Show a class and object example. Define `Car` with private `model`/`year` … #q03 #oop
+
+---
+```cpp
+class Car { … };
+```
+```
+
+Q02 already follows this (concept card, then `Show` card with code only).
+
 ### Code card fronts (title + hint)
 
 Code-recall cards use a **two-part front**:
@@ -225,7 +253,7 @@ Example (control block — prefer bullets over comma-separated prose):
 
 | Range | Coverage |
 | --- | --- |
-| **Q1–10** | Good — basics section; large code examples from `questions.md` mostly not included (unlike Q11–20) |
+| **Q1–10** | Good — code cards use **Show … + hint** (Q51–60 pattern); Q02 splits concept vs code; Q04 includes access-specifier hierarchy example |
 | **Q11–20** | Good — subsections + code samples + synthesis; main prose captured |
 | **Q21–30** | Good — hand-crafted OOP section with code samples + synthesis cards |
 | **Q31–40** | Good — hand-crafted templates section with code samples + synthesis cards |

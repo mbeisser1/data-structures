@@ -25,8 +25,12 @@ What are nested namespaces in C++? #q05 #namespaces #cpp-basics
 What is an unnamed (anonymous) namespace? #q05 #namespaces #cpp-basics
 
 ---
-An **unnamed namespace** limits its contents to the **current translation unit** (internal linkage), similar in spirit to `static` at file scope:
+An **unnamed namespace** limits its contents to the **current translation unit** (internal linkage), similar in spirit to `static` at file scope.
 
+%%%MOCHI_CARD%%%
+Show an unnamed (anonymous) namespace. Declare `hidden_variable = 42` inside `namespace { }` so it has internal linkage in this translation unit. #q05 #namespaces #cpp-basics
+
+---
 ```cpp
 namespace {
     int hidden_variable = 42;
@@ -37,8 +41,12 @@ namespace {
 What is a namespace alias in C++? #q05 #namespaces #cpp-basics
 
 ---
-A **namespace alias** shortens long qualified names:
+A **namespace alias** shortens long qualified names.
 
+%%%MOCHI_CARD%%%
+Show a namespace alias. Map `vln` to `very_long_namespace_name` and call `vln::function()` instead of the full qualified name. #q05 #namespaces #cpp-basics
+
+---
 ```cpp
 namespace very_long_namespace_name { void function(); }
 namespace vln = very_long_namespace_name;

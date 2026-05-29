@@ -16,7 +16,7 @@ What are the main types of constructors in C++? #q07 #constructors #cpp-basics
 - **Inherited** — `using Base::Base;` reuses base constructors (C++11).
 
 %%%MOCHI_CARD%%%
-Show brief examples of copy, move, and delegating constructors. #q07 #constructors #cpp-basics
+Show brief examples of copy, move, and delegating constructors. In `MyClass`, copy-initialize `data_` from `other` and move it with `std::move`; in `Rectangle`, default-construct by delegating to `Rectangle(0, 0)`. #q07 #constructors #cpp-basics
 
 ---
 ```cpp

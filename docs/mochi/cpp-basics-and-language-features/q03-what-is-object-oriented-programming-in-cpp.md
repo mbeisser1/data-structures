@@ -19,6 +19,10 @@ What is the relationship between a class and an object in C++? #q03 #oop
 ---
 A **`class`** is the **blueprint**; an **object** is a **specific instance** created from that class (with its own data).
 
+%%%MOCHI_CARD%%%
+Show a class and object example. Define `Car` with private `model`/`year`, a constructor, and `display()`; in `main`, create `Car myCar("Tesla", 2023)` and call `display()`. #q03 #oop
+
+---
 ```cpp
 class Car {
 private:
@@ -45,6 +49,10 @@ How does C++ support inheritance? #q03 #oop
 ---
 C++ supports **single** and **multiple** inheritance. A derived class can extend a base class and reuse its constructors/members (here, `ElectricCar` extends `Car`).
 
+%%%MOCHI_CARD%%%
+Show single inheritance in C++. Derive `ElectricCar` from `Car`, add `batteryCapacity`, and chain to the base constructor with `Car(m, y)` in the member initializer list. #q03 #oop
+
+---
 ```cpp
 class ElectricCar : public Car {
 private:
@@ -63,6 +71,10 @@ What kinds of polymorphism does C++ support? #q03 #oop
 - **Compile-time** — function overloading, templates.
 - **Run-time** — **virtual functions** (e.g. pure virtual `start()` overridden in `Car`).
 
+%%%MOCHI_CARD%%%
+Show runtime polymorphism with pure virtual functions. Define abstract `Vehicle` with pure virtual `start()`, override in `Car`, and print when started. #q03 #oop
+
+---
 ```cpp
 class Vehicle {
 public:
@@ -89,6 +101,10 @@ With **access specifiers**:
 
 Internal data (e.g. `balance`) stays hidden; only safe operations (e.g. `deposit`) are exposed.
 
+%%%MOCHI_CARD%%%
+Show encapsulation with access specifiers. In `BankAccount`, keep `balance` private and expose `deposit` that only adds positive amounts. #q03 #oop
+
+---
 ```cpp
 class BankAccount {
 private:
@@ -109,6 +125,10 @@ How do you create abstraction in C++? #q03 #oop
 ---
 Use **abstract classes** / interfaces via **pure virtual functions** (`= 0`). Concrete types (e.g. `Circle`) **override** and supply implementation.
 
+%%%MOCHI_CARD%%%
+Show abstraction with an abstract base class. Define `Shape` with pure virtual `area()`, implement `Circle` with radius and a π·r² override. #q03 #oop
+
+---
 ```cpp
 class Shape {
 public:

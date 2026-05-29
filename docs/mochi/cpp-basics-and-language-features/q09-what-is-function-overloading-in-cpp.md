@@ -22,7 +22,7 @@ How does the compiler distinguish overloaded functions? What are the restriction
 - Works for **free functions** and **member functions**.
 
 %%%MOCHI_CARD%%%
-Give a function overloading example in C++. #q09 #function-overloading #cpp-basics
+Show function overloading examples. Overload `print` for `int`, `double`, and `const std::string&` with distinct output labels. #q09 #function-overloading #cpp-basics
 
 ---
 ```cpp

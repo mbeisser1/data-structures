@@ -36,7 +36,7 @@ Which operators are commonly overloaded, and which cannot be? #q10 #operator-ove
 You **cannot invent new operators**. **Precedence and arity** stay fixed; built-in types’ operators cannot be replaced.
 
 %%%MOCHI_CARD%%%
-Give an operator overloading example and best practices. #q10 #operator-overloading #cpp-basics
+Show operator overloading on `Complex`. Store `real` and `imag`, implement `operator+` to add component-wise and return a new `Complex`. #q10 #operator-overloading #cpp-basics
 
 ---
 ```cpp
@@ -49,6 +49,11 @@ public:
     }
 };
 ```
+
+%%%MOCHI_CARD%%%
+What are operator overloading best practices? #q10 #operator-overloading #cpp-basics
+
+---
 
 - Match **intuitive** built-in behavior; preserve **clear semantics**.
 - Overload **sparingly**; document non-obvious behavior.

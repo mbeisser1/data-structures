@@ -61,15 +61,15 @@ Next back answer
 | # | File | Cards |
 | --- | --- | --- |
 | 1 | [`q01-what-are-the-main-features-of-cpp.md`](cpp-basics-and-language-features/q01-what-are-the-main-features-of-cpp.md) | 10 |
-| 2 | [`q02-explain-the-difference-between-c-and-cpp.md`](cpp-basics-and-language-features/q02-explain-the-difference-between-c-and-cpp.md) | 13 |
-| 3 | [`q03-what-is-object-oriented-programming-in-cpp.md`](cpp-basics-and-language-features/q03-what-is-object-oriented-programming-in-cpp.md) | 9 |
-| 4 | [`q04-what-are-the-access-specifiers-in-cpp.md`](cpp-basics-and-language-features/q04-what-are-the-access-specifiers-in-cpp.md) | 5 |
-| 5 | [`q05-explain-the-concept-of-namespaces-in-cpp.md`](cpp-basics-and-language-features/q05-explain-the-concept-of-namespaces-in-cpp.md) | 6 |
+| 2 | [`q02-explain-the-difference-between-c-and-cpp.md`](cpp-basics-and-language-features/q02-explain-the-difference-between-c-and-cpp.md) | 17 |
+| 3 | [`q03-what-is-object-oriented-programming-in-cpp.md`](cpp-basics-and-language-features/q03-what-is-object-oriented-programming-in-cpp.md) | 14 |
+| 4 | [`q04-what-are-the-access-specifiers-in-cpp.md`](cpp-basics-and-language-features/q04-what-are-the-access-specifiers-in-cpp.md) | 6 |
+| 5 | [`q05-explain-the-concept-of-namespaces-in-cpp.md`](cpp-basics-and-language-features/q05-explain-the-concept-of-namespaces-in-cpp.md) | 8 |
 | 6 | [`q06-what-is-the-difference-between-struct-and-class-in-cpp.md`](cpp-basics-and-language-features/q06-what-is-the-difference-between-struct-and-class-in-cpp.md) | 5 |
 | 7 | [`q07-what-is-a-constructor-and-what-are-its-types-in-cpp.md`](cpp-basics-and-language-features/q07-what-is-a-constructor-and-what-are-its-types-in-cpp.md) | 5 |
 | 8 | [`q08-explain-the-concept-of-destructors-in-cpp.md`](cpp-basics-and-language-features/q08-explain-the-concept-of-destructors-in-cpp.md) | 5 |
 | 9 | [`q09-what-is-function-overloading-in-cpp.md`](cpp-basics-and-language-features/q09-what-is-function-overloading-in-cpp.md) | 4 |
-| 10 | [`q10-what-is-operator-overloading-in-cpp.md`](cpp-basics-and-language-features/q10-what-is-operator-overloading-in-cpp.md) | 5 |
+| 10 | [`q10-what-is-operator-overloading-in-cpp.md`](cpp-basics-and-language-features/q10-what-is-operator-overloading-in-cpp.md) | 6 |
 
 All **100 questions** are synthesized from [`questions.md`](../questions.md).
 

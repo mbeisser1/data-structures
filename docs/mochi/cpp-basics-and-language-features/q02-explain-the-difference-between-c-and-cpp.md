@@ -38,6 +38,10 @@ Does C support function overloading? How does C++? #q02 #c-vs-cpp
 - **C** — **no** overloading; one function name = one signature in a scope.
 - **C++** — **yes**; same name, different parameter lists (types/count/order).
 
+%%%MOCHI_CARD%%%
+Show C++ function overloading. Define two `add` overloads differing by parameter types (`int` vs `double`); each returns the sum of its arguments. #q02 #c-vs-cpp
+
+---
 ```cpp
 // C++ function overloading example
 int add(int a, int b) { return a + b; }
@@ -58,6 +62,10 @@ How does memory management differ between C and C++? #q02 #c-vs-cpp
   - **Smart pointers**
   - **Destructors**
 
+%%%MOCHI_CARD%%%
+Show heap allocation with a smart pointer. Use `std::make_unique<int>` to own the value `42` without calling `delete` manually. #q02 #c-vs-cpp
+
+---
 ```cpp
 // C++ smart pointer example
 #include <memory>
@@ -105,6 +113,10 @@ How does type safety differ between C and C++? #q02 #c-vs-cpp
 - **C** — basic compile-time type checking.
 - **C++** — **stronger** checking plus **templates** for generic, type-safe code at compile time.
 
+%%%MOCHI_CARD%%%
+Show a type-safe generic `max` function. Write a function template that compares two values of the same type and returns the larger. #q02 #c-vs-cpp
+
+---
 ```cpp
 // C++ template example
 template <typename T>
@@ -141,6 +153,10 @@ How do C and C++ handle errors and exceptions? #q02 #c-vs-cpp
   - **`throw`**
   - Standard exception types
 
+%%%MOCHI_CARD%%%
+Show C++ exception handling. Wrap code that may throw in `try`, catch `const std::exception&`, and print `e.what()` to `cerr`. #q02 #c-vs-cpp
+
+---
 ```cpp
 // C++ exception handling example
 try {

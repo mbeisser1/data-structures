@@ -26,6 +26,41 @@ What are the default access levels for classes and structs in C++? #q04 #access-
 - Access specifiers can appear multiple times in one class to change the access of following members.
 
 %%%MOCHI_CARD%%%
+Show access specifiers in a class hierarchy. Define `MyClass` with `public`/`protected`/`private` sections, derive `DerivedClass`, and show what `main` can call vs what fails to compile. #q04 #access-specifiers #cpp-basics
+
+---
+```cpp
+#include <iostream>
+
+class MyClass {
+public:
+    void publicMethod() {
+        std::cout << "Public method, accessing private data: " << privateData << std::endl;
+    }
+protected:
+    int protectedData = 20;
+private:
+    int privateData = 10;
+};
+
+class DerivedClass : public MyClass {
+public:
+    void accessProtectedData() {
+        std::cout << "Accessing protected data: " << protectedData << std::endl;
+    }
+};
+
+int main() {
+    MyClass obj;
+    obj.publicMethod();  // OK
+    // obj.privateData;  // Error
+    DerivedClass derived;
+    derived.accessProtectedData();  // OK
+    return 0;
+}
+```
+
+%%%MOCHI_CARD%%%
 What modern C++ rules apply to access specifiers and inheritance? #q04 #access-specifiers #cpp-basics
 
 ---
