@@ -25,7 +25,7 @@ What are the STL iterator categories? #q56 #iterators #stl
 Stronger categories satisfy weaker category requirements.
 
 %%%MOCHI_CARD%%%
-Show detecting a random-access iterator category. #q56 #iterators #stl
+Show detecting a random-access iterator category. On `vector<int>::iterator`, write a compile-time check (with `<iterator>` traits) that prints whether the category is random access. #q56 #iterators #stl
 
 ---
 ```cpp
@@ -45,7 +45,7 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-Show regular, const, reverse, and algorithm iterators. #q56 #iterators #stl
+Show regular, const, reverse, and algorithm iterators. On a `vector<int>`, use `begin`, `cbegin`, and `rbegin` to read first/last elements, then double each element with `for_each`. #q56 #iterators #stl
 
 ---
 ```cpp

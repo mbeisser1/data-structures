@@ -174,6 +174,28 @@ The goal is **most/all concepts and code that matter for recall**, not a 1:1 lin
 - **Short fronts** — one clear question per card
 - **Code on its own card** when the question is “show me how”
 
+### Code card fronts (title + hint)
+
+Code-recall cards use a **two-part front**:
+
+```text
+Show [original title]. [Hint clause: scaffold without revealing the tested mechanism.]
+```
+
+| Include in hint | Avoid in hint |
+| --- | --- |
+| Named types from the snippet (`IsEven`, `SimpleAllocator`) | The mechanism under test (`operator()`, `iterator_traits` if that is the recall target) |
+| Algorithm + container (`remove_if` on `vector<int>`) | Full solution or copied back text |
+| Input data and **expected outcome** | Naming the exact member/function that is the answer |
+
+Example:
+
+```markdown
+Show a unary predicate functor with `std::remove_if`. Implement `IsEven` as a callable that returns true for even integers; use it to remove evens from `nums` and erase the tail. #q57 #functors #stl
+```
+
+The reader knows struct name, predicate role, and algorithm — but must still produce **`operator()`** themselves.
+
 Example (control block — prefer bullets over comma-separated prose):
 
 ```markdown

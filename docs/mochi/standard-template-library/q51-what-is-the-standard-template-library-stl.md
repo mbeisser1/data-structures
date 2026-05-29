@@ -34,7 +34,7 @@ What are the main STL container categories? #q51 #stl-overview #stl
 **Adaptors:** `stack`, `queue`, `priority_queue`
 
 %%%MOCHI_CARD%%%
-Show basic STL algorithm usage. #q51 #stl-overview #stl
+Show basic STL algorithm usage. On `vector<int> v = {3,1,4,1,5,9}`, sort it, find the value `4`, and count elements satisfying a parity predicate with `count_if`. #q51 #stl-overview #stl
 
 ---
 ```cpp

@@ -47,7 +47,7 @@ When should you choose `vector` vs `list`? #q52 #vector-vs-list #stl
 **Default rule:** start with **`vector`** unless profiling shows list wins.
 
 %%%MOCHI_CARD%%%
-Show performance difference inserting at the beginning. #q52 #vector-vs-list #stl
+Show performance difference inserting at the beginning. Write a template `measureInsertionTime` that inserts 100,000 elements at `begin()`; time the same pattern on both `vector` and `list`. #q52 #vector-vs-list #stl
 
 ---
 ```cpp

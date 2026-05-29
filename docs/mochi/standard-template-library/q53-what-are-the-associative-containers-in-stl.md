@@ -14,7 +14,7 @@ What are the associative containers in STL? #q53 #associative-containers #stl
 - **`std::unordered_multimap`**, **`std::unordered_multiset`**
 
 %%%MOCHI_CARD%%%
-Show using `std::map`. #q53 #associative-containers #stl
+Show using `std::map`. Brace-initialize `{1,"One"},…`, look up key `3`, and iterate key-value pairs in sorted order. #q53 #associative-containers #stl
 
 ---
 ```cpp
@@ -37,7 +37,7 @@ int main() {
 Elements are **sorted by key**.
 
 %%%MOCHI_CARD%%%
-Show using `std::unordered_set`. #q53 #associative-containers #stl
+Show using `std::unordered_set`. Insert additional values and check membership of `3` with the C++20 `contains` API. #q53 #associative-containers #stl
 
 ---
 ```cpp

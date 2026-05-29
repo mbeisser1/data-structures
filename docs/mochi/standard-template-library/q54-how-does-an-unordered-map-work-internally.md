@@ -48,7 +48,7 @@ Rehashing can **invalidate iterators** but references to elements usually remain
 Inspect with **`bucket_count()`**, **`load_factor()`**, **`max_load_factor()`**.
 
 %%%MOCHI_CARD%%%
-Show basic `unordered_map` operations. #q54 #unordered-map #stl
+Show basic `unordered_map` operations. Insert `"apple"`, `"banana"`, `"cherry"` via `[]`, `insert`, and `emplace`; find `"banana"`, iterate, erase `"cherry"`, then print `size`, `bucket_count`, and `load_factor`. #q54 #unordered-map #stl
 
 ---
 ```cpp

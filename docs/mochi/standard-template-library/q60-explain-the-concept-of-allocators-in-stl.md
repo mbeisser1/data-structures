@@ -38,7 +38,7 @@ What standard allocator types exist? #q60 #allocators #stl
 Use **`std::allocator_traits`** for portable allocator operations.
 
 %%%MOCHI_CARD%%%
-Show a custom allocator with `std::vector`. #q60 #allocators #stl
+Show a custom allocator with `std::vector`. Implement `SimpleAllocator<T>` with `value_type`, `allocate(n)`, and `deallocate(p,n)`; use it as the second template arg to `vector<int>`. #q60 #allocators #stl
 
 ---
 ```cpp

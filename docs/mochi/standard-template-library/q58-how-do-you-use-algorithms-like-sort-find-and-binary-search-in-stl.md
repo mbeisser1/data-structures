@@ -29,7 +29,7 @@ What sorting and searching algorithms are commonly used? #q58 #stl-algorithms #s
 - **`std::lower_bound`**, **`std::upper_bound`** — insertion/search boundaries
 
 %%%MOCHI_CARD%%%
-Show `sort`, `find`, and `binary_search` on a vector. #q58 #stl-algorithms #stl
+Show `sort`, `find`, and `binary_search` on a vector. Sort `{5,2,8,10,1,3,6}`, locate `6` with `find` (index 4), then test whether `7` exists with `binary_search`. #q58 #stl-algorithms #stl
 
 ---
 ```cpp

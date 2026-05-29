@@ -14,7 +14,7 @@ Both store **sorted keys** in a tree (typically **red-black tree**, **O(log n)**
 - Every insert **adds another** equal key
 
 %%%MOCHI_CARD%%%
-Show `set` vs `multiset` insertion behavior. #q55 #set-vs-multiset #stl
+Show `set` vs `multiset` insertion behavior. Start both with `{1,2,3}`, insert another `2`, and compare final `size()` — set stays 3, multiset becomes 4. #q55 #set-vs-multiset #stl
 
 ---
 ```cpp
