@@ -7,6 +7,13 @@ A **pure virtual function** is a **virtual member with no base implementation**,
 What is the syntax for a pure virtual function? #q24 #pure-virtual #oop-concepts
 
 ---
+
+Declare with **`virtual`**, a return type and name, parameter list, and **`= 0`** — no function body in the class definition.
+
+%%%MOCHI_CARD%%%
+Show pure virtual function syntax. How do you declare a function in a base class that derived types must implement? #q24 #pure-virtual #oop-concepts
+
+---
 ```cpp
 class Base {
 public:
@@ -32,7 +39,7 @@ What are key characteristics and use cases of pure virtual functions? #q24 #pure
 - **Template method** pattern — skeleton in base, steps in derived classes
 
 %%%MOCHI_CARD%%%
-Show pure virtual functions with `Shape`, `Circle`, and `Rectangle`. #q24 #pure-virtual #oop-concepts
+Show pure virtual functions with `Shape`, `Circle`, and `Rectangle`. How do you store different shapes and call `draw()` and `area()` polymorphically? #q24 #pure-virtual #oop-concepts
 
 ---
 ```cpp

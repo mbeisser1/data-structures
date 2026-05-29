@@ -20,7 +20,7 @@ What are the advantages and disadvantages of using templates? #q39 #templates-pr
 - **Header-only** implementations — hurts separate compilation
 
 %%%MOCHI_CARD%%%
-Show a simple template illustrating reuse and bloat tradeoff. #q39 #templates-pros-cons #templates-generic
+Show a function template illustrating reuse. How does one `max` definition serve multiple types? #q39 #templates-pros-cons #templates-generic
 
 ---
 ```cpp
@@ -33,6 +33,10 @@ T max(T a, T b) {
 // Bloat: each distinct T generates its own max<T>
 ```
 
+%%%MOCHI_CARD%%%
+Show a class template illustrating instantiation cost. How do multiple `Array<T, N>` instantiations affect compile time and binary size? #q39 #templates-pros-cons #templates-generic
+
+---
 ```cpp
 template <typename T, size_t N>
 class Array { T data[N]; /* ... */ };

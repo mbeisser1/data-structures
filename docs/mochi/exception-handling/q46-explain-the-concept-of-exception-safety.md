@@ -19,23 +19,22 @@ What are the three exception safety guarantees? #q46 #exception-safety #exceptio
 - **No-throw guarantee** — function **never throws** (use **`noexcept`**)
 
 %%%MOCHI_CARD%%%
-Show exception safety levels with vector examples. #q46 #exception-safety #exceptions
+Show a strong exception safety guarantee. How do you modify a `vector` only after a successful copy-and-commit? #q46 #exception-safety #exceptions
 
 ---
 ```cpp
-#include <vector>
-#include <stdexcept>
-#include <iostream>
-#include <memory>
-
-// Strong Guarantee
 void strongGuarantee(std::vector<int>& vec, int value) {
     auto tempVec = vec;  // Create a temporary copy
     tempVec.push_back(value);
     vec = std::move(tempVec);  // Only modify if all operations succeed
 }
+```
 
-// Basic Guarantee
+%%%MOCHI_CARD%%%
+Show a basic exception safety guarantee. What can happen to `vector` state if an exception occurs mid-loop? #q46 #exception-safety #exceptions
+
+---
+```cpp
 void basicGuarantee(std::vector<int>& vec, int count) {
     for (int i = 0; i < count; ++i) {
         try {
@@ -48,8 +47,13 @@ void basicGuarantee(std::vector<int>& vec, int count) {
         }
     }
 }
+```
 
-// No-throw Guarantee
+%%%MOCHI_CARD%%%
+Show a no-throw exception safety guarantee. How can a function promise not to propagate exceptions from `push_back`? #q46 #exception-safety #exceptions
+
+---
+```cpp
 void noThrowGuarantee(std::vector<int>& vec, int value) noexcept {
     try {
         vec.push_back(value);

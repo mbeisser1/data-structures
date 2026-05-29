@@ -18,7 +18,7 @@ What are key rules for `constexpr`? #q80 #constexpr #cpp11-beyond
 Related: **`consteval`** (must compile-time, C++20), **`constinit`** (static init, C++20).
 
 %%%MOCHI_CARD%%%
-Show a `constexpr` factorial function. #q80 #constexpr #cpp11-beyond
+Show a `constexpr` factorial function. How can you use a compile-time result as an array size? #q80 #constexpr #cpp11-beyond
 
 ---
 ```cpp
@@ -44,8 +44,6 @@ int main() {
     return 0;
 }
 ```
-
-**`fact5`** and array size computed at compile time.
 
 %%%MOCHI_CARD%%%
 How did `constexpr` evolve across C++ standards? #q80 #constexpr #cpp11-beyond

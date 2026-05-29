@@ -4,7 +4,7 @@ What is function hiding in C++? #q27 #function-hiding #oop-concepts
 **Function hiding** happens when a derived class declares a function **with the same name** as a base function but a **different signature** — the base overloads are **hidden**, not overridden.
 
 %%%MOCHI_CARD%%%
-Show an example of function hiding. #q27 #function-hiding #oop-concepts
+Show an example of function hiding. Why does `display("Hello")` work on `Derived` but a no-arg `display()` call does not? #q27 #function-hiding #oop-concepts
 
 ---
 ```cpp
@@ -42,8 +42,13 @@ How do you prevent unwanted function hiding? #q27 #function-hiding #oop-concepts
 
 ---
 
-**Use `override`** when intentionally overriding a virtual:
+- Use **`override`** when intentionally overriding a **virtual** with the **same signature**
+- Use **`using Base::fn;`** to bring base overloads into the derived class scope when adding new overloads
 
+%%%MOCHI_CARD%%%
+Show preventing hiding with `override`. How do you replace a virtual `display()` in the base with a derived implementation? #q27 #function-hiding #oop-concepts
+
+---
 ```cpp
 class Base {
 public:
@@ -60,14 +65,31 @@ public:
 };
 ```
 
-**Use `using` to bring base overloads into derived scope:**
+%%%MOCHI_CARD%%%
+Show preventing hiding with `using`. How can `Derived` add `print(double)` while still calling `Base::print(int)`? #q27 #function-hiding #oop-concepts
 
+---
 ```cpp
+class Base {
+public:
+    void print(int x) {
+        std::cout << "Printing int: " << x << std::endl;
+    }
+};
+
 class Derived : public Base {
 public:
     using Base::print;
-    void print(double x) { /* ... */ }
+    void print(double x) {
+        std::cout << "Printing double: " << x << std::endl;
+    }
 };
+
+int main() {
+    Derived d;
+    d.print(5);     // Calls Base::print(int)
+    d.print(3.14);  // Calls Derived::print(double)
+}
 ```
 
 %%%MOCHI_CARD%%%

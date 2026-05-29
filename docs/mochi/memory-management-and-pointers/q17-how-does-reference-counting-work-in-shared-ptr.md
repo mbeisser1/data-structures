@@ -4,7 +4,20 @@ How does reference counting work in `shared_ptr`? #q17 #shared-ptr #memory-point
 **Reference counting** tracks how many **`shared_ptr`** instances own an object. When the count hits **zero**, the managed object (and control block) are destroyed.
 
 %%%MOCHI_CARD%%%
-Show `shared_ptr` reference counting with `use_count()`. #q17 #shared-ptr #memory-pointers
+What is the `shared_ptr` control block? #q17 #shared-ptr #memory-pointers
+
+---
+
+- Separate **control block** holds:
+  - **Strong count**
+  - **Weak count**
+  - Pointer to managed object
+  - Optional custom **deleter**
+- Copying a `shared_ptr` **increments** the count; destroying one **decrements** it.
+- Count updates use **atomic** operations for thread-safe bookkeeping (not the pointed-to object itself).
+
+%%%MOCHI_CARD%%%
+Show `shared_ptr` reference counting with `use_count()`. How does the count change as copies are created, destroyed, and reset? #q17 #shared-ptr #memory-pointers
 
 ---
 ```cpp
@@ -27,19 +40,6 @@ int main() {
     return 0;
 }
 ```
-
-%%%MOCHI_CARD%%%
-What is the `shared_ptr` control block? #q17 #shared-ptr #memory-pointers
-
----
-
-- Separate **control block** holds:
-  - **Strong count**
-  - **Weak count**
-  - Pointer to managed object
-  - Optional custom **deleter**
-- Copying a `shared_ptr` **increments** the count; destroying one **decrements** it.
-- Count updates use **atomic** operations for thread-safe bookkeeping (not the pointed-to object itself).
 
 %%%MOCHI_CARD%%%
 What are performance and thread-safety notes for `shared_ptr`? #q17 #shared-ptr #memory-pointers

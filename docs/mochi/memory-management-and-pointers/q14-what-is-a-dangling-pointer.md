@@ -4,7 +4,16 @@ What is a dangling pointer? #q14 #dangling-pointer #memory-pointers
 A **dangling pointer** points to memory that is **no longer valid**—already **`delete`d/`free`d** or a **stack object that went out of scope**. Dereferencing it is **undefined behavior**.
 
 %%%MOCHI_CARD%%%
-Show examples of dangling pointers. #q14 #dangling-pointer #memory-pointers
+What causes dangling pointers? #q14 #dangling-pointer #memory-pointers
+
+---
+
+- **Premature deallocation** — memory freed while raw pointers still reference it.
+- **Returning address of locals** — pointer/reference to a stack variable after the function returns.
+- **Use-after-free** — accessing through a pointer after deallocation.
+
+%%%MOCHI_CARD%%%
+Show examples of dangling pointers. How can `new` and `delete` leave a pointer invalid? How else can returning a pointer to a local variable create one? #q14 #dangling-pointer #memory-pointers
 
 ---
 ```cpp
@@ -32,15 +41,6 @@ int main() {
     return 0;
 }
 ```
-
-%%%MOCHI_CARD%%%
-What causes dangling pointers? #q14 #dangling-pointer #memory-pointers
-
----
-
-- **Premature deallocation** — memory freed while raw pointers still reference it.
-- **Returning address of locals** — pointer/reference to a stack variable after the function returns.
-- **Use-after-free** — accessing through a pointer after deallocation.
 
 %%%MOCHI_CARD%%%
 How do you avoid dangling pointers? #q14 #dangling-pointer #memory-pointers

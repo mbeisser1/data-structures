@@ -20,6 +20,10 @@ How do construction, destruction, and sizing differ? #q12 #new-vs-malloc #memory
 - **`malloc()` / `free()`** — raw memory only; **no constructors/destructors** (use **placement new** + manual dtor if needed).
 - **`new`** deduces size from **type**; **`malloc(n)`** needs **bytes** explicitly.
 
+%%%MOCHI_CARD%%%
+Show `new` vs `malloc` with `Widget`. How does construction and cleanup differ between `new`/`delete` and `malloc`/`free`? #q12 #new-vs-malloc #memory-pointers
+
+---
 ```cpp
 #include <iostream>
 #include <cstdlib>
@@ -58,6 +62,15 @@ int main() {
 What should modern C++ code use instead of raw `malloc`/`new`? #q12 #new-vs-malloc #memory-pointers
 
 ---
+
+- Prefer **`new`/`delete`** (or smart pointers) over **`malloc`/`free`** in C++.
+- Better: **`std::unique_ptr` / `std::shared_ptr`** with **`make_unique` / `make_shared`**.
+- Prefer **`std::vector`** over manual dynamic arrays when possible.
+
+%%%MOCHI_CARD%%%
+Show modern alternatives to manual heap management. How would you own a `Widget` and a dynamic `int` sequence without raw `new`? #q12 #new-vs-malloc #memory-pointers
+
+---
 ```cpp
 #include <memory>
 #include <vector>
@@ -65,9 +78,6 @@ What should modern C++ code use instead of raw `malloc`/`new`? #q12 #new-vs-mall
 std::unique_ptr<Widget> w = std::make_unique<Widget>(5);
 std::vector<int> vec(10);  // Dynamic array managed by vector
 ```
-
-- Prefer **`new`/`delete`** (or smart pointers) over **`malloc`/`free`** in C++.
-- Better: **`std::unique_ptr` / `std::shared_ptr`** with **`make_unique` / `make_shared`**.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain `new` vs `malloc()`. #q12 #new-vs-malloc #memory-pointers

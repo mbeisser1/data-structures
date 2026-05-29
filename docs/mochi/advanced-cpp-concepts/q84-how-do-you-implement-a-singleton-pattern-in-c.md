@@ -3,8 +3,14 @@ How do you implement a singleton pattern in C++? #q84 #singleton #advanced-cpp
 ---
 **Singleton** ensures **one instance** and global access via **`getInstance()`**.
 
-**Modern Meyer's singleton (C++11+):**
+**Meyer's singleton (C++11+):** function-local **`static`** instance — **thread-safe** lazy initialization.
 
+Delete **copy/move** and make the constructor **private** so only **`getInstance()`** can create the object.
+
+%%%MOCHI_CARD%%%
+Show Meyers singleton. How do you guarantee one instance with lazy, thread-safe initialization? #q84 #singleton #advanced-cpp
+
+---
 ```cpp
 class Singleton {
 public:
@@ -19,13 +25,13 @@ private:
 };
 ```
 
-**Static local** initialization is **thread-safe** in C++11+.
-
 %%%MOCHI_CARD%%%
-Show verifying singleton uniqueness. #q84 #singleton #advanced-cpp
+Show verifying singleton uniqueness. How do you prove two `getInstance()` calls return the same object? #q84 #singleton #advanced-cpp
 
 ---
 ```cpp
+#include <cassert>
+
 int main() {
     Singleton& s1 = Singleton::getInstance();
     Singleton& s2 = Singleton::getInstance();
@@ -54,10 +60,12 @@ What are key singleton design points? #q84 #singleton #advanced-cpp
 Singleton is often an **anti-pattern** (hidden deps, testing pain) — use sparingly.
 
 %%%MOCHI_CARD%%%
-Show pointer-based singleton alternative. #q84 #singleton #advanced-cpp
+Show pointer-based singleton alternative. When might you return a `Singleton*` from `getInstance()` instead of a reference? #q84 #singleton #advanced-cpp
 
 ---
 ```cpp
+#include <memory>
+
 class Singleton {
 public:
     static Singleton* getInstance() {

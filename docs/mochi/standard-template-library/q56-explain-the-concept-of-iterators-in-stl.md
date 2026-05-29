@@ -25,7 +25,7 @@ What are the STL iterator categories? #q56 #iterators #stl
 Stronger categories satisfy weaker category requirements.
 
 %%%MOCHI_CARD%%%
-Show detecting a random-access iterator category. On `vector<int>::iterator`, write a compile-time check (with `<iterator>` traits) that prints whether the category is random access. #q56 #iterators #stl
+Show detecting a random-access iterator category. How can you verify at compile time that a `vector` iterator is random access? #q56 #iterators #stl
 
 ---
 ```cpp
@@ -45,7 +45,7 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-Show regular, const, reverse, and algorithm iterators. On a `vector<int>`, use `begin`, `cbegin`, and `rbegin` to read first/last elements, then double each element with `for_each`. #q56 #iterators #stl
+Show regular, const, reverse, and algorithm iterators. How do you read first/last elements and mutate a `vector` through iterators? #q56 #iterators #stl
 
 ---
 ```cpp
@@ -69,7 +69,12 @@ int main() {
 }
 ```
 
-Also: **move iterators** (`std::make_move_iterator`) transfer ownership (C++11).
+%%%MOCHI_CARD%%%
+What are move iterators (C++11)? #q56 #iterators #stl
+
+---
+
+- **`std::make_move_iterator`** — dereferencing yields an rvalue for move semantics
 
 %%%MOCHI_CARD%%%
 What C++20 iterator concepts correspond to categories? #q56 #iterators #stl

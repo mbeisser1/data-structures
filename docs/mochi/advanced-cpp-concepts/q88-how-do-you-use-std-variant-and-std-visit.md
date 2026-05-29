@@ -3,37 +3,56 @@ How do you use `std::variant` and `std::visit`? #q88 #variant-visit #advanced-cp
 ---
 **`std::variant<Ts...>`** (C++17) is a **type-safe union** — holds **one** of several types at a time.
 
-```cpp
-std::variant<int, float, std::string> var;
-var = 3.14f;
-var = "Hello";
-```
-
-Track active type with **`index()`**, **`holds_alternative<T>`**.
+Assign alternatives with **`=`**; track active type with **`index()`**, **`holds_alternative<T>`**.
 
 %%%MOCHI_CARD%%%
 How do you access values in a `std::variant`? #q88 #variant-visit #advanced-cpp
 
 ---
-```cpp
-if (std::holds_alternative<std::string>(var)) {
-    std::cout << std::get<std::string>(var);
-}
 
-if (auto str = std::get_if<std::string>(&var)) {
-    std::cout << *str;
-}
-```
+- **`std::get<T>(var)`** — throws **`bad_variant_access`** on wrong type
+- **`std::get_if<T>(&var)`** — pointer or **`nullptr`**
+- **`holds_alternative<T>(var)`** — compile-time type check
 
-**`std::get<T>`** throws **`bad_variant_access`** on wrong type.
-
-**`get_if`** returns pointer or **`nullptr`**.
+Always know or check the active alternative before **`get`**.
 
 %%%MOCHI_CARD%%%
-Show `std::visit` for type dispatch. #q88 #variant-visit #advanced-cpp
+Show `std::variant` basics. How do you assign and read `int` vs `std::string` from one variable? #q88 #variant-visit #advanced-cpp
 
 ---
 ```cpp
+#include <iostream>
+#include <string>
+#include <variant>
+
+int main() {
+    std::variant<int, float, std::string> var;
+    var = 42;
+    std::cout << std::get<int>(var) << std::endl;
+
+    var = "Hello";
+    if (std::holds_alternative<std::string>(var)) {
+        std::cout << std::get<std::string>(var) << std::endl;
+    }
+
+    if (auto str = std::get_if<std::string>(&var)) {
+        std::cout << *str << std::endl;
+    }
+    return 0;
+}
+```
+
+%%%MOCHI_CARD%%%
+Show `std::visit` for type dispatch. How do you call different logic per active alternative without a manual switch? #q88 #variant-visit #advanced-cpp
+
+---
+```cpp
+#include <iostream>
+#include <string>
+#include <variant>
+
+std::variant<int, float, std::string> var = 3.14f;
+
 std::visit([](const auto& val) {
     std::cout << val;
 }, var);

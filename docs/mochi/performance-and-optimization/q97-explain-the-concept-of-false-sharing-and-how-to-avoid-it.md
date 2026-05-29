@@ -22,18 +22,17 @@ How do you avoid false sharing? #q97 #false-sharing #performance
 
 ---
 
-**Padding / alignment:**
+**Padding / alignment**
 
 ```cpp
-struct alignas(64) PaddedInt {
+struct PaddedInt {
     int value;
-    char padding[60];
+    char padding[60];  // ~64-byte cache line
 };
-
 alignas(std::hardware_destructive_interference_size) int data1;
 ```
 
-**Other tactics:**
+**Other tactics**
 
 - **`thread_local`** counters, merge at end
 - **Structure of arrays** with spacing for per-thread fields
@@ -42,11 +41,15 @@ alignas(std::hardware_destructive_interference_size) int data1;
 Check target arch — some CPUs use **128-byte** lines.
 
 %%%MOCHI_CARD%%%
-Show threads modifying adjacent array regions. #q97 #false-sharing #performance
+Show threads modifying adjacent array regions. Why can two threads writing different indices still slow each other down? #q97 #false-sharing #performance
 
 ---
 ```cpp
-std::vector<int> data(10000);
+#include <thread>
+#include <vector>
+
+constexpr int arraySize = 10000;
+std::vector<int> data(arraySize);
 
 void modifyElements(int start, int end) {
     for (int i = start; i < end; ++i) {
@@ -54,10 +57,30 @@ void modifyElements(int start, int end) {
     }
 }
 
-// t1: [0, n/2), t2: [n/2, n) — boundary elements may share a cache line
+int main() {
+    std::thread t1(modifyElements, 0, arraySize / 2);
+    std::thread t2(modifyElements, arraySize / 2, arraySize);
+    t1.join();
+    t2.join();
+    return 0;
+}
 ```
 
-Pad or align boundary partitions; or give each thread **own padded slot**.
+Boundary elements may share a cache line — pad partitions or use per-thread padded slots.
+
+%%%MOCHI_CARD%%%
+Show avoiding false sharing with alignment. How do you keep independent counters on separate cache lines? #q97 #false-sharing #performance
+
+---
+```cpp
+struct alignas(64) PaddedInt {
+    std::atomic<int> value;
+    char padding[60];
+};
+
+alignas(std::hardware_destructive_interference_size) int counter_a;
+alignas(std::hardware_destructive_interference_size) int counter_b;
+```
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain false sharing. #q97 #false-sharing #performance

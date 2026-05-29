@@ -13,7 +13,7 @@ What is a friend function? #q28 #friend #oop-concepts
 - Useful when a free function needs intimate access (e.g. operators, helpers)
 
 %%%MOCHI_CARD%%%
-Show a friend function example. #q28 #friend #oop-concepts
+Show a friend function example. How can a non-member `calculateArea` read private `Rectangle` dimensions? #q28 #friend #oop-concepts
 
 ---
 ```cpp
@@ -41,7 +41,16 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-Show a friend class example. #q28 #friend #oop-concepts
+What is a friend class? #q28 #friend #oop-concepts
+
+---
+
+- Declared with **`friend class Other;`** inside the class
+- **All members** of the friend class can access private/protected members
+- Friendship is **granted**, not mutual, and **not inherited**
+
+%%%MOCHI_CARD%%%
+Show a friend class example. How can `BankManager` read private `BankAccount` fields? #q28 #friend #oop-concepts
 
 ---
 ```cpp

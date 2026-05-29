@@ -13,7 +13,7 @@ What are the key features of an abstract class? #q25 #abstract-class #oop-concep
 - May still have **constructors/destructors** and non-pure virtuals with default behavior
 
 %%%MOCHI_CARD%%%
-Show an abstract class example with `Shape` and `Circle`. #q25 #abstract-class #oop-concepts
+Show an abstract class example with `Shape` and `Circle`. How can `Shape` mix pure virtuals with a default `printType()`, and how does `Circle` become concrete? #q25 #abstract-class #oop-concepts
 
 ---
 ```cpp

@@ -24,7 +24,7 @@ What are key coroutine components? #q87 #coroutines #advanced-cpp
 Compiler lowers coroutines to a **state machine** on the heap (typically).
 
 %%%MOCHI_CARD%%%
-Show coroutine keywords in use. #q87 #coroutines #advanced-cpp
+Show coroutine keywords in use. What does each of `co_await`, `co_yield`, and `co_return` do? #q87 #coroutines #advanced-cpp
 
 ---
 ```cpp
@@ -43,6 +43,54 @@ co_return 42;
 ```
 
 **`std::generator`** (C++23) simplifies lazy sequences.
+
+%%%MOCHI_CARD%%%
+Show a minimal generator coroutine. How do `promise_type` and `coroutine_handle` produce a Fibonacci sequence? #q87 #coroutines #advanced-cpp
+
+---
+```cpp
+#include <coroutine>
+#include <iostream>
+
+class FibonacciGenerator {
+public:
+    struct promise_type {
+        int current_value = 0;
+        FibonacciGenerator get_return_object() {
+            return FibonacciGenerator{
+                std::coroutine_handle<promise_type>::from_promise(*this)};
+        }
+        std::suspend_always initial_suspend() { return {}; }
+        std::suspend_always final_suspend() noexcept { return {}; }
+        void unhandled_exception() { std::terminate(); }
+        std::suspend_always yield_value(int value) {
+            current_value = value;
+            return {};
+        }
+    };
+
+    FibonacciGenerator(std::coroutine_handle<promise_type> h) : handle(h) {}
+    ~FibonacciGenerator() { if (handle) handle.destroy(); }
+
+    int next() {
+        handle.resume();
+        return handle.promise().current_value;
+    }
+
+private:
+    std::coroutine_handle<promise_type> handle;
+};
+
+FibonacciGenerator fibonacci_sequence() {
+    int a = 0, b = 1;
+    while (true) {
+        co_yield a;
+        int temp = a;
+        a = b;
+        b = temp + b;
+    }
+}
+```
 
 %%%MOCHI_CARD%%%
 What are benefits of coroutines? #q87 #coroutines #advanced-cpp

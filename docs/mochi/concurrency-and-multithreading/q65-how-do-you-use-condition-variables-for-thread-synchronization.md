@@ -3,15 +3,19 @@ How do you use condition variables for thread synchronization? #q65 #condition-v
 ---
 **`std::condition_variable`** lets threads **wait until a condition becomes true**, coordinated with a **`std::mutex`**.
 
-**Pattern:**
+**Pattern:** lock mutex → check predicate → **`wait`** if false → on notify, re-check and proceed.
 
+Notifier sets state under the lock, then **`notify_one()`** or **`notify_all()`**.
+
+%%%MOCHI_CARD%%%
+Show condition-variable synchronization. How do you wait with a predicate until shared data is ready? #q65 #condition-variable #concurrency
+
+---
 ```cpp
 std::unique_lock<std::mutex> lock(mtx);
 cv.wait(lock, []{ return condition; });  // wait with predicate
 // condition is true — process shared state
 ```
-
-Notifier sets state under the lock, then **`notify_one()`** or **`notify_all()`**.
 
 %%%MOCHI_CARD%%%
 What are the key `condition_variable` operations? #q65 #condition-variable #concurrency
@@ -27,7 +31,7 @@ What are the key `condition_variable` operations? #q65 #condition-variable #conc
 Always use **`unique_lock`** (not `lock_guard`) — `wait` unlocks/relocks the mutex.
 
 %%%MOCHI_CARD%%%
-Show producer-consumer with condition variables. #q65 #condition-variable #concurrency
+Show producer-consumer with condition variables. How does a consumer wait until a bounded queue is non-empty? #q65 #condition-variable #concurrency
 
 ---
 ```cpp
@@ -57,8 +61,6 @@ void consumer(int id) {
     }
 }
 ```
-
-Two CVs: wait when **full** (producer) or **empty** (consumer).
 
 %%%MOCHI_CARD%%%
 What are best practices for condition variables? #q65 #condition-variable #concurrency

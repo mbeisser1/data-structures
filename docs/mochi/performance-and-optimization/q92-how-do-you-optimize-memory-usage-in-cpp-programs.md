@@ -22,13 +22,23 @@ What tools reduce dynamic memory overhead? #q92 #memory-optimization #performanc
 
 **Memory pools / PMR**
 
+- **Object pools** — reuse fixed-size objects
+- **`std::pmr::monotonic_buffer_resource`** — arena allocation from a buffer; bulk free
+
+Reuse allocations for short-lived objects; arena frees in bulk.
+
+%%%MOCHI_CARD%%%
+Show arena allocation with PMR. How do you allocate a `vector` from a fixed stack buffer instead of the global heap? #q92 #memory-optimization #performance
+
+---
 ```cpp
+#include <memory_resource>
+#include <vector>
+
 std::array<std::byte, 1024> buffer;
 std::pmr::monotonic_buffer_resource mbr{buffer.data(), buffer.size()};
 std::pmr::vector<int> vec{&mbr};
 ```
-
-Reuse allocations for short-lived objects; arena frees in bulk.
 
 %%%MOCHI_CARD%%%
 What data structure and technique choices save memory? #q92 #memory-optimization #performance

@@ -17,7 +17,7 @@ Explain the difference between `std::async` and `std::thread`. #q67 #async-vs-th
 - Exceptions stored in **`future`**, rethrown on **`get()`**
 
 %%%MOCHI_CARD%%%
-Show basic `std::thread` usage. #q67 #async-vs-thread #concurrency
+Show basic `std::thread` usage. How do you start background work and wait for it to complete? #q67 #async-vs-thread #concurrency
 
 ---
 ```cpp
@@ -35,10 +35,8 @@ int main() {
 }
 ```
 
-Direct thread control — you manage **join/detach** and result transfer.
-
 %%%MOCHI_CARD%%%
-Show basic `std::async` usage. #q67 #async-vs-thread #concurrency
+Show basic `std::async` usage. How do you launch a task and retrieve its result? #q67 #async-vs-thread #concurrency
 
 ---
 ```cpp
@@ -55,8 +53,6 @@ int main() {
     return 0;
 }
 ```
-
-**`get()`** blocks and returns the value (or throws stored exception).
 
 %%%MOCHI_CARD%%%
 When should you choose `thread` vs `async`? #q67 #async-vs-thread #concurrency

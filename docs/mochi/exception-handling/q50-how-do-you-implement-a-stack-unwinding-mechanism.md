@@ -21,7 +21,7 @@ What implements stack unwinding in C++? #q50 #stack-unwinding #exceptions
 - **RAII** relies on this — dtors must run during unwind
 
 %%%MOCHI_CARD%%%
-Show stack unwinding with RAII resources. #q50 #stack-unwinding #exceptions
+Show stack unwinding with RAII resources. What destructor order do you expect when an exception propagates from `innerFunction` through `outerFunction` to `main`? #q50 #stack-unwinding #exceptions
 
 ---
 ```cpp
@@ -64,8 +64,6 @@ int main() {
     }
 }
 ```
-
-**Expected output order:** r3 acquired → r1, r2 acquired → r2, r1 released → caught in outer → r3 released → caught in main.
 
 %%%MOCHI_CARD%%%
 What must destructors guarantee during stack unwinding? #q50 #stack-unwinding #exceptions

@@ -14,23 +14,14 @@ What are durations and time points in `std::chrono`? #q78 #std-chrono #cpp11-bey
 
 ---
 
-**Duration** — time interval:
+**Duration** — time interval, e.g. `std::chrono::milliseconds(500)`
 
-```cpp
-std::chrono::hours h(1);
-std::chrono::milliseconds ms(500);
-```
-
-**Time point** — instant on a clock:
-
-```cpp
-auto now = std::chrono::system_clock::now();
-```
+**Time point** — instant on a clock, e.g. `steady_clock::now()`
 
 Subtract time points → **duration**. Use **`duration_cast`** to convert units.
 
 %%%MOCHI_CARD%%%
-Show measuring elapsed time. #q78 #std-chrono #cpp11-beyond
+Show measuring elapsed time. How do you time an operation with `steady_clock`? #q78 #std-chrono #cpp11-beyond
 
 ---
 ```cpp
@@ -41,10 +32,8 @@ auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - star
 std::cout << "Time taken: " << duration.count() << " ms" << std::endl;
 ```
 
-Use **`steady_clock`** for benchmarks — not **`system_clock`**.
-
 %%%MOCHI_CARD%%%
-Show sleeping and printing current time. #q78 #std-chrono #cpp11-beyond
+Show sleeping and printing current time. How do you pause a thread and read wall-clock time? #q78 #std-chrono #cpp11-beyond
 
 ---
 ```cpp

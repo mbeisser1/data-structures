@@ -22,7 +22,7 @@ What are the C++ memory orderings? #q70 #memory-ordering #concurrency
 **Acquire/release** pair for handoff; **`seq_cst`** when in doubt.
 
 %%%MOCHI_CARD%%%
-Show relaxed ordering for a simple counter. #q70 #memory-ordering #concurrency
+Show relaxed ordering for a simple counter. When is `memory_order_relaxed` sufficient? #q70 #memory-ordering #concurrency
 
 ---
 ```cpp
@@ -38,10 +38,8 @@ void increment() {
 counter.load(std::memory_order_relaxed);
 ```
 
-**Relaxed** is fine when the atomic itself is the only shared state.
-
 %%%MOCHI_CARD%%%
-Show acquire-release synchronization. #q70 #memory-ordering #concurrency
+Show acquire-release synchronization. How does one thread publish data and another observe it safely? #q70 #memory-ordering #concurrency
 
 ---
 ```cpp
@@ -59,10 +57,16 @@ void consumer() {
 }
 ```
 
-**Release** publishes `data`; **acquire** ensures reads after load see those writes.
-
 %%%MOCHI_CARD%%%
 What is sequential consistency (`seq_cst`)? #q70 #memory-ordering #concurrency
+
+---
+
+- **`seq_cst`** — all threads agree on a single global order of seq_cst ops
+- **Default** for atomics — safest, sometimes slower than minimal ordering
+
+%%%MOCHI_CARD%%%
+Show `memory_order_seq_cst`. How do two threads observe stores and loads in a globally consistent order? #q70 #memory-ordering #concurrency
 
 ---
 ```cpp
@@ -78,10 +82,6 @@ void thread2() {
     int r2 = x.load(std::memory_order_seq_cst);
 }
 ```
-
-**`seq_cst`** — all threads agree on a single global order of seq_cst ops.
-
-**Default** for atomics — safest, sometimes slower than minimal ordering.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain memory ordering. #q70 #memory-ordering #concurrency

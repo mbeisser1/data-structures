@@ -22,7 +22,7 @@ What are module unit types? #q90 #modules #advanced-cpp
 Only **`export`** declarations are visible to importers.
 
 %%%MOCHI_CARD%%%
-Show module interface, implementation, and usage. #q90 #modules #advanced-cpp
+Show module interface, implementation, and usage. How do you export API from a module and consume it from `main`? #q90 #modules #advanced-cpp
 
 ---
 ```cpp
@@ -53,23 +53,18 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-What are module partitions and global module fragment? #q90 #modules #advanced-cpp
+What are module partitions and the global module fragment? #q90 #modules #advanced-cpp
 
 ---
 
-**Partition:**
+**Partition** — split a large module:
 
 ```cpp
 export module mymodule:part;
 export void partFunction();
 ```
 
-**Import partition in primary interface:**
-
-```cpp
-export module mymodule;
-export import :part;
-```
+Import from primary interface: **`export import :part;`**
 
 **Global module fragment** (legacy headers):
 

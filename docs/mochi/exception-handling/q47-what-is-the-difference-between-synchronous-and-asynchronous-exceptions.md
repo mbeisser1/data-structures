@@ -15,7 +15,7 @@ What is the difference between synchronous and asynchronous exceptions? #q47 #sy
 - Harder to catch reliably; often bridged via **`std::promise`/`std::future`**
 
 %%%MOCHI_CARD%%%
-Show synchronous vs asynchronous exception handling. #q47 #sync-async-exceptions #exceptions
+Show synchronous vs asynchronous exception handling. How do you catch a direct `throw` vs an error delivered through a `future`? #q47 #sync-async-exceptions #exceptions
 
 ---
 ```cpp

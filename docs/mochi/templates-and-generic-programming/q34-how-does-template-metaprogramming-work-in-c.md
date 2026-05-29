@@ -15,7 +15,7 @@ What TMP techniques use templates at compile time? #q34 #template-metaprogrammin
 - **Variadic templates** — packs and fold expressions
 
 %%%MOCHI_CARD%%%
-Show compile-time type checking with type traits. #q34 #template-metaprogramming #templates-generic
+Show compile-time type checking with type traits. How does `process(T)` branch differently for integral vs other types? #q34 #template-metaprogramming #templates-generic
 
 ---
 ```cpp
@@ -31,6 +31,10 @@ void process(T value) {
 }
 ```
 
+%%%MOCHI_CARD%%%
+Show a custom compile-time type trait. How do you specialize `is_void` for `void` only? #q34 #template-metaprogramming #templates-generic
+
+---
 ```cpp
 template <typename T>
 struct is_void {
@@ -44,7 +48,7 @@ struct is_void<void> {
 ```
 
 %%%MOCHI_CARD%%%
-Show compile-time Fibonacci with templates. #q34 #template-metaprogramming #templates-generic
+Show compile-time Fibonacci with templates. How do you compute `Fibonacci<N>::value` at compile time? #q34 #template-metaprogramming #templates-generic
 
 ---
 ```cpp

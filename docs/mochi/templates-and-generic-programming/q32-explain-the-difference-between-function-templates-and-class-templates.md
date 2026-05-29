@@ -4,7 +4,7 @@ Explain the difference between function templates and class templates. #q32 #fun
 Both support **generic programming**, but they differ in **syntax**, **type specification**, and typical **use cases**.
 
 %%%MOCHI_CARD%%%
-Show a function template. #q32 #function-class-templates #templates-generic
+Show a function template. How does `max` work when called with integers vs floating-point values? #q32 #function-class-templates #templates-generic
 
 ---
 ```cpp
@@ -17,14 +17,17 @@ int maxInt = max(5, 10);           // T deduced as int
 double maxDouble = max(3.14, 2.71); // T deduced as double
 ```
 
-**Function templates:**
+%%%MOCHI_CARD%%%
+What are key properties of function templates? #q32 #function-class-templates #templates-generic
+
+---
 
 - Type often **inferred** from arguments
 - **Instantiated** when called with specific types
 - Good for **algorithms** and type-parametric operations
 
 %%%MOCHI_CARD%%%
-Show a class template. #q32 #function-class-templates #templates-generic
+Show a class template. How do you build a generic `Stack<T>` and instantiate it for different element types? #q32 #function-class-templates #templates-generic
 
 ---
 ```cpp
@@ -43,7 +46,10 @@ Stack<int> intStack;
 Stack<std::string> stringStack;
 ```
 
-**Class templates:**
+%%%MOCHI_CARD%%%
+What are key properties of class templates? #q32 #function-class-templates #templates-generic
+
+---
 
 - Type **must be specified** at instantiation: `Stack<int>`
 - Good for **containers** and generic data structures

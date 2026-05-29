@@ -10,7 +10,7 @@ How do you handle constructor failures using exceptions? #q48 #constructor-failu
 Never leave a half-built object that callers must detect manually.
 
 %%%MOCHI_CARD%%%
-Show constructor failure handling with RAII. #q48 #constructor-failures #exceptions
+Show constructor failure handling with RAII. How does `MyClass` use `unique_ptr` so a failed `Resource` initialization still cleans up? #q48 #constructor-failures #exceptions
 
 ---
 ```cpp

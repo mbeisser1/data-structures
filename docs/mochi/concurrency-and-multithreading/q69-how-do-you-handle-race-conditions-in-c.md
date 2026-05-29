@@ -10,11 +10,10 @@ A **race condition** occurs when multiple threads access shared data, **at least
 - **Reduce sharing** — design away shared mutable state
 
 %%%MOCHI_CARD%%%
-Show preventing races with mutex vs atomic. #q69 #race-conditions #concurrency
+Show preventing races with a mutex. How do you make a shared counter increment thread-safe? #q69 #race-conditions #concurrency
 
 ---
 ```cpp
-// Mutex approach
 std::mutex m;
 int shared_data = 0;
 
@@ -22,16 +21,19 @@ void increment() {
     std::lock_guard<std::mutex> lock(m);
     shared_data++;
 }
+```
 
-// Atomic approach
+%%%MOCHI_CARD%%%
+Show preventing races with an atomic. How do you increment without a mutex when only one variable is shared? #q69 #race-conditions #concurrency
+
+---
+```cpp
 std::atomic<int> counter(0);
 
 void increment_atomic() {
     counter++;
 }
 ```
-
-Use **`scoped_lock`** (C++17) when locking multiple mutexes.
 
 %%%MOCHI_CARD%%%
 What advanced techniques address race conditions? #q69 #race-conditions #concurrency
@@ -40,15 +42,12 @@ What advanced techniques address race conditions? #q69 #race-conditions #concurr
 
 - **Memory ordering** on atomics — `release`/`acquire` pairs
 - **Lock-free structures** — CAS loops (e.g. lock-free stack)
-- **`thread_local`** — per-thread copies, no sharing
+- **`thread_local`** — per-thread copies, no cross-thread race
 - **High-level APIs** — **`async`/`future`**, message passing
-
-```cpp
-thread_local int per_thread_counter = 0;  // no cross-thread race
-```
+- **`scoped_lock`** (C++17) when locking multiple mutexes
 
 %%%MOCHI_CARD%%%
-Show combining atomics and mutexes in a counter. #q69 #race-conditions #concurrency
+Show combining atomics and mutexes. When might you use an atomic for a fast count and a mutex for related state? #q69 #race-conditions #concurrency
 
 ---
 ```cpp

@@ -13,6 +13,15 @@ They also establish clear **ownership**.
 What is `std::unique_ptr`? #q15 #smart-pointers #memory-pointers
 
 ---
+
+- **Exclusive ownership** — only one owner; **not copyable**, **movable**.
+- Object destroyed when the `unique_ptr` goes out of scope.
+- Lightweight default for sole ownership.
+
+%%%MOCHI_CARD%%%
+Show `unique_ptr` exclusive ownership. Why can’t you copy one `unique_ptr` to another? #q15 #smart-pointers #memory-pointers
+
+---
 ```cpp
 #include <memory>
 #include <iostream>
@@ -25,10 +34,17 @@ int main() {
 }
 ```
 
-- **Exclusive ownership** — only one owner; **not copyable**, **movable**.
-
 %%%MOCHI_CARD%%%
 What is `std::shared_ptr`? #q15 #smart-pointers #memory-pointers
+
+---
+
+- **Shared ownership** with **reference counting**; last owner destroys the object.
+- **Thread-safe** refcount updates (not the pointed-to object itself).
+- Watch **circular references** when nodes hold `shared_ptr` to each other.
+
+%%%MOCHI_CARD%%%
+Show `shared_ptr` sharing and a circular reference. What happens to lifetime when two `Node`s point at each other with `shared_ptr`? #q15 #smart-pointers #memory-pointers
 
 ---
 ```cpp
@@ -55,10 +71,17 @@ int main() {
 }
 ```
 
-- **Shared ownership** with **reference counting**; watch **circular references**.
-
 %%%MOCHI_CARD%%%
 What is `std::weak_ptr`? #q15 #smart-pointers #memory-pointers
+
+---
+
+- **Non-owning** observer of a `shared_ptr` target.
+- Use **`lock()`** to obtain a temporary `shared_ptr` for access.
+- Does not extend lifetime; useful to **break cycles**.
+
+%%%MOCHI_CARD%%%
+Show `weak_ptr` observation with `lock()`. How does `lock()` behave while the object is alive vs after the last `shared_ptr` is gone? #q15 #smart-pointers #memory-pointers
 
 ---
 ```cpp
@@ -84,8 +107,6 @@ int main() {
     return 0;
 }
 ```
-
-- **Non-owning** observer; use **`lock()`** to access; breaks **cycles**.
 
 %%%MOCHI_CARD%%%
 What are smart pointer best practices? #q15 #smart-pointers #memory-pointers

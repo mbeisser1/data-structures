@@ -15,7 +15,7 @@ What happens during stack unwinding for an uncaught exception? #q45 #uncaught-ex
 If never caught → **`std::terminate()`** → typically **`std::abort()`**.
 
 %%%MOCHI_CARD%%%
-Show exception propagation through the call stack. #q45 #uncaught-exceptions #exceptions
+Show exception propagation through the call stack. How does an exception thrown in `inner_function` reach a handler in `main`? #q45 #uncaught-exceptions #exceptions
 
 ---
 ```cpp
@@ -46,14 +46,17 @@ What happens with uncaught exceptions and `noexcept`? #q45 #uncaught-exceptions 
 
 - **`std::set_terminate()`** — customize handler called before abort
 - **`noexcept` function** — if an exception escapes → **`std::terminate()`** immediately (**no normal unwinding**)
+- Use **RAII** so destructors still clean up during normal unwinding
 
+%%%MOCHI_CARD%%%
+Show uncaught exceptions violating `noexcept`. What happens if a `noexcept` function throws? #q45 #uncaught-exceptions #exceptions
+
+---
 ```cpp
 void func() noexcept {
     throw std::runtime_error("Error");  // Immediate termination
 }
 ```
-
-- Use **RAII** so destructors still clean up during normal unwinding
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain uncaught exceptions. #q45 #uncaught-exceptions #exceptions

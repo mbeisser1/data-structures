@@ -224,6 +224,22 @@ Show a unary predicate functor with `std::remove_if`. Implement `IsEven` as a ca
 
 The reader knows struct name, predicate role, and algorithm — but must still produce **`operator()`** themselves.
 
+### Hint-writing checklist
+
+Before saving a code card, verify:
+
+1. A **concept card** precedes it when the source subsection teaches both idea and code.
+2. The **title** names the topic; the **hint** states what to accomplish.
+3. The hint names **types, APIs, inputs, and checkable outcomes** — not the mechanism under test.
+4. The back is **code only** (no repeating the hint as prose).
+5. Remove another word from the hint — if the task becomes ambiguous, you cut too far.
+
+| Too much | About right |
+| --- | --- |
+| `bool operator()(int n) const` | “callable that returns true for even integers” |
+| `iterator_traits<It>::iterator_category` | “compile-time check (with `<iterator>` traits)” |
+| Full signature of every special member | “copy-initialize `data_` from `other`; move with `std::move`” |
+
 Example (control block — prefer bullets over comma-separated prose):
 
 ```markdown
@@ -253,7 +269,8 @@ Example (control block — prefer bullets over comma-separated prose):
 
 | Range | Coverage |
 | --- | --- |
-| **Q1–10** | Good — code cards use **Show … + hint** (Q51–60 pattern); Q02 splits concept vs code; Q04 includes access-specifier hierarchy example |
+| **Q1–10** | Good — code cards use **Show … + hint**; concept + code split where both exist |
+| **Q11–100** | Code cards use **Show … + hint**; hybrid cards split into concept (prose) + Show (code-only back) |
 | **Q11–20** | Good — subsections + code samples + synthesis; main prose captured |
 | **Q21–30** | Good — hand-crafted OOP section with code samples + synthesis cards |
 | **Q31–40** | Good — hand-crafted templates section with code samples + synthesis cards |

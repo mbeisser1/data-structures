@@ -24,7 +24,7 @@ Where does dynamic memory come from, and how is it managed in C++? #q11 #dynamic
   - **`weak_ptr`**
 
 %%%MOCHI_CARD%%%
-Show an example of `new` and `delete`. #q11 #dynamic-memory #memory-pointers
+Show an example of `new` and `delete`. How do you allocate a single object and an array on the heap, and pair the correct delete forms? #q11 #dynamic-memory #memory-pointers
 
 ---
 ```cpp
@@ -49,7 +49,7 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-Show an example of dynamic memory with smart pointers. #q11 #dynamic-memory #memory-pointers
+Show dynamic memory managed by smart pointers. How can `make_unique` and `make_shared` own heap objects without manual `delete`? #q11 #dynamic-memory #memory-pointers
 
 ---
 ```cpp

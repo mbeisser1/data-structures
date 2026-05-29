@@ -22,7 +22,7 @@ What are lvalues and rvalues in the move semantics context? #q20 #move-semantics
 - Without moves, `auto vec = createIntVector();` may **deep-copy** unnecessarily.
 
 %%%MOCHI_CARD%%%
-Show a move constructor example. #q20 #move-semantics #memory-pointers
+Show a move constructor example. For a class owning a buffer, how do you transfer ownership from an rvalue? #q20 #move-semantics #memory-pointers
 
 ---
 ```cpp
@@ -59,7 +59,7 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-Show a move assignment operator example. #q20 #move-semantics #memory-pointers
+Show a move assignment operator. How do you release current resources and steal from the source object? #q20 #move-semantics #memory-pointers
 
 ---
 ```cpp
@@ -74,15 +74,22 @@ MyVector& operator=(MyVector&& other) noexcept {
 }
 ```
 
-Declarations:
+%%%MOCHI_CARD%%%
+What are move operation signatures and when to use `std::move`? #q20 #move-semantics #memory-pointers
 
+---
+
+- Use **`std::move`** from `<utility>` to treat a named lvalue as movable when you’re done with it.
+- Mark moves **`noexcept`** when possible so containers can optimize.
+
+%%%MOCHI_CARD%%%
+Show move operation signatures. What do the move constructor and move assignment declarations look like? #q20 #move-semantics #memory-pointers
+
+---
 ```cpp
 ClassName(ClassName&& other) noexcept;
 ClassName& operator=(ClassName&& other) noexcept;
 ```
-
-Use **`std::move`** from `<utility>` to treat an lvalue as movable when you’re done with it.
-
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain move semantics. #q20 #move-semantics #memory-pointers
 

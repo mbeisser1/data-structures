@@ -13,7 +13,7 @@ What commonly causes memory leaks? #q13 #memory-leak #memory-pointers
 - **Circular references** — with **`shared_ptr`**, cycles can keep objects alive indefinitely.
 
 %%%MOCHI_CARD%%%
-Show RAII, smart pointers, and manual management (leak risk). #q13 #memory-leak #memory-pointers
+Show RAII, smart pointers, and manual management (leak risk). Which pattern leaks if you forget to release heap memory? #q13 #memory-leak #memory-pointers
 
 ---
 ```cpp
@@ -38,9 +38,20 @@ void raii() {
 void smartPointers() {
     auto resource = std::make_unique<MyResource>();
 }
-```
 
-- **RAII** and **smart pointers** prevent leaks; raw **`new` without `delete`** leaks.
+int main() {
+    std::cout << "RAII:\n";
+    raii();
+
+    std::cout << "\nUnique Pointers:\n";
+    smartPointers();
+
+    std::cout << "\nManual Memory Management:\n";
+    manualManagement();
+
+    return 0;
+}
+```
 
 %%%MOCHI_CARD%%%
 How do you prevent memory leaks in C++? #q13 #memory-leak #memory-pointers

@@ -10,10 +10,13 @@ Explain the concept of type erasure in C++. #q82 #type-erasure #advanced-cpp
 - Examples: **`std::function`**, **`std::any`**
 
 %%%MOCHI_CARD%%%
-Show a simple type-erased wrapper. #q82 #type-erasure #advanced-cpp
+Show a type-erased wrapper for polymorphic objects. How can one public type hold different concrete implementations behind a shared interface? #q82 #type-erasure #advanced-cpp
 
 ---
 ```cpp
+#include <iostream>
+#include <memory>
+
 class Dog {
 public:
     virtual ~Dog() = default;
@@ -39,9 +42,15 @@ public:
     AnyDog(const AnyDog& other) : pDog(other.pDog->clone()) {}
     void bark() const { pDog->bark(); }
 };
-```
 
-**`AnyDog`** exposes one API; breed type is erased.
+int main() {
+    AnyDog dog1(GoldenRetriever{});
+    dog1.bark();
+    AnyDog dog2 = dog1;
+    dog2.bark();
+    return 0;
+}
+```
 
 %%%MOCHI_CARD%%%
 What are benefits of type erasure? #q82 #type-erasure #advanced-cpp
@@ -56,7 +65,7 @@ What are benefits of type erasure? #q82 #type-erasure #advanced-cpp
 Cost: heap allocation + virtual dispatch (typical).
 
 %%%MOCHI_CARD%%%
-Show built-in type erasure with `std::any`. #q82 #type-erasure #advanced-cpp
+Show built-in type erasure with `std::any`. How do you store and recover values of different types in one variable? #q82 #type-erasure #advanced-cpp
 
 ---
 ```cpp

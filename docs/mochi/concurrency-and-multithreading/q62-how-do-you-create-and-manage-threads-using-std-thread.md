@@ -1,14 +1,28 @@
 How do you create and manage threads using `std::thread`? #q62 #std-thread #concurrency
 
 ---
-Create a **`std::thread`** with a **callable** (function, lambda, functor):
-
-```cpp
-std::thread t1(threadFunction);
-std::thread t2([]() { std::cout << "Hello from lambda\n"; });
-```
+Create a **`std::thread`** with a **callable** (function, lambda, functor).
 
 **Always** **`join()`** or **`detach()`** before destruction — otherwise **`std::terminate`**.
+
+%%%MOCHI_CARD%%%
+Show creating and joining `std::thread`. How do you start a worker thread and wait for it to finish? #q62 #std-thread #concurrency
+
+---
+```cpp
+#include <iostream>
+#include <thread>
+
+void threadFunction() {
+    std::cout << "Hello from thread\n";
+}
+
+int main() {
+    std::thread t(threadFunction);
+    t.join();
+    return 0;
+}
+```
 
 %%%MOCHI_CARD%%%
 What is the difference between `join()` and `detach()`? #q62 #std-thread #concurrency
@@ -30,7 +44,7 @@ What is the difference between `join()` and `detach()`? #q62 #std-thread #concur
 Check **`t.joinable()`** before join/detach.
 
 %%%MOCHI_CARD%%%
-Show creating threads with functions and arguments. #q62 #std-thread #concurrency
+Show creating threads with functions and arguments. How do you pass arguments to a thread function safely? #q62 #std-thread #concurrency
 
 ---
 ```cpp
@@ -48,12 +62,17 @@ int main() {
 }
 ```
 
-**Threads are move-only** — transfer ownership with **`std::move`**.
-
-Pass by value or ensure referenced objects outlive the thread.
-
 %%%MOCHI_CARD%%%
 How do you synchronize shared data with `std::thread`? #q62 #std-thread #concurrency
+
+---
+
+- Use **`std::lock_guard`**, **`std::unique_lock`**, or **`std::scoped_lock`** (C++17) for RAII locking
+- **Condition variables** coordinate waiting/signaling under the same mutex
+- **Threads are move-only** — transfer ownership with **`std::move`**
+
+%%%MOCHI_CARD%%%
+Show synchronizing shared data with threads. How do you protect a shared counter while multiple threads increment? #q62 #std-thread #concurrency
 
 ---
 ```cpp
@@ -67,10 +86,6 @@ void threadFunction() {
     sharedResource++;
 }
 ```
-
-Use **`std::lock_guard`**, **`std::unique_lock`**, or **`std::scoped_lock`** (C++17) for RAII locking.
-
-**Condition variables** coordinate waiting/signaling under the same mutex.
 
 %%%MOCHI_CARD%%%
 What are best practices for `std::thread`? #q62 #std-thread #concurrency

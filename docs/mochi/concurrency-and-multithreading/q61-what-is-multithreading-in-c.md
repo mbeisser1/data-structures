@@ -35,7 +35,7 @@ What mechanisms ensure thread safety? #q61 #multithreading #concurrency
 **Thread-safe** = safe concurrent use; **not thread-safe** = requires external synchronization.
 
 %%%MOCHI_CARD%%%
-Show a thread-safe counter with `std::atomic`. #q61 #multithreading #concurrency
+Show a thread-safe counter with `std::atomic`. How do multiple threads increment a shared counter without data races? #q61 #multithreading #concurrency
 
 ---
 ```cpp

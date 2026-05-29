@@ -13,7 +13,7 @@ How do virtual functions work (vtable and dynamic dispatch)? #q23 #virtual-funct
 - Calling a virtual function uses the vtable → **late binding** at run time
 
 %%%MOCHI_CARD%%%
-Show a virtual function example. #q23 #virtual-functions #oop-concepts
+Show a virtual function example. How do `Animal*` calls dispatch to `Dog` and `Cat` overrides of `makeSound()`? #q23 #virtual-functions #oop-concepts
 
 ---
 ```cpp

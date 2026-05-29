@@ -12,7 +12,7 @@ A **mutex** (mutual exclusion) ensures **only one thread** holds a lock on a sha
 - **`std::shared_mutex`** (C++17) — many readers **or** one writer
 
 %%%MOCHI_CARD%%%
-Show basic `std::mutex` with `lock_guard`. #q63 #mutex #concurrency
+Show basic `std::mutex` with `lock_guard`. How do you serialize access to a shared resource from multiple threads? #q63 #mutex #concurrency
 
 ---
 ```cpp
@@ -36,8 +36,6 @@ int main() {
 }
 ```
 
-**`lock_guard`** releases the mutex automatically (RAII).
-
 %%%MOCHI_CARD%%%
 When should you use `recursive_mutex` vs `timed_mutex`? #q63 #mutex #concurrency
 
@@ -55,7 +53,7 @@ When should you use `recursive_mutex` vs `timed_mutex`? #q63 #mutex #concurrency
 - Useful for deadlock avoidance or backoff strategies
 
 %%%MOCHI_CARD%%%
-Show `shared_mutex` for reader-writer locking. #q63 #mutex #concurrency
+Show `shared_mutex` for reader-writer locking. How can many readers share access while writers stay exclusive? #q63 #mutex #concurrency
 
 ---
 ```cpp
@@ -74,8 +72,6 @@ void writer(int id) {
     sharedData++;
 }
 ```
-
-**Multiple `shared_lock` readers** OR **one `unique_lock` writer**.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain mutex types. #q63 #mutex #concurrency

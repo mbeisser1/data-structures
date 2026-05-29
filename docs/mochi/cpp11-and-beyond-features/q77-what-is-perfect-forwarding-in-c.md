@@ -20,7 +20,7 @@ What is the difference between forwarding and rvalue references? #q77 #perfect-f
 **`std::forward<T>(x)`** restores the original value category when passing on.
 
 %%%MOCHI_CARD%%%
-Show perfect forwarding with overload resolution. #q77 #perfect-forwarding #cpp11-beyond
+Show perfect forwarding with overload resolution. How does a wrapper call the correct `process` overload for lvalues vs rvalues? #q77 #perfect-forwarding #cpp11-beyond
 
 ---
 ```cpp

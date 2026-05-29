@@ -17,13 +17,32 @@ What header and template practices speed compilation? #q99 #compile-times #perfo
 
 - **`#pragma once`** / include guards
 - **Explicit template instantiations** in `.cpp` — not every TU
-- **`extern template`** for heavy templates:
+- **`extern template`** for heavy templates
+- Avoid **`auto`** in headers when it pulls unexpected heavy types
 
+%%%MOCHI_CARD%%%
+Show reducing header dependencies. How do you reference a class in a header without including its full definition? #q99 #compile-times #performance
+
+---
 ```cpp
-extern template class std::vector<MyClass>;
+class SomeClass;  // forward declaration
+
+class Widget {
+    SomeClass* ptr;  // pointer/reference only — no #include "SomeClass.h"
+};
 ```
 
-- Avoid **`auto`** in headers when it pulls unexpected heavy types
+%%%MOCHI_CARD%%%
+Show `extern template` to limit instantiations. How do you declare a template once across translation units? #q99 #compile-times #performance
+
+---
+```cpp
+// header
+extern template class std::vector<MyClass>;
+
+// one .cpp
+template class std::vector<MyClass>;
+```
 
 %%%MOCHI_CARD%%%
 What build-system techniques reduce compile time? #q99 #compile-times #performance

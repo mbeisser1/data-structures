@@ -17,7 +17,7 @@ What are the types of template specialization? #q33 #template-specialization #te
 - **Partial specialization** — specialize on part of the pattern ( **class templates only**, e.g. `T*`)
 
 %%%MOCHI_CARD%%%
-Show template specialization with `Calculator`. #q33 #template-specialization #templates-generic
+Show template specialization with `Calculator`. How do you provide a generic `add`, a full specialization for `int`, and a partial specialization for pointers? #q33 #template-specialization #templates-generic
 
 ---
 ```cpp

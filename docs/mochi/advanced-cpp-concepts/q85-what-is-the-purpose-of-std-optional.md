@@ -14,9 +14,20 @@ What are common use cases for `std::optional`? #q85 #std-optional #advanced-cpp
 
 ---
 
-**Fallible parsing / lookup:**
+- **Fallible parsing / lookup** — return **`nullopt`** on failure
+- **Optional parameters** — default to empty optional
+- **Search results** — found vs not found without magic sentinels
 
+Prefer over **`nullptr`**, **`-1`**, or magic sentinels.
+
+%%%MOCHI_CARD%%%
+Show `std::optional` for a fallible parse. How do you return “no value” when `stoi` fails? #q85 #std-optional #advanced-cpp
+
+---
 ```cpp
+#include <optional>
+#include <string>
+
 std::optional<int> parse_integer(const std::string& str) {
     try {
         return std::stoi(str);
@@ -26,19 +37,17 @@ std::optional<int> parse_integer(const std::string& str) {
 }
 ```
 
-**Optional parameters:**
-
-```cpp
-void process_data(int required, std::optional<int> optional = std::nullopt);
-```
-
-Prefer over **`nullptr`**, **`-1`**, or magic sentinels.
+Check with **`if (opt)`**, then **`*opt`**, **`.value()`**, or **`.value_or(default)`**.
 
 %%%MOCHI_CARD%%%
-Show extracting middle name with `std::optional`. #q85 #std-optional #advanced-cpp
+Show extracting a middle name with `std::optional`. When should a name parser return `nullopt` vs a substring? #q85 #std-optional #advanced-cpp
 
 ---
 ```cpp
+#include <iostream>
+#include <optional>
+#include <string>
+
 std::optional<std::string> get_middle_name(const std::string& full_name) {
     size_t first_space = full_name.find(' ');
     if (first_space == std::string::npos) return std::nullopt;
@@ -49,13 +58,13 @@ std::optional<std::string> get_middle_name(const std::string& full_name) {
     return full_name.substr(first_space + 1, last_space - first_space - 1);
 }
 
-// Usage:
-if (auto middle = get_middle_name(name)) {
-    std::cout << "Middle name: " << *middle << std::endl;
+int main() {
+    if (auto middle = get_middle_name("Alice Middle Smith")) {
+        std::cout << "Middle name: " << *middle << std::endl;
+    }
+    return 0;
 }
 ```
-
-Also: **`opt.value()`**, **`opt.value_or(default)`**, **`opt.has_value()`**.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain `std::optional`. #q85 #std-optional #advanced-cpp

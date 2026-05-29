@@ -47,7 +47,7 @@ When should you choose `vector` vs `list`? #q52 #vector-vs-list #stl
 **Default rule:** start with **`vector`** unless profiling shows list wins.
 
 %%%MOCHI_CARD%%%
-Show performance difference inserting at the beginning. Write a template `measureInsertionTime` that inserts 100,000 elements at `begin()`; time the same pattern on both `vector` and `list`. #q52 #vector-vs-list #stl
+Show performance difference inserting at the beginning. How would you compare repeated front-insertion on `vector` vs `list`? #q52 #vector-vs-list #stl
 
 ---
 ```cpp
@@ -81,7 +81,13 @@ int main() {
 }
 ```
 
-**List wins** for repeated front insertions; **vector** pays O(n) shifts each time.
+%%%MOCHI_CARD%%%
+What does front-insertion benchmarking show for `vector` vs `list`? #q52 #vector-vs-list #stl
+
+---
+
+- **List** wins for repeated front insertions — O(1) per insert
+- **Vector** pays O(n) shifts each time at `begin()`
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain vector vs list. #q52 #vector-vs-list #stl

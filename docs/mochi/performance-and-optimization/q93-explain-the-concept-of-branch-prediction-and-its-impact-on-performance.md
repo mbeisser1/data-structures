@@ -17,18 +17,29 @@ How do CPUs predict branches? #q93 #branch-prediction #performance
 Predictors learn **patterns** (e.g. mostly-positive loop). **Random/unpredictable** branches hurt most.
 
 %%%MOCHI_CARD%%%
-Show a branch-heavy loop. #q93 #branch-prediction #performance
+Show a branch-heavy loop. How does an `if` inside a hot loop over a `vector` interact with the branch predictor? #q93 #branch-prediction #performance
 
 ---
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int sum_positive(const std::vector<int>& numbers) {
     int sum = 0;
     for (int num : numbers) {
-        if (num > 0) {  // predictor learns if data is skewed
+        if (num > 0) {
             sum += num;
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> data(1000000);
+    std::generate(data.begin(), data.end(), []() { return rand() % 100 - 25; });
+    std::cout << sum_positive(data) << std::endl;
+    return 0;
 }
 ```
 

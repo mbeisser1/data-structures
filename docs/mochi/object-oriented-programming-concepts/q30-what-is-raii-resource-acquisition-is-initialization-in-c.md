@@ -10,7 +10,7 @@ What is RAII (Resource Acquisition Is Initialization) in C++? #q30 #raii #oop-co
 - Less manual **`new`/`delete`** or **`open`/`close`**
 
 %%%MOCHI_CARD%%%
-Show RAII resource acquisition and release with a file handler. #q30 #raii #oop-concepts
+Show RAII with a file handler. How do you acquire a file in the constructor and release it in the destructor? #q30 #raii #oop-concepts
 
 ---
 ```cpp
@@ -36,8 +36,6 @@ public:
 };
 ```
 
-- Constructor **opens**; destructor **closes** — even if an exception is thrown
-
 %%%MOCHI_CARD%%%
 What standard library types implement RAII? #q30 #raii #oop-concepts
 
@@ -49,7 +47,7 @@ What standard library types implement RAII? #q30 #raii #oop-concepts
 - Containers like **`std::vector`** — manage their own storage
 
 %%%MOCHI_CARD%%%
-Show RAII with `std::unique_ptr`. #q30 #raii #oop-concepts
+Show RAII with `std::unique_ptr`. How does a heap `Resource` get acquired and released around a function call? #q30 #raii #oop-concepts
 
 ---
 ```cpp

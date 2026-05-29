@@ -24,7 +24,7 @@ What profiling tools are commonly used? #q95 #profiling #performance
 Pick sampling profilers for low overhead on large apps.
 
 %%%MOCHI_CARD%%%
-Show basic gprof and perf usage. #q95 #profiling #performance
+Show basic gprof and perf usage. How do you build and run a profiled binary on Linux? #q95 #profiling #performance
 
 ---
 ```bash

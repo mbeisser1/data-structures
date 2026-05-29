@@ -3,14 +3,10 @@ What are delegating constructors? #q75 #delegating-ctors #cpp11-beyond
 ---
 **Delegating constructors** (C++11) let one constructor **call another** of the same class — centralizing initialization logic.
 
-```cpp
-Person() : Person("John Doe", 30) { }
-```
-
 The **delegate call must be the only** entry in the initializer list (no mixed member init before it).
 
 %%%MOCHI_CARD%%%
-Show delegating constructors with a `Person` class. #q75 #delegating-ctors #cpp11-beyond
+Show delegating constructors with a `Person` class. How do shorter constructors chain to a full constructor? #q75 #delegating-ctors #cpp11-beyond
 
 ---
 ```cpp
@@ -31,8 +27,6 @@ public:
     }
 };
 ```
-
-All paths eventually run the **target constructor’s** member initialization.
 
 %%%MOCHI_CARD%%%
 What are rules and limitations for delegating constructors? #q75 #delegating-ctors #cpp11-beyond

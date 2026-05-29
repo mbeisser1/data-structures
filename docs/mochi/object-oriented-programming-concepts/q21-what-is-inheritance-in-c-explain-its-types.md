@@ -15,7 +15,7 @@ What are the types of inheritance in C++? #q21 #inheritance #oop-concepts
 - **Virtual** — prevents duplicate base subobjects in diamond hierarchies
 
 %%%MOCHI_CARD%%%
-Show examples of single and virtual inheritance. #q21 #inheritance #oop-concepts
+Show examples of single and virtual inheritance. How do you declare simple public inheritance vs a diamond hierarchy with `virtual` bases? #q21 #inheritance #oop-concepts
 
 ---
 ```cpp
@@ -39,6 +39,10 @@ What are inheritance access specifiers (`public`, `protected`, `private`)? #q21 
 - **`protected` inheritance** — base **`public`** and **`protected`** → derived **`protected`**
 - **`private` inheritance** — base **`public`** and **`protected`** → derived **`private`**
 
+%%%MOCHI_CARD%%%
+Show inheritance access specifier effects. Given `Base` with `public`, `protected`, and `private` members, what is visible in a `public`-derived class? #q21 #inheritance #oop-concepts
+
+---
 ```cpp
 class Base {
 public:

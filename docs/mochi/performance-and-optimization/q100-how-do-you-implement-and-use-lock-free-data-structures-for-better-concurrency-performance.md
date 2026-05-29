@@ -10,13 +10,13 @@ What core mechanisms power lock-free code? #q100 #lock-free #performance
 
 ---
 
-**Atomics:**
+**Atomics** — read-modify-write without mutexes:
 
 ```cpp
 counter.fetch_add(1, std::memory_order_relaxed);
 ```
 
-**Compare-and-swap:**
+**Compare-and-swap (CAS)** — update only if value unchanged:
 
 ```cpp
 value.compare_exchange_strong(expected, new_value);
@@ -25,10 +25,12 @@ value.compare_exchange_strong(expected, new_value);
 **Memory ordering** — **`release`/`acquire`** pairs publish/consume data safely.
 
 %%%MOCHI_CARD%%%
-Show producer/consumer flag synchronization. #q100 #lock-free #performance
+Show producer/consumer flag synchronization. How do release/acquire ordering publish data between threads? #q100 #lock-free #performance
 
 ---
 ```cpp
+#include <atomic>
+
 std::atomic<int> data(0);
 std::atomic<bool> flag(false);
 
@@ -44,18 +46,25 @@ int result = data.load(std::memory_order_relaxed);
 **Acquire** sees writes before **release** on the flag.
 
 %%%MOCHI_CARD%%%
-Show lock-free stack push with CAS loop. #q100 #lock-free #performance
+Show lock-free stack push with CAS. How do you link a new node onto a shared head without a mutex? #q100 #lock-free #performance
 
 ---
 ```cpp
-void push(const T& data) {
-    Node* new_node = new Node(data);
-    do {
-        new_node->next = head.load(std::memory_order_relaxed);
-    } while (!head.compare_exchange_weak(new_node->next, new_node,
-                                         std::memory_order_release,
-                                         std::memory_order_relaxed));
-}
+template<typename T>
+class LockFreeStack {
+    struct Node { T data; Node* next; };
+    std::atomic<Node*> head{nullptr};
+
+public:
+    void push(const T& data) {
+        Node* new_node = new Node{data, nullptr};
+        do {
+            new_node->next = head.load(std::memory_order_relaxed);
+        } while (!head.compare_exchange_weak(new_node->next, new_node,
+                                             std::memory_order_release,
+                                             std::memory_order_relaxed));
+    }
+};
 ```
 
 **ABA problem** and **safe memory reclamation** (hazard pointers, epochs) are real concerns for **`pop`**.

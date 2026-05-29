@@ -3,10 +3,7 @@ Explain the concept of concepts in C++20. #q86 #concepts #advanced-cpp
 ---
 **Concepts** constrain **template parameters** with readable, compile-time requirements — better errors and clearer APIs than SFINAE alone.
 
-```cpp
-template <typename T>
-concept Integral = std::is_integral_v<T>;
-```
+A **`concept`** is a named predicate on types; **`requires`** clauses check expressions and return types.
 
 Violations produce **direct diagnostics** at the constraint, not deep in instantiation.
 
@@ -14,13 +11,14 @@ Violations produce **direct diagnostics** at the constraint, not deep in instant
 How do you define and combine concepts? #q86 #concepts #advanced-cpp
 
 ---
+
+**Simple:** `concept Integral = std::is_integral_v<T>;`
+
+**Compound:** `Integral<T> || std::floating_point<T>`
+
+**Requires clause:** expression must compile and satisfy return-type constraints
+
 ```cpp
-template <typename T>
-concept Integral = std::is_integral_v<T>;
-
-template <typename T>
-concept Arithmetic = Integral<T> || std::floating_point<T>;
-
 template <typename T>
 concept Sortable = requires(T a, T b) {
     { a < b } -> std::convertible_to<bool>;
@@ -28,13 +26,14 @@ concept Sortable = requires(T a, T b) {
 };
 ```
 
-**`requires`** clauses check expressions, return types, and nested requirements.
-
 %%%MOCHI_CARD%%%
-Show using concepts in templates. #q86 #concepts #advanced-cpp
+Show using concepts in templates. How do you constrain `gcd` and a print function to integral types only? #q86 #concepts #advanced-cpp
 
 ---
 ```cpp
+#include <iostream>
+#include <concepts>
+
 template <std::integral T>
 T gcd(T a, T b) {
     while (b != 0) {
@@ -51,6 +50,18 @@ void print_number(std::integral auto x) {
 ```
 
 Syntax: **`template<MyConcept T>`** or **`MyConcept auto`** parameter.
+
+%%%MOCHI_CARD%%%
+Show combining custom concepts. How do you build `Arithmetic` from simpler concepts? #q86 #concepts #advanced-cpp
+
+---
+```cpp
+template <typename T>
+concept Integral = std::is_integral_v<T>;
+
+template <typename T>
+concept Arithmetic = Integral<T> || std::floating_point<T>;
+```
 
 %%%MOCHI_CARD%%%
 What are benefits of concepts? #q86 #concepts #advanced-cpp

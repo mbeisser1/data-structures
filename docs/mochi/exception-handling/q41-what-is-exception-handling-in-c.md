@@ -11,7 +11,7 @@ What is exception handling in C++? #q41 #exception-handling #exceptions
 - **Exception classes** — from `<exception>`, `<stdexcept>`, etc.
 
 %%%MOCHI_CARD%%%
-Show basic exception handling syntax. #q41 #exception-handling #exceptions
+Show basic exception handling syntax. How do you throw on failure and catch a `std::exception` to print `what()`? #q41 #exception-handling #exceptions
 
 ---
 ```cpp

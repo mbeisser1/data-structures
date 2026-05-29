@@ -14,7 +14,7 @@ Otherwise copies and destruction can cause:
 - **Dangling** state
 
 %%%MOCHI_CARD%%%
-Show a rule-of-three implementation. #q18 #rule-of-three #memory-pointers
+Show a rule-of-three implementation. For a class that owns heap memory, what three special members must you define? #q18 #rule-of-three #memory-pointers
 
 ---
 ```cpp
@@ -40,11 +40,18 @@ public:
 ```
 
 %%%MOCHI_CARD%%%
-Show rule-of-five and smart-pointer alternatives. #q18 #rule-of-three #memory-pointers
+What does the rule of five add (C++11)? #q18 #rule-of-three #memory-pointers
 
 ---
-**Rule of five** adds **move constructor** and **move assignment**:
 
+- **Move constructor** and **move assignment** transfer ownership instead of copying.
+- Moves should be **`noexcept`** when possible; null out the source’s pointer after steal.
+- Prefer **rule of zero** with **`unique_ptr`** / containers when you can avoid raw ownership.
+
+%%%MOCHI_CARD%%%
+Show move operations for a resource-owning class. How should move ctor and move assignment transfer a raw pointer member? #q18 #rule-of-three #memory-pointers
+
+---
 ```cpp
 ModernResource(ModernResource&& other) noexcept : data(other.data) {
     other.data = nullptr;
@@ -60,8 +67,10 @@ ModernResource& operator=(ModernResource&& other) noexcept {
 }
 ```
 
-**Smart pointer member** (often **rule of zero** for moves):
+%%%MOCHI_CARD%%%
+Show the rule of zero with a smart pointer member. When can you omit all special member functions? #q18 #rule-of-three #memory-pointers
 
+---
 ```cpp
 #include <memory>
 

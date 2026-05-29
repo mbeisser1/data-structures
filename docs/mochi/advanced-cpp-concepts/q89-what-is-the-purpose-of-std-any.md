@@ -19,7 +19,7 @@ What operations does `std::any` provide? #q89 #std-any #advanced-cpp
 Value is **copied/moved** into the **`any`** (may heap-allocate).
 
 %%%MOCHI_CARD%%%
-Show using `std::any`. #q89 #std-any #advanced-cpp
+Show using `std::any`. How do you store, retrieve, and safely cast values of different types? #q89 #std-any #advanced-cpp
 
 ---
 ```cpp

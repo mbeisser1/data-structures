@@ -4,7 +4,7 @@ How do you implement a type-safe container using templates? #q38 #type-safe-cont
 A **type-safe container** stores and returns only type **`T`** — enforced at **compile time** via a class template, preventing mixed-type mistakes.
 
 %%%MOCHI_CARD%%%
-Show a `TypeSafeContainer` template class. #q38 #type-safe-container #templates-generic
+Show a `TypeSafeContainer` template class. How do you store an optional `T`, set a value, and throw if `getValue` is called when empty? #q38 #type-safe-container #templates-generic
 
 ---
 ```cpp
@@ -34,7 +34,7 @@ public:
 ```
 
 %%%MOCHI_CARD%%%
-Show using `TypeSafeContainer` for different types. #q38 #type-safe-container #templates-generic
+Show using `TypeSafeContainer` for different types. Why does assigning a string to an `int` container fail at compile time? #q38 #type-safe-container #templates-generic
 
 ---
 ```cpp
@@ -49,7 +49,10 @@ stringContainer.setValue("Hello, World!");
 // intContainer.setValue("Not an integer");
 ```
 
-**Design points:**
+%%%MOCHI_CARD%%%
+What are design points for type-safe template containers? #q38 #type-safe-container #templates-generic
+
+---
 
 - **`template <typename T>`** — one container per element type
 - **`std::optional<T>`** — tracks empty vs populated state

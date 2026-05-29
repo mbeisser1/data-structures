@@ -30,7 +30,7 @@ Compare `unique_ptr`, `shared_ptr`, and `weak_ptr`. #q79 #smart-pointers-cpp11 #
 - **`lock()`** → temporary **`shared_ptr`** if still alive
 
 %%%MOCHI_CARD%%%
-Show using all three smart pointer types. #q79 #smart-pointers-cpp11 #cpp11-beyond
+Show using all three smart pointer types. How do exclusive, shared, and weak ownership differ in practice? #q79 #smart-pointers-cpp11 #cpp11-beyond
 
 ---
 ```cpp

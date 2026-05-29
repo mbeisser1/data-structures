@@ -14,6 +14,15 @@ A **thread pool** maintains a **fixed set of worker threads** that pull tasks fr
 What is the worker loop pattern in a thread pool? #q68 #thread-pool #concurrency
 
 ---
+
+- Workers **wait** on a condition variable when the queue is empty
+- Under the mutex, **pop** a task and run it **outside** the lock
+- **`notify_one`** when a task is enqueued; **`notify_all`** on shutdown
+
+%%%MOCHI_CARD%%%
+Show a thread-pool worker loop. How do workers wait for tasks and execute them safely? #q68 #thread-pool #concurrency
+
+---
 ```cpp
 workers.emplace_back([this] {
     while (true) {
@@ -31,10 +40,17 @@ workers.emplace_back([this] {
 });
 ```
 
-Workers **wait** when queue empty; **notify_one** when task enqueued.
-
 %%%MOCHI_CARD%%%
 How does `enqueue` return results from pool tasks? #q68 #thread-pool #concurrency
+
+---
+
+- Wrap work in **`std::packaged_task`**
+- Return **`std::future`** to the caller before notifying a worker
+- Worker runs the packaged task; caller blocks on **`future::get()`**
+
+%%%MOCHI_CARD%%%
+Show `enqueue` returning futures. How do you submit work to the pool and get a `future` back? #q68 #thread-pool #concurrency
 
 ---
 ```cpp
@@ -55,8 +71,6 @@ auto enqueue(F&& f, Args&&... args)
     return res;
 }
 ```
-
-**`packaged_task` + `future`** bridges thread pool and caller.
 
 %%%MOCHI_CARD%%%
 What types are used in a typical thread pool implementation? #q68 #thread-pool #concurrency

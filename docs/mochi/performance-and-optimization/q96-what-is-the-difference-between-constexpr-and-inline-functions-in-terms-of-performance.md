@@ -15,7 +15,7 @@ What is the difference between `constexpr` and `inline` functions in terms of pe
 - Modern compilers inline without keyword
 
 %%%MOCHI_CARD%%%
-Show compile-time vs runtime behavior. #q96 #constexpr-vs-inline #performance
+Show compile-time vs runtime behavior. When does `constexpr` eliminate runtime work that `inline` alone might not? #q96 #constexpr-vs-inline #performance
 
 ---
 ```cpp
@@ -23,7 +23,7 @@ constexpr int square(int x) { return x * x; }
 constexpr int result = square(5);  // compile-time
 
 inline int add(int a, int b) { return a + b; }
-int result = add(3, 4);  // may become: int result = 3 + 4;
+int r = add(3, 4);  // may become: int r = 3 + 4;
 ```
 
 **`constexpr`** enables **constant folding** and array sizes at compile time.

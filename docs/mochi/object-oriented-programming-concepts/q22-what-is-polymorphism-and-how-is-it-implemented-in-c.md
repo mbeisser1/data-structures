@@ -12,7 +12,7 @@ What are the two main types of polymorphism in C++? #q22 #polymorphism #oop-conc
 - **Run-time** — **virtual functions** + **inheritance** (resolved while the program runs)
 
 %%%MOCHI_CARD%%%
-Show run-time polymorphism with virtual functions. #q22 #polymorphism #oop-concepts
+Show run-time polymorphism with virtual functions. How can `Dog` and `Cat` be called through `Animal` pointers so each prints its own `speak()` message? #q22 #polymorphism #oop-concepts
 
 ---
 ```cpp

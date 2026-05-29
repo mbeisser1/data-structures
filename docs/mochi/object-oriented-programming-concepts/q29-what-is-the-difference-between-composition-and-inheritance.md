@@ -9,7 +9,7 @@ Both model relationships between classes:
 **Favor composition over inheritance** when you need flexibility and looser coupling.
 
 %%%MOCHI_CARD%%%
-Show inheritance (“is-a”) with `Animal` and `Lion`. #q29 #composition-inheritance #oop-concepts
+Show inheritance (“is-a”) with `Animal` and `Lion`. How does `Lion` specialize `Animal` behavior and add its own method? #q29 #composition-inheritance #oop-concepts
 
 ---
 ```cpp
@@ -25,14 +25,13 @@ public:
 };
 ```
 
-- `Lion` **is an** `Animal` — inherits interface and can override behavior
-
 %%%MOCHI_CARD%%%
-Show composition (“has-a”) with `Car` and `Engine`. #q29 #composition-inheritance #oop-concepts
+Show composition (“has-a”) with `Car` and `Engine`. How does `Car` own an `Engine` and delegate `start()`? #q29 #composition-inheritance #oop-concepts
 
 ---
 ```cpp
 #include <memory>
+#include <iostream>
 
 class Engine {
 public:
@@ -47,8 +46,6 @@ public:
     void start() { engine->start(); }
 };
 ```
-
-- `Car` **has an** `Engine` — engine lifetime tied to the car
 
 %%%MOCHI_CARD%%%
 Compare composition and inheritance. #q29 #composition-inheritance #oop-concepts

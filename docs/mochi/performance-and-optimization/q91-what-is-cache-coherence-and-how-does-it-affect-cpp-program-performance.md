@@ -24,10 +24,15 @@ How does cache coherence impact C++ performance? #q91 #cache-coherence #performa
 Profile hot shared counters and pad per-thread data.
 
 %%%MOCHI_CARD%%%
-Show mitigating false sharing with padded atomics. #q91 #cache-coherence #performance
+Show mitigating false sharing with padded atomics. How can per-thread counters avoid invalidating each other's cache lines? #q91 #cache-coherence #performance
 
 ---
 ```cpp
+#include <atomic>
+#include <thread>
+#include <vector>
+#include <iostream>
+
 struct alignas(64) PaddedInt {
     std::atomic<int> value;
     char padding[60];
@@ -37,6 +42,18 @@ void increment(PaddedInt& data, int iterations) {
     for (int i = 0; i < iterations; ++i) {
         data.value.fetch_add(1, std::memory_order_relaxed);
     }
+}
+
+int main() {
+    const int num_threads = 4;
+    std::vector<PaddedInt> data(num_threads);
+    std::vector<std::thread> threads;
+
+    for (int i = 0; i < num_threads; ++i) {
+        threads.emplace_back(increment, std::ref(data[i]), 10000000);
+    }
+    for (auto& t : threads) t.join();
+    return 0;
 }
 ```
 

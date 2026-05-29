@@ -4,7 +4,7 @@ What is SFINAE (Substitution Failure Is Not An Error)? #q37 #sfinae #templates-g
 **SFINAE** means a **failed template substitution** during overload resolution **drops** that candidate instead of failing the whole compile — enabling **conditional templates** based on type properties.
 
 %%%MOCHI_CARD%%%
-Show SFINAE with `std::enable_if`. #q37 #sfinae #templates-generic
+Show SFINAE with `std::enable_if`. How do you route `print_number` to different overloads for integral vs floating-point types? #q37 #sfinae #templates-generic
 
 ---
 ```cpp
@@ -32,6 +32,14 @@ int main() {
 How do C++20 concepts compare to SFINAE? #q37 #sfinae #templates-generic
 
 ---
+
+- **Concepts** — clearer syntax and **better error messages**
+- **SFINAE** — still useful for advanced metaprogramming and legacy patterns
+
+%%%MOCHI_CARD%%%
+Show C++20 concepts replacing SFINAE. How do you write the same `print_number` dispatch with `std::integral` and `std::floating_point`? #q37 #sfinae #templates-generic
+
+---
 ```cpp
 #include <concepts>
 #include <iostream>
@@ -47,11 +55,15 @@ void print_number(T value) {
 }
 ```
 
-- **Concepts** — clearer syntax and **better error messages**
-- **SFINAE** — still useful for advanced metaprogramming and legacy patterns
-
 %%%MOCHI_CARD%%%
 What is tag dispatching with SFINAE? #q37 #sfinae #templates-generic
+
+---
+
+- **Tag dispatch** — route to different implementations using trait “tags” (e.g. `std::true_type` / `std::false_type`)
+
+%%%MOCHI_CARD%%%
+Show tag dispatching with SFINAE. How does `process(T)` choose different `process_impl` paths for integral vs non-integral types? #q37 #sfinae #templates-generic
 
 ---
 ```cpp
@@ -70,8 +82,6 @@ void process(T value) {
     process_impl(value, std::is_integral<T>{});
 }
 ```
-
-- **Tag dispatch** — route to different implementations using trait “tags”
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain SFINAE. #q37 #sfinae #templates-generic

@@ -12,6 +12,15 @@ Explain the `try`, `catch`, and `throw` keywords. #q42 #try-catch-throw #excepti
 What is the syntax for `try`, `catch`, and `throw`? #q42 #try-catch-throw #exceptions
 
 ---
+
+- **`try { ... }`** — guarded code
+- **`catch (const ExceptionType& e) { ... }`** — handler (prefer **const reference** to avoid slicing)
+- **`throw ExceptionObject();`** — raise an exception
+
+%%%MOCHI_CARD%%%
+Show the syntax for `try`, `catch`, and `throw`. What do the three keywords look like in minimal form? #q42 #try-catch-throw #exceptions
+
+---
 ```cpp
 try {
     // Code that might throw
@@ -23,10 +32,8 @@ catch (ExceptionType& e) {
 throw ExceptionObject();
 ```
 
-- Prefer **`catch (const T& e)`** to avoid slicing
-
 %%%MOCHI_CARD%%%
-Show `try`, `catch`, and `throw` with age validation. #q42 #try-catch-throw #exceptions
+Show `try`, `catch`, and `throw` with age validation. How do you throw different standard exceptions for invalid vs out-of-range age and catch each separately? #q42 #try-catch-throw #exceptions
 
 ---
 ```cpp

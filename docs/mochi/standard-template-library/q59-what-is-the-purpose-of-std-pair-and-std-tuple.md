@@ -32,7 +32,7 @@ What are common use cases for `pair` and `tuple`? #q59 #pair-tuple #stl
 - Fixed heterogeneous records (status + value + message)
 
 %%%MOCHI_CARD%%%
-Show returning `pair` and `tuple` from functions. Write `divide` (success flag + quotient) and `process_data` (success + value + message); unpack the tuple in `main` with structured binding. #q59 #pair-tuple #stl
+Show returning `pair` and `tuple` from functions. How do you return multiple values and unpack a tuple with structured binding? #q59 #pair-tuple #stl
 
 ---
 ```cpp

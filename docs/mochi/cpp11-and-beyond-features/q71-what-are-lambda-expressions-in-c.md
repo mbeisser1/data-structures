@@ -3,11 +3,7 @@ What are lambda expressions in C++? #q71 #lambdas #cpp11-beyond
 ---
 A **lambda expression** defines an **unnamed function object** inline — ideal for short callbacks with STL algorithms.
 
-**Syntax:**
-
-```cpp
-[capture](parameters) specifiers -> return-type { body }
-```
+**Syntax:** `[capture](parameters) specifiers -> return-type { body }`
 
 - **Capture** — variables from enclosing scope
 - **Parameters** — like a normal function
@@ -26,7 +22,7 @@ What are lambda capture modes? #q71 #lambdas #cpp11-beyond
 Captured variables become **members** of the closure object.
 
 %%%MOCHI_CARD%%%
-Show a basic lambda with `std::for_each`. #q71 #lambdas #cpp11-beyond
+Show a basic lambda with `std::for_each`. How do you pass a lambda to an algorithm to process each element? #q71 #lambdas #cpp11-beyond
 
 ---
 ```cpp
@@ -45,7 +41,20 @@ int main() {
 }
 ```
 
-Lambdas are **closures** — they can outlive the scope if stored (watch lifetime of `[&]` captures).
+%%%MOCHI_CARD%%%
+Show a lambda as a predicate. How can a captured lambda filter elements with `count_if`? #q71 #lambdas #cpp11-beyond
+
+---
+```cpp
+#include <vector>
+#include <algorithm>
+
+int threshold = 3;
+std::vector<int> numbers = {4, 1, 3, 5, 2};
+
+auto count = std::count_if(numbers.begin(), numbers.end(),
+    [threshold](int n) { return n > threshold; });
+```
 
 %%%MOCHI_CARD%%%
 What modern lambda features were added after C++11? #q71 #lambdas #cpp11-beyond
@@ -68,3 +77,4 @@ In about 60 seconds, explain lambda expressions. #q71 #lambdas #cpp11-beyond
 - **`[=]`/`[&]`** control how outer variables are stored
 - Perfect for **`sort`**, **`for_each`**, **`find_if`**
 - C++14+ adds **generic** and **init** captures
+- Watch **`[&]`** lifetime if the lambda outlives the scope

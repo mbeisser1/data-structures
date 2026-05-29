@@ -13,19 +13,21 @@ What is the purpose of the `noexcept` specifier? #q43 #noexcept #exceptions
 What are the forms of `noexcept`? #q43 #noexcept #exceptions
 
 ---
+
+- **`void f() noexcept;`** — unconditionally non-throwing
+- **`void f() noexcept(condition);`** — non-throwing only when `condition` is true
+
+%%%MOCHI_CARD%%%
+Show the forms of `noexcept`. How do you declare unconditional vs conditional non-throwing functions? #q43 #noexcept #exceptions
+
+---
 ```cpp
 void func1() noexcept;                        // Simple form
 void func2() noexcept(sizeof(int) == 4);      // Conditional form
 ```
 
-**Benefits:**
-
-- Enables **compiler optimizations**
-- Supports **no-throw** error strategies
-- Helps **move** operations participate in standard containers (move if `noexcept`)
-
 %%%MOCHI_CARD%%%
-Show `noexcept` vs throwing functions. #q43 #noexcept #exceptions
+Show `noexcept` vs throwing functions. How do you mark `square` as non-throwing and handle a divide-by-zero error from `divide`? #q43 #noexcept #exceptions
 
 ---
 ```cpp
@@ -53,15 +55,22 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-What are best practices for `noexcept`? #q43 #noexcept #exceptions
+What are the benefits and best practices for `noexcept`? #q43 #noexcept #exceptions
 
 ---
+
+**Benefits:**
+
+- Enables **compiler optimizations**
+- Supports **no-throw** error strategies
+- Helps **move** operations participate in standard containers (move if `noexcept`)
+
+**Best practices:**
 
 - Use only when the function **truly** won’t throw
 - Mark **move constructor/assignment** `noexcept` when possible
 - Callees of a `noexcept` function should also be non-throwing
 - Prefer **`noexcept`** over deprecated **`throw()`**
-- C++20: `noexcept` is part of the **function type**
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain `noexcept`. #q43 #noexcept #exceptions

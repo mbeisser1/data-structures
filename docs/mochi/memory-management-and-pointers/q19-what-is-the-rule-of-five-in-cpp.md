@@ -10,7 +10,7 @@ For classes that **directly manage resources** (e.g. raw dynamic memory), define
 5. Move assignment operator  
 
 %%%MOCHI_CARD%%%
-Show a full rule-of-five implementation. #q19 #rule-of-five #memory-pointers
+Show a full rule-of-five implementation. For a class owning a dynamic array, what five special members are required? #q19 #rule-of-five #memory-pointers
 
 ---
 ```cpp
@@ -56,7 +56,16 @@ public:
 ```
 
 %%%MOCHI_CARD%%%
-Show the rule of zero with smart pointers. #q19 #rule-of-five #memory-pointers
+What is the rule of zero? #q19 #rule-of-five #memory-pointers
+
+---
+
+- Let **RAII members** (`unique_ptr`, `vector`, etc.) define destruction and copying/moving.
+- Use **`= default` / `= delete`** when you want explicit compiler behavior.
+- Prefer **rule of zero** over hand-written five when members already manage resources.
+
+%%%MOCHI_CARD%%%
+Show the rule of zero with smart pointers. How can a `unique_ptr` member eliminate hand-written special members? #q19 #rule-of-five #memory-pointers
 
 ---
 ```cpp
@@ -73,9 +82,6 @@ public:
     // Rule of Zero: no explicit special member functions needed
 };
 ```
-
-- **`= default` / `= delete`** when you want explicit compiler behavior.
-- Prefer **rule of zero** when RAII members handle resources.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain the rule of five. #q19 #rule-of-five #memory-pointers

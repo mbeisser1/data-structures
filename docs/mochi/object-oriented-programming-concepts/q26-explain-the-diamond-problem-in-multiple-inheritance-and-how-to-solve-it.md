@@ -20,7 +20,7 @@ What issues does the diamond problem cause? #q26 #diamond-problem #oop-concepts
 - **Data duplication** — two copies of the common base’s data in `Derived`
 
 %%%MOCHI_CARD%%%
-Show the diamond problem causing an ambiguous call. #q26 #diamond-problem #oop-concepts
+Show the diamond problem causing an ambiguous call. Why does calling `display()` on `Derived` fail when both parents share `Base`? #q26 #diamond-problem #oop-concepts
 
 ---
 ```cpp
@@ -52,9 +52,16 @@ How do you solve the diamond problem in C++? #q26 #diamond-problem #oop-concepts
 - **Explicit qualification** — `d.BaseA::display();`
 - **Virtual functions** in the shared base for run-time dispatch
 - **Override in derived** — provide a single `display()` in `Derived`
-- With virtual bases, constructors may need to **initialize the virtual base** explicitly:
+- With virtual bases, constructors may need to **initialize the virtual base** explicitly
 
+%%%MOCHI_CARD%%%
+Show solving the diamond problem with virtual inheritance. How does `Derived` ensure a single shared `Base` subobject is constructed? #q26 #diamond-problem #oop-concepts
+
+---
 ```cpp
+class BaseA : virtual public Base {};
+class BaseB : virtual public Base {};
+
 class Derived : public BaseA, public BaseB {
 public:
     Derived() : Base(), BaseA(), BaseB() {}

@@ -4,10 +4,23 @@ What is the difference between `unique_ptr`, `shared_ptr`, and `weak_ptr`? #q16 
 All three manage heap objects safely; they differ in **ownership** and **cost**: exclusive vs shared vs non-owning observation.
 
 %%%MOCHI_CARD%%%
-Show code examples of `unique_ptr`, `shared_ptr`, and `weak_ptr`. #q16 #smart-pointers #memory-pointers
+Compare `unique_ptr`, `shared_ptr`, and `weak_ptr`. #q16 #smart-pointers #memory-pointers
+
+---
+
+| Pointer | Ownership | Notes |
+| --- | --- | --- |
+| **`unique_ptr`** | **Exclusive** | Move-only; cheapest; auto-delete on scope end |
+| **`shared_ptr`** | **Shared** | **Refcount**; last owner deletes; thread-safe count ops |
+| **`weak_ptr`** | **None** | Observes `shared_ptr` target; **`lock()`** to use; breaks cycles |
+
+%%%MOCHI_CARD%%%
+Show basic usage of `unique_ptr`, `shared_ptr`, and `weak_ptr`. Give one short example of each ownership model. #q16 #smart-pointers #memory-pointers
 
 ---
 ```cpp
+#include <memory>
+
 std::unique_ptr<int> ptr = std::make_unique<int>(42);
 
 std::shared_ptr<int> ptr1 = std::make_shared<int>(42);
@@ -24,18 +37,16 @@ if (auto locked = weak.lock()) {
 ```
 
 %%%MOCHI_CARD%%%
-Compare `unique_ptr`, `shared_ptr`, and `weak_ptr`. #q16 #smart-pointers #memory-pointers
+How does `weak_ptr` break circular references? #q16 #smart-pointers #memory-pointers
 
 ---
 
-| Pointer | Ownership | Notes |
-| --- | --- | --- |
-| **`unique_ptr`** | **Exclusive** | Move-only; cheapest; auto-delete on scope end |
-| **`shared_ptr`** | **Shared** | **Refcount**; last owner deletes; thread-safe count ops |
-| **`weak_ptr`** | **None** | Observes `shared_ptr` target; **`lock()`** to use; breaks cycles |
+- **`shared_ptr`** members in a cycle keep refcounts ≥ 1 forever.
+- Store the **back-reference** as **`weak_ptr`** so one direction does not own.
+- When the scope ends, both **`A`** and **`B`** can destruct normally.
 
 %%%MOCHI_CARD%%%
-How does `weak_ptr` break circular references? #q16 #smart-pointers #memory-pointers
+Show breaking a cycle with `weak_ptr`. How can mutual `shared_ptr` links prevent destruction, and how does `weak_ptr` fix it? #q16 #smart-pointers #memory-pointers
 
 ---
 ```cpp

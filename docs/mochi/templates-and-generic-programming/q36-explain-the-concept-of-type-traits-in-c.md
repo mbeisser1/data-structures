@@ -32,7 +32,7 @@ What are commonly used type traits? #q36 #type-traits #templates-generic
 - **`std::add_pointer<T>`**
 
 %%%MOCHI_CARD%%%
-Show type traits with `if constexpr`. #q36 #type-traits #templates-generic
+Show type traits with `if constexpr`. How does `print_type_info<T>()` report whether `T` is integral, floating-point, or neither? #q36 #type-traits #templates-generic
 
 ---
 ```cpp
@@ -51,10 +51,8 @@ void print_type_info() {
 }
 ```
 
-- C++17: **`std::is_integral_v<T>`** instead of **`::value`**
-
 %%%MOCHI_CARD%%%
-Show a custom type trait. #q36 #type-traits #templates-generic
+Show a custom type trait. How do you detect whether `T` is a `std::vector` at compile time? #q36 #type-traits #templates-generic
 
 ---
 ```cpp

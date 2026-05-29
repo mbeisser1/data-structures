@@ -4,7 +4,7 @@ How do you create custom exception classes? #q44 #custom-exceptions #exceptions
 Derive from **`std::exception`** (or a standard subclass), **override `what()`**, and add fields for extra context.
 
 %%%MOCHI_CARD%%%
-Show a custom `FileException` class. #q44 #custom-exceptions #exceptions
+Show a custom `FileException` class. How do you extend `std::exception` with a message, file name, and error code? #q44 #custom-exceptions #exceptions
 
 ---
 ```cpp
@@ -31,7 +31,7 @@ public:
 ```
 
 %%%MOCHI_CARD%%%
-Show catching and using a custom exception. #q44 #custom-exceptions #exceptions
+Show catching and using a custom exception. How do you throw `FileException` and read `what()`, file name, and error code in a handler? #q44 #custom-exceptions #exceptions
 
 ---
 ```cpp

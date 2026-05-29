@@ -16,22 +16,15 @@ Enables **static (compile-time) polymorphism** without virtual functions.
 How does CRTP work? #q81 #crtp #advanced-cpp
 
 ---
-
-The base casts **`this`** to **`Derived*`** and calls derived methods:
-
-```cpp
-static_cast<Derived*>(this)->implementation();
-```
-
-This is **compile-time binding** — no vtable, no runtime dispatch.
-
-The derived type is known at compile time when you call through a concrete **`Derived`**.
+The base casts **`this`** to **`Derived*`** and calls derived methods — **compile-time binding** (no vtable). The derived type is known when you call through a concrete **`Derived`**.
 
 %%%MOCHI_CARD%%%
-Show CRTP in action. #q81 #crtp #advanced-cpp
+Show CRTP in action. How does `Base<Derived>` call into `Derived` without virtual functions? #q81 #crtp #advanced-cpp
 
 ---
 ```cpp
+#include <iostream>
+
 template <typename Derived>
 class Base {
 public:
@@ -54,6 +47,13 @@ public:
         std::cout << "Derived::static_implementation\n";
     }
 };
+
+int main() {
+    Derived d;
+    d.interface();
+    Derived::static_interface();
+    return 0;
+}
 ```
 
 Used in **`std::enable_shared_from_this`**, expression templates, mixin bases.

@@ -25,7 +25,7 @@ What are common `std::exception` derived types? #q49 #std-exception #exceptions
 All provide **`what() const noexcept`** (some add **`code()`** or path accessors).
 
 %%%MOCHI_CARD%%%
-Show catching multiple derived exceptions. #q49 #std-exception #exceptions
+Show catching multiple derived exceptions. How do you throw different standard types and handle them through `const std::exception&`? #q49 #std-exception #exceptions
 
 ---
 ```cpp

@@ -6,7 +6,7 @@ Modern CPUs expose **SIMD** (SSE, AVX, AVX-512) — one instruction on **multipl
 **`-O3 -march=native`** enables auto-vectorization; intrinsics for hand-tuned kernels.
 
 %%%MOCHI_CARD%%%
-Show SIMD array add with AVX2 intrinsics. #q98 #simd #performance
+Show SIMD array addition. How do you add two `float` arrays using vector instructions instead of a scalar loop? #q98 #simd #performance
 
 ---
 ```cpp

@@ -26,7 +26,7 @@ What advantages do functors have over function pointers? #q57 #functors #stl
 - **Lambdas** — anonymous functors (C++11+)
 
 %%%MOCHI_CARD%%%
-Show a unary predicate functor with `std::remove_if`. Implement `IsEven` as a callable testing divisibility by 2; remove matching elements from `nums` and erase the tail — output should be `1 3 5 7 9`. #q57 #functors #stl
+Show a unary predicate functor with `std::remove_if`. How do you implement a callable that removes even numbers from a `vector`? #q57 #functors #stl
 
 ---
 ```cpp
@@ -55,7 +55,7 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-Show a stateful functor with `std::transform`. Use `SumWithAccumulator` with a running-total member so in-place transform yields cumulative sums `1 3 6 10 15`. #q57 #functors #stl
+Show a stateful functor with `std::transform`. How can a functor member variable produce a running total in-place? #q57 #functors #stl
 
 ---
 ```cpp
@@ -85,7 +85,7 @@ int main() {
 ```
 
 %%%MOCHI_CARD%%%
-Show modern C++ functor alternatives. Replace named functors with a lambda predicate, a generic lambda, and CTAD on `std::greater` (no explicit `<int>`). #q57 #functors #stl
+Show modern C++ functor alternatives. How do lambdas, generic lambdas, and CTAD replace hand-written functor types? #q57 #functors #stl
 
 ---
 ```cpp

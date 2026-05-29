@@ -26,7 +26,7 @@ What are common deadlock prevention strategies? #q64 #deadlock #concurrency
 Modern systems may **detect and recover** instead of preventing entirely.
 
 %%%MOCHI_CARD%%%
-Show resource ordering to prevent circular wait. #q64 #deadlock #concurrency
+Show resource ordering to prevent circular wait. How do you lock two resources in a consistent order from different call paths? #q64 #deadlock #concurrency
 
 ---
 ```cpp
@@ -53,8 +53,6 @@ void useResources(Resource& r1, Resource& r2) {
     // Use resources...
 }
 ```
-
-Always lock **lower ID first** — breaks circular wait even when call order differs.
 
 %%%MOCHI_CARD%%%
 What modern approaches reduce deadlock risk? #q64 #deadlock #concurrency

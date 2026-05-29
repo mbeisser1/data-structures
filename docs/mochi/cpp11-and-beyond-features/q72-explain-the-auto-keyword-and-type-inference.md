@@ -3,11 +3,9 @@ Explain the `auto` keyword and type inference. #q72 #auto #cpp11-beyond
 ---
 **`auto`** lets the compiler **deduce a variable’s type** from its initializer (C++11).
 
-```cpp
-auto it = myMap.begin();  // instead of long iterator type
-```
-
 Deduction happens at **compile time** — not runtime dynamic typing.
+
+Always initialize **`auto`** variables — `auto x;` is invalid.
 
 %%%MOCHI_CARD%%%
 What are key uses of `auto`? #q72 #auto #cpp11-beyond
@@ -20,10 +18,8 @@ What are key uses of `auto`? #q72 #auto #cpp11-beyond
 - **Return type deduction** (C++14) — `auto foo() { return x * y; }`
 - **Non-type template param** (C++17) — `template<auto N>`
 
-Always initialize **`auto`** variables — `auto x;` is invalid.
-
 %%%MOCHI_CARD%%%
-Show practical `auto` with vectors and iterators. #q72 #auto #cpp11-beyond
+Show practical `auto` with vectors and iterators. When should you use `auto` vs `const auto&` in loops? #q72 #auto #cpp11-beyond
 
 ---
 ```cpp
@@ -45,8 +41,6 @@ int main() {
     return 0;
 }
 ```
-
-Prefer **`const auto&`** in range-for when you don’t need copies.
 
 %%%MOCHI_CARD%%%
 What are limitations of `auto`? #q72 #auto #cpp11-beyond

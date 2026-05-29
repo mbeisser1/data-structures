@@ -24,7 +24,7 @@ What are key features of `std::atomic`? #q66 #std-atomic #concurrency
 Works on integral types, pointers, and user types meeting **`is_trivially_copyable`** requirements.
 
 %%%MOCHI_CARD%%%
-Show thread-safe increment with `std::atomic`. #q66 #std-atomic #concurrency
+Show thread-safe increment with `std::atomic`. How do multiple threads safely increment the same counter? #q66 #std-atomic #concurrency
 
 ---
 ```cpp
@@ -49,8 +49,6 @@ int main() {
     return 0;
 }
 ```
-
-**Expected:** `2000000`.
 
 %%%MOCHI_CARD%%%
 What should you consider when using atomics? #q66 #std-atomic #concurrency
