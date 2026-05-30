@@ -1,7 +1,7 @@
 What is operator overloading in C++? #q10 #operator-overloading #cpp-basics
 
 ---
-**Operator overloading** lets you define how **operators** (`+`, `==`, `<<`, etc.) behave for **user-defined types**, making custom classes read more naturally while keeping type-specific semantics.
+**Operator overloading** allows developers to define **custom behaviors** for operators when used with **user-defined types** such as classes and structures — more intuitive, expressive code for custom types.
 
 %%%MOCHI_CARD%%%
 How can operators be overloaded in C++? #q10 #operator-overloading #cpp-basics
@@ -55,8 +55,9 @@ What are operator overloading best practices? #q10 #operator-overloading #cpp-ba
 
 ---
 
-- Match **intuitive** built-in behavior; preserve **clear semantics**.
-- Overload **sparingly**; document non-obvious behavior.
+- Maintain **intuitive behavior** consistent with built-in operators.
+- Preserve **clear semantics**; implement **efficiently** for hot operations.
+- Overload **sparingly**; **document** behavior that deviates from expectations.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain operator overloading in C++. #q10 #operator-overloading #cpp-basics

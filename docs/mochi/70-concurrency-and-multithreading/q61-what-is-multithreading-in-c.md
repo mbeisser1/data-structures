@@ -1,15 +1,13 @@
 What is multithreading in C++? #q61 #multithreading #concurrency
 
 ---
-**Multithreading** runs multiple **threads** concurrently within one process — sharing address space but having independent execution flow.
+**Multithreading** in C++ uses multiple **threads** to execute code **concurrently** — valuable for improving **performance** and **responsiveness**, especially in CPU-bound and I/O-bound tasks.
 
 **Key concepts:**
 
 - **Thread** — unit of CPU utilization
 - **Concurrency** — tasks make progress over time (may interleave on one core)
 - **Parallelism** — tasks run simultaneously on multiple cores
-
-Useful for **CPU-bound** and **I/O-bound** work.
 
 %%%MOCHI_CARD%%%
 What C++11+ facilities support multithreading? #q61 #multithreading #concurrency

@@ -1,7 +1,7 @@
 What are templates in C++? #q31 #templates #templates-generic
 
 ---
-**Templates** enable **generic programming** — write one pattern that works for many types while keeping **type safety**. Heavily used in the **STL** for containers and algorithms.
+**Templates** in C++ enable **generic programming** — code that works with **multiple data types** without sacrificing **type safety**. They are extensively used in the **Standard Template Library (STL)** for containers and algorithms.
 
 %%%MOCHI_CARD%%%
 Show a basic function template. How do you write one `add` that works for both `int` and `double`? #q31 #templates #templates-generic

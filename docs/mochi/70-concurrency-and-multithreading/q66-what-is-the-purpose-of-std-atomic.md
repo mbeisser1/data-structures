@@ -1,7 +1,7 @@
 What is the purpose of `std::atomic`? #q66 #std-atomic #concurrency
 
 ---
-**`std::atomic`** provides **lock-free atomic read-modify-write** operations with defined **cross-thread visibility**.
+**`std::atomic`** handles **concurrent data access** and ensures **memory visibility** in multithreaded programs — achieving synchronization through **hardware and memory model** support, often more efficient than locks for simple operations.
 
 **Purpose:**
 

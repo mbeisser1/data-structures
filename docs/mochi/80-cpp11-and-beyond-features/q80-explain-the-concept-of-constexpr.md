@@ -1,9 +1,7 @@
 Explain the concept of `constexpr`. #q80 #constexpr #cpp11-beyond
 
 ---
-**`constexpr`** marks values or functions evaluable at **compile time** when given compile-time inputs (C++11+, expanded in C++14/17/20).
-
-Enables constants in templates, array sizes, and compile-time checks — with fallback to **runtime** when args are dynamic.
+**`constexpr`** declares that a function or variable’s value **can be evaluated at compile time** when inputs are known then (C++11+, greatly expanded in later standards). It moves work from **run time** to **compile time** and enables stronger compile-time checks — with **run-time** use still allowed when inputs are dynamic.
 
 %%%MOCHI_CARD%%%
 What are key rules for `constexpr`? #q80 #constexpr #cpp11-beyond

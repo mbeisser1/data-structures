@@ -1,7 +1,7 @@
 How do you create and manage threads using `std::thread`? #q62 #std-thread #concurrency
 
 ---
-Create a **`std::thread`** with a **callable** (function, lambda, functor).
+**`std::thread`** provides a powerful way to work with threads in C++. Create a thread by instantiating **`std::thread`** with a **callable** (function, lambda, or functor).
 
 **Always** **`join()`** or **`detach()`** before destruction — otherwise **`std::terminate`**.
 

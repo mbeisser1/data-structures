@@ -1,7 +1,7 @@
 Explain the concept of mutex and its types in C++. #q63 #mutex #concurrency
 
 ---
-A **mutex** (mutual exclusion) ensures **only one thread** holds a lock on a shared resource at a time — preventing **data races**.
+A **mutex** (mutual exclusion) is a synchronization primitive that ensures **only one thread** can access a shared resource at a time — preventing **data races** and maintaining **thread safety**.
 
 **C++ mutex types:**
 

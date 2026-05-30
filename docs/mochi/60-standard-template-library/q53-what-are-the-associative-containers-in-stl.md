@@ -1,7 +1,7 @@
 What are the associative containers in STL? #q53 #associative-containers #stl
 
 ---
-**Associative containers** store **keys** (or key-value pairs) optimized for **fast lookup**.
+**Associative containers** in the STL are optimized for **quick retrieval and storage** of key-value pairs or unique elements — using **trees** or **hash tables** internally.
 
 **Ordered** (typically red-black tree, **O(log n)**):
 

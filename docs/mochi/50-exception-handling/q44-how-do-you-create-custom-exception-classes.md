@@ -1,7 +1,7 @@
 How do you create custom exception classes? #q44 #custom-exceptions #exceptions
 
 ---
-Derive from **`std::exception`** (or a standard subclass), **override `what()`**, and add fields for extra context.
+Create **custom exception classes** by **inheriting from `std::exception`** (or its derived classes) — define exceptions tailored to your application’s needs. **Override `what()`** and add members for extra context.
 
 %%%MOCHI_CARD%%%
 Show a custom `FileException` class. How do you extend `std::exception` with a message, file name, and error code? #q44 #custom-exceptions #exceptions

@@ -1,7 +1,7 @@
 How do you use algorithms like `sort`, `find`, and `binary_search` in STL? #q58 #stl-algorithms #stl
 
 ---
-STL algorithms in **`<algorithm>`** operate on **iterator ranges** `[first, last)`.
+The STL provides a **rich set of algorithms** in **`<algorithm>`** that operate on **iterator ranges** `[first, last)` across vectors, lists, sets, maps, and more.
 
 **Pattern:**
 

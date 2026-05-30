@@ -1,7 +1,7 @@
 How do you use `std::chrono` for time-related operations? #q78 #std-chrono #cpp11-beyond
 
 ---
-**`std::chrono`** (`<chrono>`) provides **type-safe** time durations, time points, and clocks — independent of platform `time_t` quirks.
+**`std::chrono`** is C++’s standard library for **time-related operations** — a **robust, type-safe, hardware-independent** way to work with durations, time points, and clocks.
 
 **Three clocks:**
 

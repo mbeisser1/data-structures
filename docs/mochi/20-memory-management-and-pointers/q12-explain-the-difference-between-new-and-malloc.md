@@ -1,7 +1,7 @@
 Explain the difference between `new` and `malloc()`. #q12 #new-vs-malloc #memory-pointers
 
 ---
-Both allocate **dynamic memory**, but **`new`** is C++ (type-aware, ctor/dtor) while **`malloc()`** is C (raw bytes, no construction).
+In C++, both **`new`** and **`malloc()`** are used for **dynamic memory allocation**, but they have different origins and characteristics — **`new`** is C++; **`malloc()`** comes from C.
 
 %%%MOCHI_CARD%%%
 How do `new` and `malloc()` differ on return type and failure? #q12 #new-vs-malloc #memory-pointers

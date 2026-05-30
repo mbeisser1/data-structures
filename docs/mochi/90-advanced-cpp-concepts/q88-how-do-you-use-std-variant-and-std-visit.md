@@ -1,7 +1,7 @@
 How do you use `std::variant` and `std::visit`? #q88 #variant-visit #advanced-cpp
 
 ---
-**`std::variant<Ts...>`** (C++17) is a **type-safe union** — holds **one** of several types at a time.
+**`std::variant`** and **`std::visit`** (C++17) handle **sum types** / **discriminated unions** — **`variant`** is a **type-safe union**; **`visit`** performs **type-based dispatch** on the active alternative.
 
 Assign alternatives with **`=`**; track active type with **`index()`**, **`holds_alternative<T>`**.
 

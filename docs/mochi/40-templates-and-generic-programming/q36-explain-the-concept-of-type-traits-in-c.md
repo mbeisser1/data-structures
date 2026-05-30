@@ -1,7 +1,7 @@
 Explain the concept of type traits in C++. #q36 #type-traits #templates-generic
 
 ---
-**Type traits** query and transform type properties at **compile time** — usually from `<type_traits>`. Essential for **template metaprogramming** and conditional generic code.
+**Type traits** let you **query and manipulate type properties at compile time** — typically template structs in `<type_traits>` exposing a static **`value`** or a **`type`** alias. Especially useful in **template metaprogramming** and generic programming.
 
 %%%MOCHI_CARD%%%
 What are commonly used type traits? #q36 #type-traits #templates-generic

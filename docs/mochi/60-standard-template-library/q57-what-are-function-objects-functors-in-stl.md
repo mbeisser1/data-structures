@@ -1,7 +1,7 @@
 What are function objects (functors) in STL? #q57 #functors #stl
 
 ---
-A **functor** is a **callable object** — usually a class with **`operator()`** overloaded — passed to STL algorithms.
+**Function objects** (**functors**) let function calls be treated as **first-class objects** — especially useful with STL algorithms. They are **user-defined types** that emulate callables by overloading **`operator()`**.
 
 **STL algorithms accept:**
 
@@ -16,9 +16,9 @@ What advantages do functors have over function pointers? #q57 #functors #stl
 
 ---
 
-- **Statefulness** — member variables persist across invocations
-- **Inlining** — compilers often optimize functor calls better than indirect calls
-- **Type safety** — no void* or manual casting
+- **Statefulness** — carry and modify internal state across invocations
+- **Performance** — compilers often optimize inlined functor calls better than function pointers
+- **Task-specific** — encapsulate complex strategies for algorithms
 
 **Types:**
 

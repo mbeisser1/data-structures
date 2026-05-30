@@ -4,20 +4,20 @@ What are the advantages and disadvantages of using templates? #q39 #templates-pr
 
 **Advantages:**
 
-- **Code reuse** — one generic definition for many types
-- **Type safety** — errors caught at compile time
-- **Performance** — monomorphization enables inlining/specialization
-- **Flexibility** — custom strategies per type
-- **Compile-time polymorphism** — often faster than virtual dispatch
+- **Code reusability** — generic functions/classes operate on any suitable type
+- **Type safety** — strong type-checking at compile time without losing flexibility
+- **Performance** — specialized instantiations enable compiler optimizations
+- **Flexibility** — tailor memory management and processing per type
+- **Compile-time polymorphism** — often more efficient than run-time virtual dispatch
 
 **Disadvantages:**
 
-- **Code bloat** — separate instantiation per type increases binary size
-- **Long compile times** — heavy template code in headers
-- **Cryptic errors** — deep instantiation stacks
-- **Harder debugging** — issues appear only for certain `T`
-- **Steep learning curve** — especially TMP
-- **Header-only** implementations — hurts separate compilation
+- **Code bloat** — many instantiations increase executable size and cache pressure
+- **Compilation time** — complex templated libraries slow builds
+- **Error messages** — long, hard-to-read diagnostics (especially with TMP)
+- **Debuggability** — some issues surface only for specific instantiations
+- **Learning curve** — advanced template features require deep C++ knowledge
+- **Header-only libraries** — implementations usually live in headers, hurting separate compilation
 
 %%%MOCHI_CARD%%%
 Show a function template illustrating reuse. How does one `max` definition serve multiple types? #q39 #templates-pros-cons #templates-generic

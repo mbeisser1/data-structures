@@ -1,17 +1,17 @@
 What is object-oriented programming (OOP) in C++? #q03 #oop
 
 ---
-**Object-oriented programming** organizes code into reusable, self-contained **objects**. Each object combines **data** (attributes) and **methods** (behaviors that use that data), instead of scattering state and logic across unrelated functions.
+**Object-oriented programming (OOP)** organizes code into reusable, self-contained **objects**. Each object groups **data attributes** (characteristics) and **methods** (behaviors) that operate on that data.
 
 %%%MOCHI_CARD%%%
 What are the four pillars of object-oriented programming? #q03 #oop
 
 ---
 
-- **Encapsulation** — hide internal state; expose a controlled public interface.
-- **Inheritance** — “is-a” relationship; derived types reuse/extend base behavior.
-- **Polymorphism** — treat objects as their base type while keeping specialized behavior.
-- **Abstraction** — focus on what something does, not every implementation detail.
+- **Encapsulation** — objects hide internal state and behavior; expose a controlled public interface.
+- **Inheritance** — “is-a” relationship; derived objects access attributes and behaviors of a base class.
+- **Polymorphism** — objects treated as instances of a parent type while exhibiting their own behavior.
+- **Abstraction** — simplify complex systems by focusing on high-level actions while hiding implementation details.
 
 %%%MOCHI_CARD%%%
 What is the relationship between a class and an object in C++? #q03 #oop

@@ -1,7 +1,7 @@
 How do you profile C++ code for performance optimization? #q95 #profiling #performance
 
 ---
-**Profiling** finds where CPU/memory time is spent — optimize **hot spots**, not guesses.
+**Profiling** is a crucial technique for **detailed performance analysis** — identify **bottlenecks** and optimize the **most time-consuming** parts, not guesses.
 
 **Workflow:**
 

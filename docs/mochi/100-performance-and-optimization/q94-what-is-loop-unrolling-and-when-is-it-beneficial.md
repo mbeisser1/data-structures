@@ -1,9 +1,9 @@
 What is loop unrolling and when is it beneficial? #q94 #loop-unrolling #performance
 
 ---
-**Loop unrolling** duplicates loop body work so each iteration handles **multiple elements** — less branch/counter overhead per element.
+**Loop unrolling** reduces **loop control overhead** (counters, branches) by executing **multiple iterations’ work** per loop step — improving **CPU pipeline** utilization and enabling better **vectorization**.
 
-Often done by the **compiler** (`-O2`/`-O3`); manual unroll for hot loops when profiling shows benefit.
+Often done by the **compiler**; manual unroll when profiling shows benefit.
 
 %%%MOCHI_CARD%%%
 What are benefits and trade-offs of loop unrolling? #q94 #loop-unrolling #performance

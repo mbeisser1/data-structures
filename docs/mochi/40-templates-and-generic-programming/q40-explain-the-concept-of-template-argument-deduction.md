@@ -1,7 +1,7 @@
 Explain the concept of template argument deduction. #q40 #template-argument-deduction #templates-generic
 
 ---
-**Template argument deduction (TAD)** lets the compiler **infer template parameters** from function arguments — less explicit type noise at call sites.
+**Template argument deduction** lets the compiler **automatically infer template arguments** from function call parameters — reducing the need for explicit type specifications.
 
 %%%MOCHI_CARD%%%
 How does template argument deduction work? #q40 #template-argument-deduction #templates-generic

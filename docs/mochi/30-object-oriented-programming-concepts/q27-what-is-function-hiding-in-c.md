@@ -1,7 +1,7 @@
 What is function hiding in C++? #q27 #function-hiding #oop-concepts
 
 ---
-**Function hiding** happens when a derived class declares a function **with the same name** as a base function but a **different signature** — the base overloads are **hidden**, not overridden.
+**Function hiding** occurs when a derived class declares a function with the **same name** as a base function but a **different signature**. The base function is **hidden** in the derived class — not overloaded or overridden.
 
 %%%MOCHI_CARD%%%
 Show an example of function hiding. Why does `display("Hello")` work on `Derived` but a no-arg `display()` call does not? #q27 #function-hiding #oop-concepts
@@ -34,16 +34,19 @@ How is function hiding different from overriding? #q27 #function-hiding #oop-con
 
 ---
 
-- **Hiding** — same name, **different parameters**; base overloads disappear from derived scope
-- **Overriding** — same name **and signature** (with `virtual`); dynamic dispatch replaces base implementation
+- **Hiding** — same name, **different signature**; base overloads are not accessible through the derived object
+- **Overriding** — same name **and signature** on a **`virtual`** function; dynamic dispatch replaces the base implementation
+- Hiding can cause **unexpected behavior** and is often considered error-prone
 
 %%%MOCHI_CARD%%%
 How do you prevent unwanted function hiding? #q27 #function-hiding #oop-concepts
 
 ---
 
-- Use **`override`** when intentionally overriding a **virtual** with the **same signature**
-- Use **`using Base::fn;`** to bring base overloads into the derived class scope when adding new overloads
+- Use **`virtual`** on base functions meant to be overridden
+- Use **`override`** in derived classes when overriding with the **same signature**
+- Use **`using Base::fn;`** to bring base overloads into derived scope when adding new overloads
+- Be explicit about intent to avoid unintended hiding
 
 %%%MOCHI_CARD%%%
 Show preventing hiding with `override`. How do you replace a virtual `display()` in the base with a derived implementation? #q27 #function-hiding #oop-concepts

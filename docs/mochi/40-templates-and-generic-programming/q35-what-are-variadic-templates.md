@@ -1,7 +1,7 @@
 What are variadic templates? #q35 #variadic-templates #templates-generic
 
 ---
-**Variadic templates** (C++11) accept a **variable number** of template arguments — types and/or values — enabling flexible utilities like **`std::tuple`**, **`make_unique`**, and **`std::visit`**.
+**Variadic templates** (C++11) let templates accept an **arbitrary number** of arguments — type-variadic and/or value-variadic. The name comes from **“variety”** — flexible utilities include **`std::tuple`**, **`std::make_unique`**, and **`std::visit`**.
 
 %%%MOCHI_CARD%%%
 What is the syntax for variadic templates? #q35 #variadic-templates #templates-generic

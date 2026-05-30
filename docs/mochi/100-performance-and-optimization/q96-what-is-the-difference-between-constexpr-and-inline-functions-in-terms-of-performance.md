@@ -4,15 +4,15 @@ What is the difference between `constexpr` and `inline` functions in terms of pe
 
 **`constexpr`**
 
-- Can run at **compile time** when args are constants
-- **`constexpr int x = square(5);`** — no runtime cost
-- At runtime, behaves like a normal function unless inlined
+- Designed for **compile-time evaluation** in constant expressions — can eliminate runtime work entirely
+- Can also run at **runtime** with no special benefit unless optimized/inlined
+- Enables **broader compile-time optimizations**
 
 **`inline`**
 
-- Hints **inlining** at call sites — removes call overhead
-- May **duplicate** code → I-cache bloat if overused
-- Modern compilers inline without keyword
+- Suggests replacing **calls with the function body** — reduces **call overhead**
+- May **increase code size** (duplication at each call site)
+- In modern C++, compilers often inline **without** the keyword
 
 %%%MOCHI_CARD%%%
 Show compile-time vs runtime behavior. When does `constexpr` eliminate runtime work that `inline` alone might not? #q96 #constexpr-vs-inline #performance

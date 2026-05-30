@@ -1,13 +1,13 @@
 What is the purpose of `std::exception` and its derived classes? #q49 #std-exception #exceptions
 
 ---
-**`std::exception`** is the **base class** for standard C++ exceptions.
+**`std::exception`** is the **base class** for all standard C++ exceptions — a foundational structure for exception handling. Derived classes model **specific error scenarios**.
 
 **Benefits:**
 
-- **Polymorphic handling** via **`const std::exception&`**
-- **`what()`** returns a human-readable message
-- Derived types model **specific error categories** (logic vs runtime vs allocation)
+- **Polymorphic flexibility** — catch via base reference/pointer
+- **Type identification** — e.g. **`dynamic_cast`** to a derived type when needed
+- **`what()`** — human-readable description of the error
 
 %%%MOCHI_CARD%%%
 What are common `std::exception` derived types? #q49 #std-exception #exceptions

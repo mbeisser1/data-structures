@@ -1,7 +1,7 @@
 What is a constructor in C++? #q07 #constructors #cpp-basics
 
 ---
-A **constructor** is a special member function that **initializes** an object. It runs **automatically** when an object is created. Constructors have the same name as the class and no return type.
+A **constructor** is a special member function **responsible for initializing** instances of a class. It is called **automatically** when an object is created.
 
 %%%MOCHI_CARD%%%
 What are the main types of constructors in C++? #q07 #constructors #cpp-basics

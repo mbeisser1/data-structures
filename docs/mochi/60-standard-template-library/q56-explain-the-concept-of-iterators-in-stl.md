@@ -1,14 +1,14 @@
 Explain the concept of iterators in STL. #q56 #iterators #stl
 
 ---
-**Iterators** are objects that **traverse and access** container elements — the glue between **containers** and **algorithms**.
+**Iterators** in the STL are objects that provide a way to **access and traverse** elements in containers — **abstracting the underlying data structure** and linking containers to algorithms.
 
 **Advantages:**
 
-- Generic algorithms work on any container with suitable iterators
-- Enable **range-based for** (C++11)
-- Consistent traversal interface
-- Often avoid manual index bookkeeping
+- Enable **generic algorithms** across different container types
+- Support **range-based for** loops (C++11+)
+- Provide a **consistent** traversal interface
+- Often more efficient than manual index-based access where iterators fit
 
 %%%MOCHI_CARD%%%
 What are the STL iterator categories? #q56 #iterators #stl

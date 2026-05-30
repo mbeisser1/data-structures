@@ -1,16 +1,16 @@
 Explain the concept of friend functions and classes. #q28 #friend #oop-concepts
 
 ---
-**Friend functions** and **friend classes** grant **non-member** or **external-class** access to a class’s **`private`** and **`protected`** members — use sparingly to preserve encapsulation.
+**Friend functions** and **friend classes** are special constructs that allow **controlled access** to a class’s **`private`** and **`protected`** members. Use them sparingly — overuse can break encapsulation.
 
 %%%MOCHI_CARD%%%
 What is a friend function? #q28 #friend #oop-concepts
 
 ---
 
-- Declared with **`friend`** inside the class, **defined outside**
-- **Not a member function**, but can access private/protected members
-- Useful when a free function needs intimate access (e.g. operators, helpers)
+- Declared inside a class with **`friend`**, but **defined outside** the class
+- **Not a member function**, yet has direct access to **`private`** and **`protected`** members
+- Typically used when a function needs internal access to one or more classes
 
 %%%MOCHI_CARD%%%
 Show a friend function example. How can a non-member `calculateArea` read private `Rectangle` dimensions? #q28 #friend #oop-concepts
@@ -46,8 +46,9 @@ What is a friend class? #q28 #friend #oop-concepts
 ---
 
 - Declared with **`friend class Other;`** inside the class
-- **All members** of the friend class can access private/protected members
-- Friendship is **granted**, not mutual, and **not inherited**
+- **All members** of the friend class can access **`private`** and **`protected`** members
+- Useful when two classes must work closely together and share internal data
+- Friendship is **not mutual** and **not inherited**
 
 %%%MOCHI_CARD%%%
 Show a friend class example. How can `BankManager` read private `BankAccount` fields? #q28 #friend #oop-concepts

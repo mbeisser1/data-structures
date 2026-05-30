@@ -2,17 +2,19 @@ What is the difference between synchronous and asynchronous exceptions? #q47 #sy
 
 ---
 
+In C++, exceptions are classified as **synchronous** or **asynchronous** — they differ in behavior and typical use cases.
+
 **Synchronous exceptions**
 
-- Triggered by **explicit code** or operations
-- Thrown **immediately** at the failure point
-- Handled with normal **`try`/`catch`**
+- Triggered by **explicit code statements** or operations
+- Thrown **immediately** at the point of the issue
+- Disrupt normal flow; handled with **`try`/`catch`**
 
 **Asynchronous exceptions**
 
-- Often from **external events** or system issues
-- May occur **any time**
-- Harder to catch reliably; often bridged via **`std::promise`/`std::future`**
+- Often caused by **external events** or **system-level issues**
+- May occur **at any time** during execution
+- Do not immediately disrupt flow; often **harder to catch reliably** (e.g. via **`std::promise`/`std::future`**)
 
 %%%MOCHI_CARD%%%
 Show synchronous vs asynchronous exception handling. How do you catch a direct `throw` vs an error delivered through a `future`? #q47 #sync-async-exceptions #exceptions

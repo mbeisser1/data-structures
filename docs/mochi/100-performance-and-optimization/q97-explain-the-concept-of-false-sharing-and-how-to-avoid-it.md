@@ -1,9 +1,7 @@
 Explain the concept of false sharing and how to avoid it. #q97 #false-sharing #performance
 
 ---
-**False sharing** occurs when **different threads** write **different variables** that live on the **same cache line** (~64 bytes). Hardware enforces coherence per **line**, not per variable — cores ping-pong invalidations.
-
-Logically independent data; physically shared cache line.
+**False sharing** is a performance issue when multiple threads, each with its **own cache**, access **independent data** in the **same cache line** — causing excessive **cache invalidations** even though the data is not logically shared.
 
 %%%MOCHI_CARD%%%
 How does false sharing happen? #q97 #false-sharing #performance

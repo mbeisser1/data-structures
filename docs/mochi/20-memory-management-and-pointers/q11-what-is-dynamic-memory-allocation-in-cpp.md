@@ -1,20 +1,14 @@
 What is dynamic memory allocation in C++? #q11 #dynamic-memory #memory-pointers
 
 ---
-**Dynamic memory allocation** lets you obtain and release memory at **run time**, controlling:
-
-- Object **lifetime**
-- **Size**
-- **Heap** placement
-
-Unlike automatic (stack) or static storage.
+**Dynamic memory allocation** in C++ allows memory management **during program execution**. Unlike automatic and static storage, it lets you **explicitly control** an object’s **lifetime**, **size**, and **location** in memory.
 
 %%%MOCHI_CARD%%%
 Where does dynamic memory come from, and how is it managed in C++? #q11 #dynamic-memory #memory-pointers
 
 ---
 
-- **Heap** — large runtime pool; grows/shrinks as needed (vs the limited stack).
+- **Heap** — large pool available **throughout program runtime**; grows/shrinks as needed (vs the more limited stack).
 - **`new` / `delete`** — allocate/release single objects
 - **`new[]` / `delete[]`** — arrays
 - Destructors run on **`delete`**

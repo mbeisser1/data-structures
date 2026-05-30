@@ -1,14 +1,14 @@
 Explain the concept of modules in C++20. #q90 #modules #advanced-cpp
 
 ---
-**Modules** replace **`#include`** with **`import`** — faster builds, clearer boundaries, better encapsulation.
+C++20 **modules** are a more efficient, modern alternative to **header files** and **`#include`** — use **`import`** instead of textual inclusion.
 
 **Benefits over headers:**
 
-- **Faster compilation** — parse once, reuse BMI (built module interface)
-- **Stronger encapsulation** — only **`export`**ed names visible
-- Fewer **ODR** / macro leakage issues
-- Explicit **dependency graph**
+- **Performance** — significantly faster builds by eliminating redundant header parsing
+- **Encapsulation** — only **`export`** what you intend; hide implementation details
+- **ODR** — definitions included once, fewer linking errors
+- **Improved compilation model** — clearer dependencies; modules can be precompiled
 
 %%%MOCHI_CARD%%%
 What are module unit types? #q90 #modules #advanced-cpp

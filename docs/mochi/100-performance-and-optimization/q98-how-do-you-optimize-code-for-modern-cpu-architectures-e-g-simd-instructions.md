@@ -1,9 +1,7 @@
 How do you optimize code for modern CPU architectures (e.g., SIMD instructions)? #q98 #simd #performance
 
 ---
-Modern CPUs expose **SIMD** (SSE, AVX, AVX-512) — one instruction on **multiple** data lanes. Combine with **cache-friendly** access and compiler flags.
-
-**`-O3 -march=native`** enables auto-vectorization; intrinsics for hand-tuned kernels.
+Optimize for modern CPUs with **data vectorization** (SIMD: SSE, AVX, AVX-512), **loop unrolling**, and **cache optimization** — plus compiler flags like **`-O3 -march=native`** for auto-vectorization and intrinsics for hand-tuned kernels.
 
 %%%MOCHI_CARD%%%
 Show SIMD array addition. How do you add two `float` arrays using vector instructions instead of a scalar loop? #q98 #simd #performance

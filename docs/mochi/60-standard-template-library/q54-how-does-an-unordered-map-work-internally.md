@@ -1,7 +1,7 @@
 How does an `unordered_map` work internally? #q54 #unordered-map #stl
 
 ---
-**`std::unordered_map`** is a **hash table** of key-value pairs.
+**`std::unordered_map`** is a **hash table-based** associative container, optimized for fast **average-case** lookup, insertion, and deletion.
 
 **Steps on insert/lookup:**
 

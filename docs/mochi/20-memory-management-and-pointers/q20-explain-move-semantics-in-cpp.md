@@ -1,25 +1,16 @@
 Explain move semantics in C++. #q20 #move-semantics #memory-pointers
 
 ---
-**Move semantics** (C++11) **transfer** resources from **rvalues** instead of copying—big win for:
-
-- **Vectors**
-- **Strings**
-- Other **owning** types
-
-**Rvalues** include temporaries and expiring objects.
+**Move semantics** (C++11) enables efficient handling of data by **transferring rvalue resources** — temporaries, literals, or explicitly moved objects — instead of copying. This reduces unnecessary copying and improves performance.
 
 %%%MOCHI_CARD%%%
 What are lvalues and rvalues in the move semantics context? #q20 #move-semantics #memory-pointers
 
 ---
 
-- **Lvalue** — has a **name** and persistent storage (e.g. variable `x`).
-- **Rvalue** — temporary / expiring value, e.g.:
-  - **Return value**
-  - **Literal**
-  - Result of **`std::move(x)`**
-- Without moves, `auto vec = createIntVector();` may **deep-copy** unnecessarily.
+- **Lvalue** — an object with **identity** and **persisting state** (e.g. a named variable).
+- **Rvalue** — a **temporary** without a named identity (e.g. return value, literal).
+- Without move semantics, `auto vec = createIntVector();` may **deep-copy** the entire vector unnecessarily.
 
 %%%MOCHI_CARD%%%
 Show a move constructor example. For a class owning a buffer, how do you transfer ownership from an rvalue? #q20 #move-semantics #memory-pointers

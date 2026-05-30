@@ -1,7 +1,7 @@
 Explain the concept of namespaces in C++. #q05 #namespaces #cpp-basics
 
 ---
-**Namespaces** group related code and prevent naming collisions. They let large projects organize declarations into logical scopes instead of one flat global namespace.
+**Namespaces** in C++ organize code into logical groups and **prevent naming conflicts**. They encapsulate related functionality and avoid collisions in large projects.
 
 %%%MOCHI_CARD%%%
 How do you declare and use a namespace in C++? #q05 #namespaces #cpp-basics

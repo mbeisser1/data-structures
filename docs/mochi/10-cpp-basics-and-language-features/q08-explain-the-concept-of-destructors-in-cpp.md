@@ -1,7 +1,7 @@
 Explain the concept of destructors in C++. #q08 #destructors #cpp-basics
 
 ---
-A **destructor** is a special member function invoked when an object **goes out of scope** or is **`delete`d**. It cleans up resources the object owns—memory, files, handles—supporting **RAII**.
+A **destructor** is a special member function **automatically called** when an object **goes out of scope** or is explicitly **`delete`d**. Its primary purpose is **proper cleanup** of the object’s allocated resources.
 
 %%%MOCHI_CARD%%%
 What are the key features of C++ destructors? #q08 #destructors #cpp-basics

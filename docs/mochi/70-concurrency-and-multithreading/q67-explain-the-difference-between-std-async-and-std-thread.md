@@ -2,19 +2,21 @@ Explain the difference between `std::async` and `std::thread`. #q67 #async-vs-th
 
 ---
 
+Both **`std::thread`** and **`std::async`** enable **concurrent execution** in C++11+, but with distinct features and use cases.
+
 **`std::thread`**
 
-- **Low-level** OS thread wrapper
-- Starts **immediately** on construction
-- Return values need **`promise`/`future`** or shared state
+- **Low-level** threading tool tied to a hardware thread (on most systems)
+- **Direct control** — thread starts **immediately** on construction
+- Return values need **`join`** plus **`promise`/`future`** or shared state
 - Uncaught exception → **`std::terminate`**
 
 **`std::async`**
 
-- **Higher-level** task launcher (may use thread pool)
-- Returns **`std::future`** directly
+- **Higher-level** task-based parallelism (often uses a **thread pool**)
+- Returns **`std::future`** for the result directly
 - **Launch policies:** `async`, `deferred`, or default (either)
-- Exceptions stored in **`future`**, rethrown on **`get()`**
+- Exceptions propagate to the **`future`**, rethrown on **`get()`**
 
 %%%MOCHI_CARD%%%
 Show basic `std::thread` usage. How do you start background work and wait for it to complete? #q67 #async-vs-thread #concurrency

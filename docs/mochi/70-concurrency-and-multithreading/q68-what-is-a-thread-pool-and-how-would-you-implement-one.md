@@ -1,7 +1,7 @@
 What is a thread pool and how would you implement one? #q68 #thread-pool #concurrency
 
 ---
-A **thread pool** maintains a **fixed set of worker threads** that pull tasks from a **shared queue** — avoiding per-task thread create/destroy overhead.
+A **thread pool** is a **managed group of threads** that efficiently process tasks in a multi-threaded environment — **reusing threads** instead of creating and destroying them for each task.
 
 **Components:**
 

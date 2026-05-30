@@ -1,7 +1,7 @@
 What is perfect forwarding in C++? #q77 #perfect-forwarding #cpp11-beyond
 
 ---
-**Perfect forwarding** passes arguments to another function **preserving lvalue/rvalue** and **const** qualification — no extra copies.
+**Perfect forwarding** lets functions pass arguments to other functions while **preserving value category** (lvalue vs rvalue) and **cv-qualification** — especially useful for generic wrappers and constructors.
 
 Core tools:
 

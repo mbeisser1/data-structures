@@ -1,7 +1,7 @@
 Explain the `auto` keyword and type inference. #q72 #auto #cpp11-beyond
 
 ---
-**`auto`** lets the compiler **deduce a variable’s type** from its initializer (C++11).
+The **`auto`** keyword uses **type inference** (C++11) so the compiler **deduces a variable’s type** from its initializer — improving readability and reducing explicit type declarations.
 
 Deduction happens at **compile time** — not runtime dynamic typing.
 

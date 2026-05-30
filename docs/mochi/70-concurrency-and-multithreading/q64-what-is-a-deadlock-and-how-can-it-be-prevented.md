@@ -1,7 +1,7 @@
 What is a deadlock and how can it be prevented? #q64 #deadlock #concurrency
 
 ---
-A **deadlock** occurs when threads **block forever**, each waiting for a resource held by another — work stops and resources stay locked.
+A **deadlock** occurs when two or more threads **cannot proceed** because each waits for a resource held by another — resources stay tied up and the system may **halt or lose efficiency**.
 
 **Coffman conditions** (all four required):
 

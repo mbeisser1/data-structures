@@ -1,7 +1,7 @@
 Explain the concept of memory ordering in C++ concurrency. #q70 #memory-ordering #concurrency
 
 ---
-**Memory ordering** rules define **which writes become visible** to other threads and in what order — critical because CPUs and compilers **reorder** operations and use **per-core caches**.
+**Memory ordering** refers to the rules governing how **memory operations** (reads and writes) are **observed and synchronized** across threads — critical because per-core **caches** can become inconsistent without proper synchronization.
 
 **`std::atomic`** operations accept **`std::memory_order`** to trade **performance** for **synchronization strength**.
 

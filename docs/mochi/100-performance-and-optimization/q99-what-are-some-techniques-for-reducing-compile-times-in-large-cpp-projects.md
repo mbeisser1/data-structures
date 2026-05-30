@@ -1,7 +1,7 @@
 What are some techniques for reducing compile times in large C++ projects? #q99 #compile-times #performance
 
 ---
-Long builds hurt iteration. Attack **include graph**, **template bloat**, and **parallelism**.
+Long **compile times** are a significant bottleneck in large C++ projects. Attack the **include graph**, **template instantiations**, **modularity**, and **parallel builds**.
 
 **High impact:**
 

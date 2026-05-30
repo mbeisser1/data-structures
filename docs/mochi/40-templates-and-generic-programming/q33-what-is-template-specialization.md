@@ -1,7 +1,7 @@
 What is template specialization? #q33 #template-specialization #templates-generic
 
 ---
-**Template specialization** provides a **custom implementation** for specific type(s) within a template — useful for:
+**Template specialization** lets you provide **custom implementations** for specific data types within a template class or function — useful for:
 
 - **Performance optimization**
 - **Non-standard types**

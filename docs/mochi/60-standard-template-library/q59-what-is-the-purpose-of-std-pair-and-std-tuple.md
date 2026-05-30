@@ -1,7 +1,7 @@
 What is the purpose of `std::pair` and `std::tuple`? #q59 #pair-tuple #stl
 
 ---
-Both bundle **heterogeneous values** into one object.
+**`std::pair`** and **`std::tuple`** are template classes for storing and handling **fixed collections of heterogeneous data** — each with distinct attributes and ideal use cases.
 
 **`std::pair<T1,T2>`** (`<utility>`)
 

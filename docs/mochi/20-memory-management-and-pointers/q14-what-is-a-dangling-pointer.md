@@ -1,7 +1,7 @@
 What is a dangling pointer? #q14 #dangling-pointer #memory-pointers
 
 ---
-A **dangling pointer** points to memory that is **no longer valid**—already **`delete`d/`free`d** or a **stack object that went out of scope**. Dereferencing it is **undefined behavior**.
+A **dangling pointer** references a memory location that has been **deallocated** or is **no longer valid** — typically after **`delete`/`free`**, or when the referenced object has **gone out of scope**.
 
 %%%MOCHI_CARD%%%
 What causes dangling pointers? #q14 #dangling-pointer #memory-pointers

@@ -1,7 +1,7 @@
 Explain the concept of allocators in STL. #q60 #allocators #stl
 
 ---
-**Allocators** handle **memory allocation/deallocation** for containers — separating **storage** from **object lifetime**.
+**Allocators** in the STL are objects that handle **memory allocation and deallocation** for containers — an **abstraction layer** between containers and memory management, allowing customized strategies.
 
 **Default:** **`std::allocator<T>`** uses **`operator new`/`delete`**.
 

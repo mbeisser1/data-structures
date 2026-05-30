@@ -1,7 +1,7 @@
 What is the difference between `unique_ptr`, `shared_ptr`, and `weak_ptr`? #q16 #smart-pointers #memory-pointers
 
 ---
-All three manage heap objects safely; they differ in **ownership** and **cost**: exclusive vs shared vs non-owning observation.
+Smart pointers are crucial for **memory management** and preventing **dangling pointers** and **memory leaks**. **`unique_ptr`**, **`shared_ptr`**, and **`weak_ptr`** each serve different ownership roles.
 
 %%%MOCHI_CARD%%%
 Compare `unique_ptr`, `shared_ptr`, and `weak_ptr`. #q16 #smart-pointers #memory-pointers
@@ -10,9 +10,9 @@ Compare `unique_ptr`, `shared_ptr`, and `weak_ptr`. #q16 #smart-pointers #memory
 
 | Pointer | Ownership | Notes |
 | --- | --- | --- |
-| **`unique_ptr`** | **Exclusive** | Move-only; cheapest; auto-delete on scope end |
-| **`shared_ptr`** | **Shared** | **Refcount**; last owner deletes; thread-safe count ops |
-| **`weak_ptr`** | **None** | Observes `shared_ptr` target; **`lock()`** to use; breaks cycles |
+| **`unique_ptr`** | **Exclusive** | One owner; movable; deleted when `unique_ptr` goes out of scope |
+| **`shared_ptr`** | **Shared** | **Reference counting**; last owner deletes; thread-safe refcount |
+| **`weak_ptr`** | **Non-owning** | Observes `shared_ptr`; **`lock()`** for temporary access; breaks cycles |
 
 %%%MOCHI_CARD%%%
 Show basic usage of `unique_ptr`, `shared_ptr`, and `weak_ptr`. Give one short example of each ownership model. #q16 #smart-pointers #memory-pointers

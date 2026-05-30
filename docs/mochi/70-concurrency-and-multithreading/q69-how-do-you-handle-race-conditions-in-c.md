@@ -1,7 +1,7 @@
 How do you handle race conditions in C++? #q69 #race-conditions #concurrency
 
 ---
-A **race condition** occurs when multiple threads access shared data, **at least one writes**, and access is **unsynchronized** — leading to undefined behavior and flaky bugs.
+A **race condition** occurs when multiple threads access **shared data** concurrently, **at least one thread modifies** the data, and access is **unsynchronized** — leading to unpredictable behavior and hard-to-reproduce bugs.
 
 **Fixes:**
 

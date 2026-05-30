@@ -1,7 +1,7 @@
 What is a pure virtual function? #q24 #pure-virtual #oop-concepts
 
 ---
-A **pure virtual function** is a **virtual member with no base implementation**, declared with **`= 0`**. Derived classes **must override** it (unless the derived class stays abstract).
+A **pure virtual function** is a **virtual member function** in a base class with **no implementation**, declared with **`= 0`**. It is meant to be **overridden by derived classes** — a key tool for abstract classes and interfaces.
 
 %%%MOCHI_CARD%%%
 What is the syntax for a pure virtual function? #q24 #pure-virtual #oop-concepts
@@ -28,15 +28,15 @@ What are key characteristics and use cases of pure virtual functions? #q24 #pure
 
 **Characteristics:**
 
-- No implementation required in the base (may still provide a body separately)
-- Any class with ≥1 pure virtual → **abstract class** (not instantiable)
-- Derived classes must override all pure virtuals to be concrete
+- **No implementation** in the base class (a separate body is still allowed in some cases)
+- A class with at least one pure virtual becomes an **abstract class**
+- Derived classes must override **all** pure virtuals to be instantiable
 
 **Use cases:**
 
-- Define **interfaces** / contracts for derived types
-- Enable **run-time polymorphism** through abstract base pointers
-- **Template method** pattern — skeleton in base, steps in derived classes
+- **Define interfaces** — contract for derived classes
+- **Run-time polymorphism** — via abstract base pointers
+- **Template method pattern** — algorithm skeleton in base, steps in derived classes
 
 %%%MOCHI_CARD%%%
 Show pure virtual functions with `Shape`, `Circle`, and `Rectangle`. How do you store different shapes and call `draw()` and `area()` polymorphically? #q24 #pure-virtual #oop-concepts
@@ -105,6 +105,6 @@ In about 60 seconds, explain pure virtual functions. #q24 #pure-virtual #oop-con
 ---
 
 - Declared **`virtual ... = 0`**
-- Makes class **abstract**; forces overrides in concrete derived classes
-- Used for **interfaces** and **polymorphic** designs
+- Makes class **abstract**; derived must override all pure virtuals to instantiate
+- A pure virtual may still have a **default implementation** elsewhere, but **`= 0`** keeps it pure
 - Always use a **`virtual` destructor** in polymorphic bases

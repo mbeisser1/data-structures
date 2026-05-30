@@ -1,7 +1,7 @@
 What happens if an exception is not caught? #q45 #uncaught-exceptions #exceptions
 
 ---
-An uncaught exception **propagates up the call stack** via **stack unwinding** until a matching **`catch`** is found — or the program **terminates**.
+When an **exception isn’t caught**, the runtime **propagates it up the call stack** (stack unwinding) until a matching **`catch`** is found — or the program **terminates** via **`std::terminate()`**.
 
 %%%MOCHI_CARD%%%
 What happens during stack unwinding for an uncaught exception? #q45 #uncaught-exceptions #exceptions

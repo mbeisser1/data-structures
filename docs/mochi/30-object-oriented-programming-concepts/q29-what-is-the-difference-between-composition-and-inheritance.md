@@ -1,12 +1,12 @@
 What is the difference between composition and inheritance? #q29 #composition-inheritance #oop-concepts
 
 ---
-Both model relationships between classes:
+Both establish relationships between classes in OOP:
 
-- **Inheritance** — **“is-a”** (specialization)
-- **Composition** — **“has-a”** (containment)
+- **Inheritance** — **“is-a”**: a derived class **is a kind of** the base (e.g. every `Square` is a `Rectangle`)
+- **Composition** — **“has-a”**: one class **contains** another (e.g. a `Car` **has an** `Engine`)
 
-**Favor composition over inheritance** when you need flexibility and looser coupling.
+**Favor composition over inheritance** when you want looser coupling and more flexible, maintainable designs.
 
 %%%MOCHI_CARD%%%
 Show inheritance (“is-a”) with `Animal` and `Lion`. How does `Lion` specialize `Animal` behavior and add its own method? #q29 #composition-inheritance #oop-concepts
@@ -56,8 +56,8 @@ Compare composition and inheritance. #q29 #composition-inheritance #oop-concepts
 | --- | --- | --- |
 | Relationship | **Is-a** | **Has-a** |
 | Coupling | Tighter | Looser |
-| Flexibility | Less (fixed hierarchy) | More (swap components) |
-| Reuse | Via base implementation | Via embedded objects |
+| Flexibility | Less (fixed hierarchy) | More (swap components at run time) |
+| Code reuse | Through base-class implementation | Through composed objects |
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, compare composition and inheritance. #q29 #composition-inheritance #oop-concepts

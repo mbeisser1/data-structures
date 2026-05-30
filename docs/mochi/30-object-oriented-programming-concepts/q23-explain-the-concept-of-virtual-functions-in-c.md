@@ -1,16 +1,15 @@
 Explain the concept of virtual functions in C++. #q23 #virtual-functions #oop-concepts
 
 ---
-**Virtual functions** enable **polymorphic behavior** via **dynamic dispatch** — the call targets the **actual object type**, not just the static type of the pointer/reference.
+**Virtual functions** enable **polymorphic behavior** through **dynamic dispatch** (late binding): the **correct function** runs based on the **actual object type**, not the pointer or reference type used to call it.
 
 %%%MOCHI_CARD%%%
 How do virtual functions work (vtable and dynamic dispatch)? #q23 #virtual-functions #oop-concepts
 
 ---
 
-- Classes with virtuals have a **vtable** of function pointers
-- Each object has a hidden **vptr** to that vtable
-- Calling a virtual function uses the vtable → **late binding** at run time
+- Classes with virtual functions have a hidden **vptr** pointing to a **vtable** of function addresses
+- Calling a virtual function uses the vtable → **dynamic binding** at run time
 
 %%%MOCHI_CARD%%%
 Show a virtual function example. How do `Animal*` calls dispatch to `Dog` and `Cat` overrides of `makeSound()`? #q23 #virtual-functions #oop-concepts
@@ -60,15 +59,15 @@ What are the benefits and costs of virtual functions? #q23 #virtual-functions #o
 
 **Benefits:**
 
-- **Polymorphism** — derived objects via base interface
-- **Abstraction** — pure virtuals define interfaces
-- **Flexibility** — extend without changing base code
+- **Polymorphism** — treat derived objects through a base interface
+- **Abstraction** — define interfaces without full implementation in the base
+- **Flexibility** — extend behavior without modifying the base class
 
 **Costs:**
 
-- Extra **indirection** on calls
-- **vptr** increases object size
-- Compilers often optimize; still consider in hot paths
+- **Slight overhead** — extra indirection on virtual calls
+- **Memory** — objects carry an additional vptr
+- Compilers often optimize; still weigh cost in hot paths
 
 %%%MOCHI_CARD%%%
 What modern C++ features relate to virtual functions? #q23 #virtual-functions #oop-concepts

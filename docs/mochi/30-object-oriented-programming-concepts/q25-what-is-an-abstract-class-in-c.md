@@ -1,16 +1,16 @@
 What is an abstract class in C++? #q25 #abstract-class #oop-concepts
 
 ---
-An **abstract class** is a **base class** that defines a polymorphic **interface** but **cannot be instantiated** on its own — typically via one or more **pure virtual functions**.
+An **abstract class** is designed primarily as a **base class**: it supports **inheritance** and **polymorphism** through **virtual functions**, but **cannot be instantiated** on its own. It defines a **general interface** without concrete implementations for every method.
 
 %%%MOCHI_CARD%%%
 What are the key features of an abstract class? #q25 #abstract-class #oop-concepts
 
 ---
 
-- Declares **virtual** functions (often **pure virtual** with **`= 0`**)
-- **Not instantiable** until all pure virtuals are implemented in a derived class
-- May still have **constructors/destructors** and non-pure virtuals with default behavior
+- Declares **virtual functions** as placeholders for the interface
+- **Pure virtual functions** (`= 0`) make the class uninstantiable until derived classes override them
+- May still have **constructors**, **destructors**, and non-pure virtuals with default behavior
 
 %%%MOCHI_CARD%%%
 Show an abstract class example with `Shape` and `Circle`. How can `Shape` mix pure virtuals with a default `printType()`, and how does `Circle` become concrete? #q25 #abstract-class #oop-concepts

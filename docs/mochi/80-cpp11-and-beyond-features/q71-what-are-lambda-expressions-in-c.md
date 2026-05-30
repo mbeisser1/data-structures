@@ -1,7 +1,7 @@
 What are lambda expressions in C++? #q71 #lambdas #cpp11-beyond
 
 ---
-A **lambda expression** defines an **unnamed function object** inline — ideal for short callbacks with STL algorithms.
+A **lambda expression** is a concise way to define an **unnamed function object** — useful on-the-fly for sorting, filtering, mapping, and STL algorithms.
 
 **Syntax:** `[capture](parameters) specifiers -> return-type { body }`
 

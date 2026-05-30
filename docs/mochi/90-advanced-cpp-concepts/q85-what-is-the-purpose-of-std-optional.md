@@ -1,13 +1,14 @@
 What is the purpose of `std::optional`? #q85 #std-optional #advanced-cpp
 
 ---
-**`std::optional<T>`** (C++17) represents a value that **may or may not be present** — a type-safe alternative to sentinel values or raw pointers.
+**`std::optional`** (C++17) is a container for values that **may or may not be present** — a more expressive, safer alternative to raw pointers or sentinel values for optional data.
 
 **Features:**
 
-- Holds **`T`** or **empty** (`std::nullopt`)
-- **Value semantics** — no ownership confusion like pointers
-- Clear API: function **might not return** a value
+- **Nullable type** — holds **`T`** or empty (`std::nullopt`)
+- **Type safety** — safe access; fewer null dereferences
+- **Explicit semantics** — APIs clearly may omit a value
+- **Value semantics** — easier lifetime reasoning than pointers
 
 %%%MOCHI_CARD%%%
 What are common use cases for `std::optional`? #q85 #std-optional #advanced-cpp

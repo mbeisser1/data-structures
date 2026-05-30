@@ -1,7 +1,7 @@
 How does template metaprogramming work in C++? #q34 #template-metaprogramming #templates-generic
 
 ---
-**Template metaprogramming (TMP)** uses templates to perform **computations and code generation at compile time** — flexible, efficient, type-safe generic code.
+**Template metaprogramming** uses templates to perform **computations and generate code at compile time** — enabling flexible, efficient, and **type-safe** generic code.
 
 %%%MOCHI_CARD%%%
 What TMP techniques use templates at compile time? #q34 #template-metaprogramming #templates-generic

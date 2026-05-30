@@ -1,11 +1,7 @@
 What are the main features of C++? #q01 #cpp-features
 
 ---
-C++ builds on C with additional capabilities. Its feature set supports many programming styles:
-
-- **Procedural** programming
-- **Object-oriented** programming
-- **Generic** programming
+**C++** is known for a diverse feature set — much inherited from **C**, then enhanced and expanded. These features support many programming paradigms, from procedural to object-oriented and generic programming.
 
 %%%MOCHI_CARD%%%
 How does C++ allow developers to write efficient code? #q01 #cpp-features

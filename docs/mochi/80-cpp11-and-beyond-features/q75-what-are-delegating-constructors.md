@@ -1,7 +1,7 @@
 What are delegating constructors? #q75 #delegating-ctors #cpp11-beyond
 
 ---
-**Delegating constructors** (C++11) let one constructor **call another** of the same class — centralizing initialization logic.
+**Delegating constructors** (C++11) let one constructor **call another constructor of the same class** — reducing duplication and ensuring **consistent initialization** logic.
 
 The **delegate call must be the only** entry in the initializer list (no mixed member init before it).
 

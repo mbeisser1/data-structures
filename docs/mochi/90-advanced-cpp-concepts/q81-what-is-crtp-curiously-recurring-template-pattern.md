@@ -1,7 +1,7 @@
 What is CRTP (Curiously Recurring Template Pattern)? #q81 #crtp #advanced-cpp
 
 ---
-**CRTP** is a pattern where a class inherits from a **template base instantiated with the derived type itself**:
+The **Curiously Recurring Template Pattern (CRTP)** is an advanced design pattern that leverages **static polymorphism** — the base class accesses the derived class’s methods and properties at **compile time** (no vtable):
 
 ```cpp
 template <typename Derived>
@@ -16,7 +16,7 @@ Enables **static (compile-time) polymorphism** without virtual functions.
 How does CRTP work? #q81 #crtp #advanced-cpp
 
 ---
-The base casts **`this`** to **`Derived*`** and calls derived methods — **compile-time binding** (no vtable). The derived type is known when you call through a concrete **`Derived`**.
+The base uses **`static_cast<Derived*>(this)`** to call derived methods — a form of **compile-time reflection**. The derived type is fixed in the template argument, so binding happens at **compile time** (no vtable).
 
 %%%MOCHI_CARD%%%
 Show CRTP in action. How does `Base<Derived>` call into `Derived` without virtual functions? #q81 #crtp #advanced-cpp
@@ -63,8 +63,10 @@ What are benefits of CRTP? #q81 #crtp #advanced-cpp
 
 ---
 
-- **No virtual call overhead**
-- **Compile-time errors** for missing derived methods (when instantiated)
+- **Efficiency** — avoids virtual dispatch overhead
+- **Compile-time safety** — errors flagged earlier
+- **Static polymorphism** — without virtual functions
+- **No runtime overhead** — no vtable lookups
 - **Static polymorphism** — inline-friendly
 - **Mixin-style** code reuse
 

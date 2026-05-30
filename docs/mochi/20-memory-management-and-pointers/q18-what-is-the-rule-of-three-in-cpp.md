@@ -1,17 +1,13 @@
 What is the rule of three in C++? #q18 #rule-of-three #memory-pointers
 
 ---
-If a class defines **any one** of these because it manages resources, define **all three**:
+The **Rule of Three** is a guideline for classes that manage **dynamic resources**. If a class defines **any one** of these, it should probably define **all three**:
 
 1. **Destructor**
 2. **Copy constructor**
 3. **Copy assignment operator**
 
-Otherwise copies and destruction can cause:
-
-- **Memory leaks**
-- **Double-delete**
-- **Dangling** state
+Ensures consistent **resource management**, **exception safety**, and avoids leaks or double deletion.
 
 %%%MOCHI_CARD%%%
 Show a rule-of-three implementation. For a class that owns heap memory, what three special members must you define? #q18 #rule-of-three #memory-pointers

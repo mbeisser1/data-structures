@@ -2,21 +2,8 @@ Explain the difference between C and C++. #q02 #c-vs-cpp
 
 ---
 
-- **C (1970s, Bell Labs)** — built for system programming; still widely used for:
-  - **OS kernels**
-  - **Embedded code**
-  - **Low-level** work
-- **C++ (1980s)** — started as a C extension with OOP; now a **multi-paradigm** language:
-  - **Procedural**
-  - **OOP**
-  - **Generic** (templates)
-  - **Functional** features
-- **Big picture:** C++ is largely **C-compatible** at the syntax level but adds:
-  - **Classes**
-  - **Overloading**
-  - Stronger **abstractions**
-  - **Exceptions**
-  - A much larger **standard library**
+- **C** — developed for system programming at Bell Labs (1970s); foundation for many operating systems; still widely used.
+- **C++** — emerged in the early 1980s as a C extension introducing **OOP**; evolved to support **multiple paradigms** (procedural, OOP, generic, functional-style features).
 
 %%%MOCHI_CARD%%%
 How do C and C++ differ in programming paradigms? #q02 #c-vs-cpp
@@ -53,14 +40,8 @@ How does memory management differ between C and C++? #q02 #c-vs-cpp
 
 ---
 
-- **C** — manual dynamic allocation; you track lifetime yourself:
-  - **`malloc()` / `free()`**
-  - **`calloc()`**
-  - **`realloc()`**
-- **C++** — **`new` / `delete`**, plus automated cleanup via:
-  - **RAII**
-  - **Smart pointers**
-  - **Destructors**
+- **C** — manual memory management with **`malloc()`** and **`free()`**.
+- **C++** — **`new` / `delete`**, plus automated options via **RAII**, **smart pointers**, and destructors.
 
 %%%MOCHI_CARD%%%
 Show heap allocation with a smart pointer. Use `std::make_unique<int>` to own the value `42` without calling `delete` manually. #q02 #c-vs-cpp

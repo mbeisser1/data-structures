@@ -1,13 +1,15 @@
 What is the rule of five in C++? #q19 #rule-of-five #memory-pointers
 
 ---
-For classes that **directly manage resources** (e.g. raw dynamic memory), define all **five** special members:
+The **Rule of Five** guides proper resource management when a class **directly manages** a resource (like dynamic memory). Define all **five** special member functions:
 
-1. Destructor  
-2. Copy constructor  
-3. Copy assignment operator  
-4. Move constructor  
-5. Move assignment operator  
+1. **Destructor**
+2. **Copy constructor**
+3. **Copy assignment operator**
+4. **Move constructor**
+5. **Move assignment operator**
+
+This avoids **memory leaks** and **double deletions**.
 
 %%%MOCHI_CARD%%%
 Show a full rule-of-five implementation. For a class owning a dynamic array, what five special members are required? #q19 #rule-of-five #memory-pointers

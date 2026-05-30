@@ -1,20 +1,16 @@
 What are the access specifiers in C++ and what do they do? #q04 #access-specifiers #cpp-basics
 
 ---
-**Access specifiers** are keywords that control the visibility and accessibility of class members. They support **encapsulation** by separating a class’s public interface from its hidden implementation.
+**Access specifiers** are keywords that control the visibility and accessibility of class members. They enable **data encapsulation** — protecting data integrity and separating a class’s **interface** from its **implementation**.
 
 %%%MOCHI_CARD%%%
 What are the three access specifiers in C++? #q04 #access-specifiers #cpp-basics
 
 ---
 
-- **`public`** — accessible from anywhere; typically the class interface (methods and data meant for callers).
-- **`protected`** — accessible in:
-  - The **class**
-  - **Derived classes**
-  - **Friends**
-  - Common in inheritance hierarchies
-- **`private`** — accessible only in the class and its friends; hides implementation details (default for **class** members).
+- **`public`** — members accessible from **any part of the program**; typically the class interface.
+- **`protected`** — accessible in the **containing class**, **derived classes**, and **friends**; useful in inheritance.
+- **`private`** — accessible only within the **containing class** and its **friends**; default for **class** members; hides implementation details.
 
 %%%MOCHI_CARD%%%
 What are the default access levels for classes and structs in C++? #q04 #access-specifiers #cpp-basics

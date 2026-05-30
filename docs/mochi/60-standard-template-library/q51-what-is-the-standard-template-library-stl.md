@@ -1,7 +1,7 @@
 What is the Standard Template Library (STL)? #q51 #stl-overview #stl
 
 ---
-The **Standard Template Library (STL)** is a collection of **generic algorithms and data structures** — a core part of the C++ Standard Library for efficient, reusable code.
+The **Standard Template Library (STL)** is a powerful collection of **reusable components** providing generic **algorithms** and **data structures** — a standardized part of the C++ Standard Library, essential for efficient and rapid development.
 
 **Three primary components:**
 
@@ -16,7 +16,7 @@ What are the advantages of using the STL? #q51 #stl-overview #stl
 
 - **Performance** — highly optimized implementations
 - **Reusability** — works with many types via templates
-- **Reduced boilerplate** — abstracts low-level details
+- **Reduced coding burden** — abstracts low-level details so you focus on higher-level tasks
 - **Standardization** — portable across compliant compilers
 - **Type safety** — compile-time checking
 

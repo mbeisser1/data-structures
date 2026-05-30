@@ -1,7 +1,7 @@
 What is uniform initialization in C++11? #q73 #uniform-init #cpp11-beyond
 
 ---
-**Uniform initialization** uses **`{}`** for all initialization — primitives, arrays, objects, and containers.
+**Uniform initialization** (C++11) provides a **consistent `{}` syntax** for initializing variables, objects, and containers — enhancing readability and **type safety** (e.g. preventing narrowing).
 
 **Benefits:**
 

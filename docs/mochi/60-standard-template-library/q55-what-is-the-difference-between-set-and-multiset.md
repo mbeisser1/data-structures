@@ -1,7 +1,7 @@
 What is the difference between `set` and `multiset`? #q55 #set-vs-multiset #stl
 
 ---
-Both store **sorted keys** in a tree (typically **red-black tree**, **O(log n)**).
+**`std::set`** and **`std::multiset`** are associative containers that store **sorted keys**. The primary distinction is how they handle **duplicate elements** (typically **red-black tree**, **O(log n)**).
 
 **`std::set`**
 

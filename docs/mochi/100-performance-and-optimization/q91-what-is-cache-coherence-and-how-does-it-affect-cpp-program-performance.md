@@ -1,7 +1,7 @@
 What is cache coherence and how does it affect C++ program performance? #q91 #cache-coherence #performance
 
 ---
-**Cache coherence** keeps **shared memory consistent** across CPU cores' private caches — required for correct multithreaded programs.
+**Cache coherence** is crucial in multi-core systems — it ensures **shared data remains consistent** across different CPU caches, essential for correct behavior in parallel programs.
 
 **Protocols:**
 
@@ -16,10 +16,10 @@ How does cache coherence impact C++ performance? #q91 #cache-coherence #performa
 
 ---
 
-- **Memory model** — atomics and ordering matter for visibility
-- **False sharing** — unrelated vars on same cache line → coherence traffic
-- **Data locality** — layout affects cache hit rate
-- **Sync overhead** — mutexes/atomics trigger coherence traffic on contention
+- **Memory model** (C++11+) — understand ordering to prevent data races
+- **False sharing** — different cores modify vars in the same cache line
+- **Data locality** — padding/alignment improve cache utilization
+- **Synchronization overhead** — coherence traffic under contention
 
 Profile hot shared counters and pad per-thread data.
 

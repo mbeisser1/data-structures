@@ -1,13 +1,7 @@
 Explain the concept of smart pointers in C++. #q15 #smart-pointers #memory-pointers
 
 ---
-**Smart pointers** (`<memory>`) are RAII wrappers that **automatically manage** dynamic memory—reducing:
-
-- **Memory leaks**
-- **Dangling pointers**
-- **Double delete**
-
-They also establish clear **ownership**.
+**Smart pointers** are objects designed for managing **dynamic memory** more safely than raw pointers. They offer **automated memory management**, improved safety (fewer leaks, dangling pointers, double deletes), and clear **scoped ownership**.
 
 %%%MOCHI_CARD%%%
 What is `std::unique_ptr`? #q15 #smart-pointers #memory-pointers

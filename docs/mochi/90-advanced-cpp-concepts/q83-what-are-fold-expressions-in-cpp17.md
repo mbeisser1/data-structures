@@ -1,7 +1,7 @@
 What are fold expressions in C++17? #q83 #fold-expressions #advanced-cpp
 
 ---
-**Fold expressions** reduce a **parameter pack** with a single binary operator — concise alternative to recursive templates.
+**Fold expressions** (C++17) provide a concise way to **reduce or combine** multiple values in a parameter pack using a single binary operation — simplifying sums, logical folds, and pack expansion.
 
 **Four forms:**
 

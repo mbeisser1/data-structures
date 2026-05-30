@@ -1,7 +1,7 @@
 How do you use condition variables for thread synchronization? #q65 #condition-variable #concurrency
 
 ---
-**`std::condition_variable`** lets threads **wait until a condition becomes true**, coordinated with a **`std::mutex`**.
+**Condition variables** are synchronization primitives that let threads **wait until a specific condition becomes true** before proceeding. **`std::condition_variable`** (in `<condition_variable>`) is typically used with a **`std::mutex`** and **`std::unique_lock`**.
 
 **Pattern:** lock mutex → check predicate → **`wait`** if false → on notify, re-check and proceed.
 

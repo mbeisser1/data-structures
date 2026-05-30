@@ -41,8 +41,8 @@ When should you choose `vector` vs `list`? #q52 #vector-vs-list #stl
 
 **Prefer `list` when:**
 
-- Frequent **insert/erase in the middle**
-- Iterator stability matters during mutation
+- Frequent **insert/erase throughout** the container
+- **Element order** must be preserved during erasures; **iterator stability** matters
 
 **Default rule:** start with **`vector`** unless profiling shows list wins.
 

@@ -1,7 +1,7 @@
 What are the improvements in smart pointers introduced in C++11? #q79 #smart-pointers-cpp11 #cpp11-beyond
 
 ---
-C++11 replaced **`auto_ptr`** with modern ownership semantics:
+C++11 introduced significant **smart pointer** improvements — enhancing memory safety and ownership semantics. It replaced deprecated **`auto_ptr`** with:
 
 - **`std::unique_ptr`** — **exclusive** ownership, zero ref-count overhead
 - **`std::shared_ptr`** — **shared** ownership via **reference counting**

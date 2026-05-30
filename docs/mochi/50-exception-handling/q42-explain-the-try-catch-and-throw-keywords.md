@@ -2,11 +2,13 @@ Explain the `try`, `catch`, and `throw` keywords. #q42 #try-catch-throw #excepti
 
 ---
 
-- **`try`** — encloses code that may throw
-- **`catch`** — handles exceptions of a matching type
-- **`throw`** — raises an exception object
+The keywords **`try`**, **`catch`**, and **`throw`** provide a **structured way** to deal with errors and unexpected behavior in C++.
 
-**Flow:** execute `try` → on throw, search matching **`catch`** up the stack → handle or terminate.
+- **`try`** — encloses code that might throw
+- **`catch`** — handles exceptions of a matching type
+- **`throw`** — generates an exception object
+
+**Flow:** execute `try` → on throw, search for a matching **`catch`** up the stack → handle or terminate.
 
 %%%MOCHI_CARD%%%
 What is the syntax for `try`, `catch`, and `throw`? #q42 #try-catch-throw #exceptions

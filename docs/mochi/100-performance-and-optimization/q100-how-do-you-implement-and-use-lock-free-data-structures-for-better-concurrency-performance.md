@@ -1,9 +1,7 @@
 How do you implement and use lock-free data structures for better concurrency performance? #q100 #lock-free #performance
 
 ---
-**Lock-free** structures use **atomics** (especially **CAS**) so threads make progress without mutex blocking — better scalability under contention, no lock deadlocks.
-
-Not wait-free in general — some threads may retry CAS loops.
+**Lock-free** data structures improve **concurrency performance** on modern CPUs — **reduced contention**, **deadlock prevention**, and **better scalability** on multi-core systems via **atomics** and **compare-and-swap (CAS)** instead of mutexes.
 
 %%%MOCHI_CARD%%%
 What core mechanisms power lock-free code? #q100 #lock-free #performance

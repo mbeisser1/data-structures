@@ -1,7 +1,7 @@
 Explain the concept of rvalue references. #q76 #rvalue-refs #cpp11-beyond
 
 ---
-An **rvalue reference** is declared with **`&&`** and binds to **temporaries** (rvalues) — enabling **move semantics** and **perfect forwarding**.
+**Rvalue references** (C++11, declared with **`&&`**) efficiently handle **temporaries** (rvalues) — enabling **move semantics** and **perfect forwarding** by letting the compiler distinguish rvalues from lvalues.
 
 **Lvalue reference `&`** — binds to named objects  
 **Rvalue reference `&&`** — binds to temporaries and moved-from objects

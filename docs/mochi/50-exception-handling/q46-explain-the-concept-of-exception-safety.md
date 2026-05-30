@@ -1,7 +1,7 @@
 Explain the concept of exception safety. #q46 #exception-safety #exceptions
 
 ---
-**Exception safety** means code stays **consistent** and **leak-free** when exceptions occur.
+**Exception safety** means writing code that **maintains consistency** and **prevents resource leaks**, even when exceptions occur — crucial for robust, reliable software.
 
 **Key principles:**
 

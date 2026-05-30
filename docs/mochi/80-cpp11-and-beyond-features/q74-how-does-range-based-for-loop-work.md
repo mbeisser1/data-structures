@@ -1,7 +1,7 @@
 How does range-based for loop work? #q74 #range-for #cpp11-beyond
 
 ---
-**Range-based for** iterates over any **range** with **`begin()`** and **`end()`**. The compiler desugars to iterator loops (or pointer arithmetic for arrays).
+The **range-based for loop** simplifies iteration through sequences, arrays, and containers. The compiler translates it into a traditional loop using **`begin()`** and **`end()`** (or **`std::begin`/`std::end`** for arrays).
 
 **Syntax:** `for (declaration : expression) statement`
 

@@ -1,7 +1,7 @@
 What is SFINAE (Substitution Failure Is Not An Error)? #q37 #sfinae #templates-generic
 
 ---
-**SFINAE** means a **failed template substitution** during overload resolution **drops** that candidate instead of failing the whole compile — enabling **conditional templates** based on type properties.
+**SFINAE** lets templates **gracefully handle substitution failures** during template argument deduction **without** failing the whole compile. The compiler **removes** the failed specialization from the overload set — enabling flexible template designs based on type traits.
 
 %%%MOCHI_CARD%%%
 Show SFINAE with `std::enable_if`. How do you route `print_number` to different overloads for integral vs floating-point types? #q37 #sfinae #templates-generic

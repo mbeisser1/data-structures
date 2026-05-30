@@ -1,13 +1,15 @@
 What is RAII (Resource Acquisition Is Initialization) in C++? #q30 #raii #oop-concepts
 
 ---
-**RAII** ties **resource lifetime** to **object lifetime** — acquire in the **constructor**, release in the **destructor**. Gives **deterministic cleanup** and **exception safety** for memory, files, locks, etc.
+**RAII** (Resource Acquisition Is Initialization) is a fundamental C++ pattern for **efficient, deterministic resource management** — memory, file handles, network connections, locks, and more.
+
+The core idea: **tie a resource’s lifecycle to an object’s lifetime** — acquire in the **constructor**, release in the **destructor**.
 
 **Benefits:**
 
-- **Automatic** release at scope end
-- **Exception-safe** cleanup
-- Less manual **`new`/`delete`** or **`open`/`close`**
+- **Automatic resource management** when the object goes out of scope
+- **Exception safety** — cleanup still runs if an exception is thrown
+- **Simpler code** — less explicit **`new`/`delete`** or **`open`/`close`**
 
 %%%MOCHI_CARD%%%
 Show RAII with a file handler. How do you acquire a file in the constructor and release it in the destructor? #q30 #raii #oop-concepts
@@ -41,10 +43,10 @@ What standard library types implement RAII? #q30 #raii #oop-concepts
 
 ---
 
-- **`std::unique_ptr`** / **`std::shared_ptr`** — heap memory
-- **`std::lock_guard`** / **`std::unique_lock`** — mutexes
-- **`std::fstream`** and related — file handles
-- Containers like **`std::vector`** — manage their own storage
+- **`std::unique_ptr`** — exclusive ownership of dynamic objects
+- **`std::shared_ptr`** — shared ownership of dynamic objects
+- **`std::lock_guard`** / **`std::unique_lock`** — automatic mutex management
+- **`std::fstream`** and related — file I/O with automatic closing
 
 %%%MOCHI_CARD%%%
 Show RAII with `std::unique_ptr`. How does a heap `Resource` get acquired and released around a function call? #q30 #raii #oop-concepts
@@ -78,6 +80,6 @@ In about 60 seconds, explain RAII. #q30 #raii #oop-concepts
 ---
 
 - **Acquire in ctor, release in dtor** — scope-bound resource management
-- **Exception-safe**, deterministic cleanup
-- Modern C++: **smart pointers**, **lock guards**, **streams**, containers
-- Core pattern behind much of safe C++ resource handling
+- **Automatic** and **exception-safe** cleanup
+- Standard library: **smart pointers**, **lock guards**, **streams**
+- Core pattern behind safe C++ resource handling

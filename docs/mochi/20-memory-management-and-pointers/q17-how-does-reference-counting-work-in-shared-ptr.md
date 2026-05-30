@@ -1,7 +1,7 @@
 How does reference counting work in `shared_ptr`? #q17 #shared-ptr #memory-pointers
 
 ---
-**Reference counting** tracks how many **`shared_ptr`** instances own an object. When the count hits **zero**, the managed object (and control block) are destroyed.
+**Reference counting** in **`std::shared_ptr`** tracks how many smart pointers reference an object. When the count reaches **zero**, the object is **automatically deallocated**.
 
 %%%MOCHI_CARD%%%
 What is the `shared_ptr` control block? #q17 #shared-ptr #memory-pointers

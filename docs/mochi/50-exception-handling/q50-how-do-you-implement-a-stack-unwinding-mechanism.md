@@ -1,14 +1,14 @@
 How do you implement a stack unwinding mechanism? #q50 #stack-unwinding #exceptions
 
 ---
-**Stack unwinding** is the runtime process of **destroying local objects** and **searching for `catch` handlers** when an exception is thrown.
+**Stack unwinding** ensures **proper cleanup of resources** when an exception is thrown — the runtime **systematically destroys objects** as execution unwinds through the call stack.
 
 **Steps:**
 
-1. **Throw** creates an exception object
-2. Runtime **walks the stack** frame by frame
-3. **Destructors** run in reverse construction order
-4. Matching **`catch`** found → handler runs; else continue unwinding
+1. An **exception object** is created and thrown
+2. The runtime **searches for a `catch` block**, unwinding frame by frame
+3. **Local objects** in each frame are destroyed in **reverse order** of construction
+4. Matching **`catch`** runs; otherwise unwinding continues until termination
 
 %%%MOCHI_CARD%%%
 What implements stack unwinding in C++? #q50 #stack-unwinding #exceptions

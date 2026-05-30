@@ -1,7 +1,7 @@
 How do you implement a type-safe container using templates? #q38 #type-safe-container #templates-generic
 
 ---
-A **type-safe container** stores and returns only type **`T`** — enforced at **compile time** via a class template, preventing mixed-type mistakes.
+A **type-safe container** ensures that only objects of a **specific type** can be stored and retrieved — implemented with a **class template** so type mismatches fail at **compile time**.
 
 %%%MOCHI_CARD%%%
 Show a `TypeSafeContainer` template class. How do you store an optional `T`, set a value, and throw if `getValue` is called when empty? #q38 #type-safe-container #templates-generic

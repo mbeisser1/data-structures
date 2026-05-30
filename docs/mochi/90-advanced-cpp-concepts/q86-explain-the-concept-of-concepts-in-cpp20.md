@@ -1,7 +1,7 @@
 Explain the concept of concepts in C++20. #q86 #concepts #advanced-cpp
 
 ---
-**Concepts** constrain **template parameters** with readable, compile-time requirements — better errors and clearer APIs than SFINAE alone.
+**Concepts** (C++20) provide a mechanism for **constraining templates** — specify requirements on template arguments in a concise, readable way with **compile-time checking** and **better error messages**.
 
 A **`concept`** is a named predicate on types; **`requires`** clauses check expressions and return types.
 
@@ -68,12 +68,11 @@ What are benefits of concepts? #q86 #concepts #advanced-cpp
 
 ---
 
-- **Readable constraints** on templates
-- **Shorter error messages**
-- **Overload resolution** — constrain overload sets distinctly
-- **Reusable** named requirements (`std::ranges`, `std::integral`, …)
-
-Replaces many **`enable_if`** / SFINAE patterns.
+- **Improved code clarity** — requirements explicit in signatures
+- **Better error messages** — meaningful compile-time diagnostics
+- **Overload resolution** — disambiguate overloads with concepts
+- **Code reusability** — more generic, constrained libraries
+- **Named requirements** — `std::integral`, `std::ranges`, … replace much SFINAE
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain C++20 concepts. #q86 #concepts #advanced-cpp

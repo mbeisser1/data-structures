@@ -1,10 +1,10 @@
 Explain the concept of branch prediction and its impact on performance. #q93 #branch-prediction #performance
 
 ---
-**Branch prediction** lets the CPU **guess** which way an **`if`/loop branch** goes and **speculatively execute** ahead — keeping the pipeline full.
+**Branch prediction** is a **hardware optimization** that anticipates the outcome of **conditional branches** — the CPU **speculatively executes** along the predicted path to keep the instruction pipeline full.
 
-**Correct prediction** → high throughput  
-**Misprediction** → pipeline flush, wasted cycles
+**Correct prediction** → high throughput, fewer pipeline stalls  
+**Misprediction** → pipeline flush and wasted cycles
 
 %%%MOCHI_CARD%%%
 How do CPUs predict branches? #q93 #branch-prediction #performance

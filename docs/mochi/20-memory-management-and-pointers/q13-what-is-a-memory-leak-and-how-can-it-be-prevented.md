@@ -1,7 +1,7 @@
 What is a memory leak and how can it be prevented? #q13 #memory-leak #memory-pointers
 
 ---
-A **memory leak** happens when memory is **allocated but never freed** after it is no longer needed, slowly reducing available memory and hurting performance or causing crashes.
+A **memory leak** occurs when a program **allocates memory but fails to release it** when no longer needed. This leads to a **gradual reduction** in available memory, potentially causing performance issues or crashes.
 
 %%%MOCHI_CARD%%%
 What commonly causes memory leaks? #q13 #memory-leak #memory-pointers
@@ -63,8 +63,9 @@ How do you prevent memory leaks in C++? #q13 #memory-leak #memory-pointers
   - **`unique_ptr`**
   - **`shared_ptr`**
   - **`weak_ptr`** (use **`weak_ptr`** to break cycles)
+- **Prefer smart pointers** — automate cleanup to reduce leak risk.
 - **Stack allocation** when lifetime matches scope.
-- **Clear ownership** — one obvious owner for each resource.
+- **Clear ownership** — establish which code is responsible for deallocation.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain memory leaks and prevention. #q13 #memory-leak #memory-pointers

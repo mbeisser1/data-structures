@@ -1,13 +1,7 @@
 What is function overloading in C++? #q09 #function-overloading #cpp-basics
 
 ---
-**Function overloading** lets multiple functions **share a name** but differ by **parameter list**:
-
-- **Types**
-- **Order**
-- **Count**
-
-The compiler picks the best match at compile time (**static polymorphism**).
+**Function overloading** allows multiple functions to have the **same name** but **different parameter lists**. The compiler distinguishes them by the **number**, **types**, and **order** of parameters.
 
 %%%MOCHI_CARD%%%
 How does the compiler distinguish overloaded functions? What are the restrictions? #q09 #function-overloading #cpp-basics

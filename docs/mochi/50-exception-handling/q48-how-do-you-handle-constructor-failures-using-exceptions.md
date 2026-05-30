@@ -1,11 +1,11 @@
 How do you handle constructor failures using exceptions? #q48 #constructor-failures #exceptions
 
 ---
-**Throw from the constructor** when initialization fails:
+The recommended approach for **constructor failures** is to **throw an exception**. This ensures:
 
-- Object is **not used** in a partial state
-- **RAII** cleans up already-acquired resources
-- Caller can **`catch`** and recover
+1. The object is **not left** in an invalid or partially constructed state
+2. **Resources** are properly cleaned up (via **RAII**)
+3. The **caller** is notified and can handle the failure
 
 Never leave a half-built object that callers must detect manually.
 

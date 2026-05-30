@@ -1,14 +1,7 @@
 What is the difference between `struct` and `class` in C++? #q06 #struct-vs-class #cpp-basics
 
 ---
-Both define **user-defined types** with nearly the same capabilities:
-
-- **Members**
-- **Methods**
-- **Constructors**
-- **Destructors**
-
-The main differences are **default access** and typical **design intent**.
+In C++, both **`struct`** and **`class`** create **user-defined types**, but they differ in **default member access**, **default inheritance access**, and typical **use cases**.
 
 %%%MOCHI_CARD%%%
 How do default member access levels differ for `struct` and `class`? #q06 #struct-vs-class #cpp-basics
@@ -31,12 +24,9 @@ When do developers typically choose `struct` vs `class`? #q06 #struct-vs-class #
 
 ---
 
-- **`struct`** — simple aggregates / **POD-like** data with mostly public fields.
-- **`class`** — types with:
-  - **Encapsulation**
-  - **Invariants**
-  - **Behavior** via member functions
-- In modern C++ the keyword choice is mostly **convention**; either can have methods and special members.
+- **`struct`** — suited for small, simple objects with **mostly public** data (often **POD-like** aggregates).
+- **`class`** — intended for larger, more complex types using **encapsulation**, **data hiding**, and member functions.
+- In modern C++ the distinction is mainly **defaults and convention**; both can have constructors, destructors, and methods.
 
 %%%MOCHI_CARD%%%
 In about 60 seconds, explain `struct` vs `class` in C++. #q06 #struct-vs-class #cpp-basics

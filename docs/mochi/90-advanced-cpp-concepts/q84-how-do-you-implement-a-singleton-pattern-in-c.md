@@ -1,9 +1,9 @@
 How do you implement a singleton pattern in C++? #q84 #singleton #advanced-cpp
 
 ---
-**Singleton** ensures **one instance** and global access via **`getInstance()`**.
+The **singleton pattern** ensures a class has **only one instance** and provides a **global point of access** via **`getInstance()`**.
 
-**Meyer's singleton (C++11+):** function-local **`static`** instance — **thread-safe** lazy initialization.
+**Meyer’s singleton (C++11+):** function-local **`static`** instance — **thread-safe** lazy initialization; **delete** copy and assignment; **private** constructor.
 
 Delete **copy/move** and make the constructor **private** so only **`getInstance()`** can create the object.
 

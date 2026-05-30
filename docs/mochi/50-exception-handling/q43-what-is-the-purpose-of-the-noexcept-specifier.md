@@ -1,13 +1,13 @@
 What is the purpose of the `noexcept` specifier? #q43 #noexcept #exceptions
 
 ---
-**`noexcept`** declares that a function **will not throw** (or throws only under a condition). Purposes:
+The **`noexcept`** specifier indicates whether a function **can throw exceptions**. Two main purposes:
 
-- **Optimization** — compiler can skip exception-handling tables
-- **Documentation** — clear exception contract
+1. **Optimization** — enables certain compiler optimizations
+2. **Documentation** — clearly communicates exception behavior
 
-- C++11: mostly informative
-- **C++17+:** violating **`noexcept`** → **`std::terminate`**
+- Introduced in **C++11** (initially informative)
+- **C++17+:** violating **`noexcept`** is contractual → **`std::terminate`**
 
 %%%MOCHI_CARD%%%
 What are the forms of `noexcept`? #q43 #noexcept #exceptions

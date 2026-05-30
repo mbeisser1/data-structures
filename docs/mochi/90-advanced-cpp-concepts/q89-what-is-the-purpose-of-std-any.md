@@ -1,9 +1,7 @@
 What is the purpose of `std::any`? #q89 #std-any #advanced-cpp
 
 ---
-**`std::any`** (C++17) stores **any copyable type** in a type-safe container — runtime type erasure without a common base class.
-
-Safer than **`void*`** — type checks on retrieval.
+**`std::any`** (C++17) is a **type-safe** container that can hold **values of any type** — a reliable alternative to **`void*`** and unions when the concrete type is unknown or may change at runtime.
 
 %%%MOCHI_CARD%%%
 What operations does `std::any` provide? #q89 #std-any #advanced-cpp

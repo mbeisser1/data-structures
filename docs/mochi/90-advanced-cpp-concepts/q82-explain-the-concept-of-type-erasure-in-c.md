@@ -1,7 +1,7 @@
 Explain the concept of type erasure in C++. #q82 #type-erasure #advanced-cpp
 
 ---
-**Type erasure** stores **different concrete types** behind one **uniform interface** — the caller doesn’t know the stored type.
+**Type erasure** lets you store objects of **different types** in a single container while exposing a **consistent interface** — fundamental to polymorphism and types like **`std::function`** and **`std::any`**.
 
 **Mechanism:**
 
@@ -57,8 +57,9 @@ What are benefits of type erasure? #q82 #type-erasure #advanced-cpp
 
 ---
 
-- **Unified interface** for heterogeneous types
-- **Encapsulation** — hide inheritance hierarchy
+- **Flexibility** — work with different types through one interface
+- **Encapsulation** — hide concrete type details
+- **Runtime polymorphism** — dynamic dispatch without exposing hierarchy
 - **Runtime polymorphism** without templating every call site
 - Enables **`std::function<void()>`** holding any callable
 

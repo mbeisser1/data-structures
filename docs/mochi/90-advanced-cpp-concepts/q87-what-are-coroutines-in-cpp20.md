@@ -1,7 +1,7 @@
 What are coroutines in C++20? #q87 #coroutines #advanced-cpp
 
 ---
-**Coroutines** are functions that can **suspend** and **resume** — structured async/generator code without callback pyramids.
+**Coroutines** (C++20) are functions that can be **suspended** and **resumed** — a structured approach to **asynchronous programming**, making event handling and I/O more manageable.
 
 **Keywords:**
 
@@ -97,8 +97,10 @@ What are benefits of coroutines? #q87 #coroutines #advanced-cpp
 
 ---
 
-- **Readable async** — looks sequential
-- **Cooperative** — less thread overhead than one thread per task
+- **Simplified asynchronous code** — reads like synchronous code
+- **Efficient resource usage** — cooperative multitasking without per-task thread overhead
+- **Lazy evaluation** — generate values on demand (generators)
+- **Improved performance** — fewer callbacks and complex state machines
 - **Lazy evaluation** — generate on demand
 - Replaces hand-rolled **state machines** and deep callbacks
 
