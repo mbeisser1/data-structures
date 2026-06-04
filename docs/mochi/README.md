@@ -27,7 +27,8 @@ Each question has its **own `.md` file** with multiple cards inside (delimiter `
 2. Create or open a deck (suggested: **`CPP::01-Basics`**).
 3. **Import** → **Markdown** → select one or more question files.
 4. **Card delimiter:** `%%%MOCHI_CARD%%%` (`---` is front/back **inside** each card).
-5. Confirm the preview, then import.
+5. **Images:** If a `.md` file references `![...](photo.png)`, select **both** the markdown and image files in the import picker ([Mochi docs](https://mochi.cards/docs/import-and-export/importing/)). You can also drag an image into the card editor in Mochi.
+6. Confirm the preview, then import.
 
 ### Avoid blank cards
 
