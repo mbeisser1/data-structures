@@ -34,3 +34,8 @@ h1, h2, h3, h4 {
 h2 {
   page-break-before: always;
 }
+
+h4 {
+  text-decoration: underline;
+  font-weight: bold;
+}

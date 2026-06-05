@@ -40,6 +40,8 @@ Source: [`docs/questions-pdf.md`](../questions-pdf.md) — title is in [`pdf.yam
 | Code blocks | DejaVu Sans Mono (`Scale=0.85`) | ~9.4pt |
 | Margins | `geometry` in `pdf.yaml` | 0.75in all sides |
 
+Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algorithms</u>). `#####` sub-headings are unchanged.
+
 **Page layout**
 
 1. Page 1 — title (`100 C++ interview questions (devinterview.io)`)

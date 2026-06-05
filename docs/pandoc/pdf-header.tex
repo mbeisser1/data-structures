@@ -8,6 +8,7 @@
 
 % Center each ## part title (Pandoc maps ## → \subsection)
 \titleformat{\subsection}[block]{\centering\normalfont\large\bfseries}{}{0em}{}
+
 \usepackage{fvextra}
 \usepackage{mdframed}
 
@@ -35,7 +36,6 @@
 
 % Each ### question starts on a new page (Pandoc maps ### → \subsubsection)
 \pretocmd{\subsubsection}{\clearpage\Needspace{8\baselineskip}}{}{}
-\pretocmd{\paragraph}{\Needspace{6\baselineskip}}{}{}
 
 % Keep code blocks on one page when they fit
 \BeforeBeginEnvironment{Shaded}{\Needspace{10\baselineskip}}
@@ -43,6 +43,14 @@
 
 % Override Pandoc defaults after template loads (header-includes run before Highlighting is defined)
 \AtBeginDocument{%
+  % Underline #### section headings (Pandoc maps #### → \paragraph)
+  \makeatletter
+  \renewcommand\paragraph[1]{%
+    \par\addvspace{0.8ex}%
+    \noindent{\normalfont\normalsize\bfseries\underline{#1}}%
+    \par\addvspace{0.4ex}%
+  }
+  \makeatother
   \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
     breaklines=true,
     breakanywhere=true,
