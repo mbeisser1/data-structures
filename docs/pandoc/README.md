@@ -43,7 +43,7 @@ Source: [`docs/questions-pdf.md`](../questions-pdf.md) — title is in [`pdf.yam
 | Images | scaled to fit | max width = text width, max height = 85% page |
 | Margins | `geometry` in `pdf.yaml` | 0.75in all sides |
 
-Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algorithms</u>). `#####` sub-headings are unchanged.
+Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algorithms</u>) and kept with the content that follows (e.g. a code block is not orphaned on the next page). `#####` sub-headings are unchanged.
 
 **Page layout**
 
@@ -63,6 +63,7 @@ Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algo
 |------|------|
 | [`pdf.yaml`](pdf.yaml) | Pandoc defaults (title, TOC, margins, `xelatex`) |
 | [`embed-images.lua`](embed-images.lua) | Decodes embedded `data:image/...` diagrams for PDF output |
+| [`group-code-headings.lua`](group-code-headings.lua) | Keeps `####` headings with following code blocks (incl. intro text) |
 | [`pdf-header.tex`](pdf-header.tex) | Footer, page breaks, heading sizes, image scale, code box |
 | [`markdown-pdf.css`](markdown-pdf.css) | Fallback CSS for VS Code **Markdown PDF** |
 

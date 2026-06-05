@@ -4,6 +4,7 @@ from: gfm
 to: pdf
 filters:
   - docs/pandoc/embed-images.lua
+  - docs/pandoc/group-code-headings.lua
 pdf-engine: xelatex
 toc: true
 toc-depth: 3
