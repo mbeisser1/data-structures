@@ -4378,25 +4378,25 @@ int main() {
 
 #### Common Derived Classes and Their Functions
 
-| Exception Type | Description | Member Function | Purpose |
-| --- | --- | --- | --- |
-| `std::bad_alloc` | Thrown for dynamic memory allocation failures, like `new`. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::bad_cast` | Thrown when a `dynamic_cast` to a reference type fails. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::bad_function_call` | Thrown when an `std::function` object is called without a valid target. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::bad_typeid` | Thrown when `typeid` is used on a null pointer to a polymorphic type. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::bad_weak_ptr` | Thrown when creating a `std::shared_ptr` from an expired `std::weak_ptr`. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::logic_error` | Base class for exceptions indicating errors in program logic. | \-  | \-  |
-| `std::invalid_argument` | Indicates a function was called with an invalid argument. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::length_error` | Thrown when an operation would exceed the maximum allowed size. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::out_of_range` | Thrown when accessing elements outside a valid range. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::runtime_error` | Base class for exceptions indicating runtime errors. | \-  | \-  |
-| `std::overflow_error` | Thrown to indicate arithmetic overflow. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::underflow_error` | Thrown to indicate arithmetic underflow. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::system_error` | Represents errors from the operating system. | `code()` | Get the associated error code. |
-| `std::ios_base::failure` | Thrown on I/O stream failures. | `what() const noexcept` | Retrieve an explanatory string. |
-| `std::regex_error` | Represents errors in regular expression processing. | `code()` | Get the specific regex error code. |
-| `std::future_error` | Represents errors in asynchronous operations. | `code()` | Get the associated error code. |
-| `std::filesystem::filesystem_error` | Represents errors in filesystem operations. | `path1()`, `path2()` | Get the involved path(s). |
+| Exception Type | Description |
+| --- | --- |
+| `std::bad_alloc` | Thrown for dynamic memory allocation failures, like `new`. |
+| `std::bad_cast` | Thrown when a `dynamic_cast` to a reference type fails. |
+| `std::bad_function_call` | Thrown when an `std::function` object is called without a valid target. |
+| `std::bad_typeid` | Thrown when `typeid` is used on a null pointer to a polymorphic type. |
+| `std::bad_weak_ptr` | Thrown when creating a `std::shared_ptr` from an expired `std::weak_ptr`. |
+| `std::logic_error` | Base class for exceptions indicating errors in program logic. |
+| `std::invalid_argument` | Indicates a function was called with an invalid argument. |
+| `std::length_error` | Thrown when an operation would exceed the maximum allowed size. |
+| `std::out_of_range` | Thrown when accessing elements outside a valid range. |
+| `std::runtime_error` | Base class for exceptions indicating runtime errors. |
+| `std::overflow_error` | Thrown to indicate arithmetic overflow. |
+| `std::underflow_error` | Thrown to indicate arithmetic underflow. |
+| `std::system_error` | OS errors; `code()` returns the error code. |
+| `std::ios_base::failure` | Thrown on I/O stream failures. |
+| `std::regex_error` | Regex errors; `code()` returns the regex error code. |
+| `std::future_error` | Async errors; `code()` returns the error code. |
+| `std::filesystem::filesystem_error` | Filesystem errors; `path1()` / `path2()` name involved paths. |
 
 #### Code Example: Catching Multiple Derived Exceptions
 

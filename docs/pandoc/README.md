@@ -37,8 +37,8 @@ Source: [`docs/questions-pdf.md`](../questions-pdf.md) — title is in [`pdf.yam
 | Element | Font | Size |
 |---------|------|------|
 | Body | Latin Modern Roman (LaTeX default) | 11pt |
-| `##` part titles | Latin Modern Roman, bold | `\Large` (~14pt) |
-| `###` questions | Latin Modern Roman, bold | `\large` (~12pt) |
+| `##` part titles | Latin Modern Roman, bold | `\LARGE` (~17pt) |
+| `###` questions | Latin Modern Roman, bold | `\Large` (~14pt) |
 | Code blocks | DejaVu Sans Mono (`Scale=0.85`) | ~9.4pt |
 | Images | scaled to fit | max width = text width, max height = 85% page |
 | Margins | `geometry` in `pdf.yaml` | 0.75in all sides |

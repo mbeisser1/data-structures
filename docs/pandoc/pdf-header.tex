@@ -14,12 +14,15 @@
 \makeatother
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
-% ## part titles — Large, centered (Pandoc maps ## → \subsection)
-\titleformat{\subsection}[block]{\centering\normalfont\Large\bfseries}{}{0em}{}
+% Pipe tables: slightly smaller text
+\AtBeginEnvironment{longtable}{\footnotesize}
+
+% ## part titles — LARGE, centered (Pandoc maps ## → \subsection)
+\titleformat{\subsection}[block]{\centering\normalfont\LARGE\bfseries}{}{0em}{}
 \titlespacing*{\subsection}{0pt}{1.2em}{0.8em}
 
-% ### question titles — large, bold (Pandoc maps ### → \subsubsection)
-\titleformat{\subsubsection}[block]{\normalfont\large\bfseries}{}{0em}{}
+% ### question titles — Large, bold (Pandoc maps ### → \subsubsection)
+\titleformat{\subsubsection}[block]{\normalfont\Large\bfseries}{}{0em}{}
 \titlespacing*{\subsubsection}{0pt}{0pt}{0.6em}
 
 \usepackage{fvextra}
