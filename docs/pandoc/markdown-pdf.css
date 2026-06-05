@@ -1,0 +1,36 @@
+/* Markdown PDF (yzane.markdown-pdf) — code blocks + print layout */
+
+pre,
+pre code {
+  page-break-inside: avoid;
+  break-inside: avoid-page;
+}
+
+pre {
+  border: 1px solid #999;
+  background-color: #fff;
+  padding: 0.75em 1em;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.4;
+}
+
+code {
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 0.9em;
+}
+
+h1, h2, h3, h4 {
+  page-break-after: avoid;
+}
+
+h2 {
+  page-break-before: always;
+}

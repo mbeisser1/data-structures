@@ -1,0 +1,23 @@
+# Pandoc defaults for docs/questions-pdf.md → PDF
+# Usage: pandoc docs/questions-pdf.md --defaults docs/pandoc/pdf.yaml -o docs/questions-pdf.pdf
+from: gfm
+to: pdf
+pdf-engine: xelatex
+toc: true
+toc-depth: 3
+number-sections: false
+standalone: true
+variables:
+  title: "100 C++ interview questions (devinterview.io)"
+  geometry:
+    - top=0.75in
+    - bottom=0.75in
+    - left=0.75in
+    - right=0.75in
+  fontsize: 11pt
+  documentclass: article
+  colorlinks: true
+  linkcolor: blue
+  urlcolor: blue
+include-in-header:
+  - docs/pandoc/pdf-header.tex
