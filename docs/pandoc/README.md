@@ -4,6 +4,7 @@ Build a print-ready PDF with:
 
 - **Title page** → **TOC with page numbers** → **body** on separate pages
 - **Section breaks**: each `##` part (e.g. “C++ Basics…”) starts on a new page
+- **Question breaks**: each `###` question starts on a new page
 - **Footer page numbers** only (no title/date/URL header)
 - **Code blocks**: bordered box, line-wrapped, kept on one page when they fit
 
@@ -44,6 +45,7 @@ Source: [`docs/questions-pdf.md`](../questions-pdf.md) — title is in [`pdf.yam
 1. Page 1 — title (`100 C++ interview questions (devinterview.io)`)
 2. Following pages — auto-generated table of contents with page numbers
 3. New page — first `##` part; each later `##` part starts on a new page (`\subsection` in LaTeX)
+4. Each `###` question starts on a new page (`\subsubsection` in LaTeX)
 
 **Code blocks**
 

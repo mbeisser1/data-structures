@@ -33,8 +33,8 @@
   \fi
 }{}{}
 
-% Keep #### / ##### headings with following content (avoid orphan headings)
-\pretocmd{\subsubsection}{\Needspace{8\baselineskip}}{}{}
+% Each ### question starts on a new page (Pandoc maps ### → \subsubsection)
+\pretocmd{\subsubsection}{\clearpage\Needspace{8\baselineskip}}{}{}
 \pretocmd{\paragraph}{\Needspace{6\baselineskip}}{}{}
 
 % Keep code blocks on one page when they fit
