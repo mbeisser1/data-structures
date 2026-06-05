@@ -3,8 +3,8 @@
 Build a print-ready PDF with:
 
 - **Title page** → **TOC with page numbers** → **body** on separate pages
-- **Section breaks**: each `##` part (e.g. “C++ Basics…”) starts on a new page
-- **Question breaks**: each `###` question starts on a new page
+- **Part titles** (`##`): each starts on a new page (after the preceding question); first `###` in the part flows on the same page as the title
+- **Question breaks**: each later `###` question in a part starts on a new page
 - **Footer page numbers** only (no title/date/URL header)
 - **Code blocks**: bordered box, line-wrapped, kept on one page when they fit
 
@@ -37,7 +37,10 @@ Source: [`docs/questions-pdf.md`](../questions-pdf.md) — title is in [`pdf.yam
 | Element | Font | Size |
 |---------|------|------|
 | Body | Latin Modern Roman (LaTeX default) | 11pt |
+| `##` part titles | Latin Modern Roman, bold | `\Large` (~14pt) |
+| `###` questions | Latin Modern Roman, bold | `\large` (~12pt) |
 | Code blocks | DejaVu Sans Mono (`Scale=0.85`) | ~9.4pt |
+| Images | scaled to fit | max width = text width, max height = 85% page |
 | Margins | `geometry` in `pdf.yaml` | 0.75in all sides |
 
 Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algorithms</u>). `#####` sub-headings are unchanged.
@@ -46,8 +49,7 @@ Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algo
 
 1. Page 1 — title (`100 C++ interview questions (devinterview.io)`)
 2. Following pages — auto-generated table of contents with page numbers
-3. New page — first `##` part; each later `##` part starts on a new page (`\subsection` in LaTeX)
-4. Each `###` question starts on a new page (`\subsubsection` in LaTeX)
+3. Body — each `##` part title on a new page (after the previous question ends), with its first `###` question on the same page; later questions in that part start on new pages
 
 **Code blocks**
 
@@ -60,7 +62,8 @@ Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algo
 | File | Role |
 |------|------|
 | [`pdf.yaml`](pdf.yaml) | Pandoc defaults (title, TOC, margins, `xelatex`) |
-| [`pdf-header.tex`](pdf-header.tex) | Footer, page breaks, code box, line wrap |
+| [`embed-images.lua`](embed-images.lua) | Decodes embedded `data:image/...` diagrams for PDF output |
+| [`pdf-header.tex`](pdf-header.tex) | Footer, page breaks, heading sizes, image scale, code box |
 | [`markdown-pdf.css`](markdown-pdf.css) | Fallback CSS for VS Code **Markdown PDF** |
 
 ## Fallback: VS Code Markdown PDF

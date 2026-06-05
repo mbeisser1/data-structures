@@ -2,6 +2,8 @@
 # Usage: pandoc docs/questions-pdf.md --defaults docs/pandoc/pdf.yaml -o docs/questions-pdf.pdf
 from: gfm
 to: pdf
+filters:
+  - docs/pandoc/embed-images.lua
 pdf-engine: xelatex
 toc: true
 toc-depth: 3

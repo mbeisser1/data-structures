@@ -5,9 +5,22 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{titlesec}
+\usepackage{graphicx}
 
-% Center each ## part title (Pandoc maps ## → \subsection)
-\titleformat{\subsection}[block]{\centering\normalfont\large\bfseries}{}{0em}{}
+% Scale images to fit within text area (centered via Pandoc's figure environment)
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>0.85\textheight 0.85\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% ## part titles — Large, centered (Pandoc maps ## → \subsection)
+\titleformat{\subsection}[block]{\centering\normalfont\Large\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.8em}
+
+% ### question titles — large, bold (Pandoc maps ### → \subsubsection)
+\titleformat{\subsubsection}[block]{\normalfont\large\bfseries}{}{0em}{}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0.6em}
 
 \usepackage{fvextra}
 \usepackage{mdframed}
@@ -23,19 +36,27 @@
 \pretocmd{\tableofcontents}{\newpage}{}{}
 \apptocmd{\tableofcontents}{\newpage}{}{}
 
-% Each ## part title starts on a new page (Pandoc maps ## → \subsection; skip first after TOC)
+% Each ## part starts on a new page (after the preceding question ends); first after TOC skips extra break
 \newif\iffirstsubsection
 \firstsubsectiontrue
+\newif\iffirstsubsubsection
+\firstsubsubsectiontrue
 \pretocmd{\subsection}{%
   \iffirstsubsection
     \global\firstsubsectionfalse
   \else
     \clearpage
   \fi
+  \global\firstsubsubsectiontrue
 }{}{}
-
-% Each ### question starts on a new page (Pandoc maps ### → \subsubsection)
-\pretocmd{\subsubsection}{\clearpage\Needspace{8\baselineskip}}{}{}
+\pretocmd{\subsubsection}{%
+  \iffirstsubsubsection
+    \global\firstsubsubsectionfalse
+  \else
+    \clearpage
+    \Needspace{8\baselineskip}
+  \fi
+}{}{}
 
 % Keep code blocks on one page when they fit
 \BeforeBeginEnvironment{Shaded}{\Needspace{10\baselineskip}}
