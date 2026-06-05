@@ -64,6 +64,7 @@ Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algo
 | [`pdf.yaml`](pdf.yaml) | Pandoc defaults (title, TOC, margins, `xelatex`) |
 | [`embed-images.lua`](embed-images.lua) | Decodes embedded `data:image/...` diagrams for PDF output |
 | [`group-code-headings.lua`](group-code-headings.lua) | Keeps `####` headings with following code blocks (incl. intro text) |
+| [`indent-list-code.lua`](indent-list-code.lua) | Indents code blocks nested inside bullet/numbered lists |
 | [`pdf-header.tex`](pdf-header.tex) | Footer, page breaks, heading sizes, image scale, code box |
 | [`markdown-pdf.css`](markdown-pdf.css) | Fallback CSS for VS Code **Markdown PDF** |
 

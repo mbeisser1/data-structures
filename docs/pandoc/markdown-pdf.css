@@ -16,6 +16,11 @@ pre {
   word-break: break-word;
 }
 
+li > pre {
+  margin-left: 1.5em;
+  margin-right: 0;
+}
+
 body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 11pt;
