@@ -31,7 +31,7 @@ local function process_blocks(blocks)
   local out = {}
   for i, block in ipairs(blocks) do
     if block.t == "Header" and block.level == 4 and followed_by_codeblock(blocks, i) then
-      table.insert(out, pandoc.RawBlock("latex", "\\Needspace{28\\baselineskip}"))
+      table.insert(out, pandoc.RawBlock("latex", "\\Needspace{14\\baselineskip}"))
     end
     if block.content then
       block.content = process_blocks(block.content)

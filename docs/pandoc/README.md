@@ -56,6 +56,7 @@ Each `####` section heading is underlined in the PDF (e.g. <u>Commonly Used Algo
 - Gray border + light fill (`mdframed`)
 - Long lines wrap (`fvextra` `breaklines` / `breakanywhere`)
 - Blocks shorter than one page are not split (`needspace`)
+- `####` headings before code use `\Needspace{14\baselineskip}` (lua filter) plus `\Needspace{3\baselineskip}` on the heading itself; `Shaded` blocks add `\Needspace{10\baselineskip}` so heading + code stay together without forcing an early page break
 
 ## Config files
 
