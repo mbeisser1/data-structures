@@ -16,7 +16,7 @@ See also [`README.md`](README.md) for import instructions and file layout.
 **One question → one file**, named after the TOC entry:
 
 ```text
-docs/mochi/<toc-section>/qNN-slug-from-question-title.md
+docs/mochi/100_cpp_questions/<toc-section>/qNN-slug-from-question-title.md
 ```
 
 Example: `### 17. How does reference counting work in shared_ptr?` → `q17-how-does-reference-counting-work-in-shared-ptr.md`
@@ -84,7 +84,7 @@ Use this when asking an agent (or yourself) to convert a batch of questions:
 Create Mochi flashcard files for questions [N–M] from docs/questions.md.
 
 TOC section: [section name]
-Output folder: docs/mochi/[section-slug]/
+Output folder: docs/mochi/100_cpp_questions/[section-slug]/
 
 For each ### N. question in questions.md:
 1. One .md file per question, named qNN-slug-from-title.md
