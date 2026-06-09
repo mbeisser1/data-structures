@@ -33,3 +33,4 @@ include(CTest)
 
 add_subdirectory(exception)
 add_subdirectory(alt_vector)
+add_subdirectory(mystruct)
