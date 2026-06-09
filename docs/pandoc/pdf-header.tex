@@ -5,29 +5,11 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{titlesec}
-\usepackage{graphicx}
 
-% Scale images to fit within text area (centered via Pandoc's figure environment)
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>0.85\textheight 0.85\textheight\else\Gin@nat@height\fi}
-\makeatother
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-
-% Pipe tables: slightly smaller text
-\AtBeginEnvironment{longtable}{\footnotesize}
-
-% ## part titles — LARGE, centered (Pandoc maps ## → \subsection)
-\titleformat{\subsection}[block]{\centering\normalfont\LARGE\bfseries}{}{0em}{}
-\titlespacing*{\subsection}{0pt}{1.2em}{0.8em}
-
-% ### question titles — Large, bold (Pandoc maps ### → \subsubsection)
-\titleformat{\subsubsection}[block]{\normalfont\Large\bfseries}{}{0em}{}
-\titlespacing*{\subsubsection}{0pt}{0pt}{0.6em}
-
+% Center each ## part title (Pandoc maps ## → \subsection)
+\titleformat{\subsection}[block]{\centering\normalfont\large\bfseries}{}{0em}{}
 \usepackage{fvextra}
 \usepackage{mdframed}
-\usepackage{calc}
 
 % Footer page numbers only; no print header chrome
 \pagestyle{fancy}
@@ -36,62 +18,24 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Document title at top of TOC page; body starts on a new page after TOC
-\makeatletter
-\renewcommand{\maketitle}{%
-  \begingroup
-  \centering
-  \normalfont
-  \vspace*{0.5em}
-  {\LARGE\bfseries\@title\par}
-  \vspace{1.5em}
-  \endgroup
-}
-\makeatother
+% Title page → TOC → body on separate pages
+\pretocmd{\tableofcontents}{\newpage}{}{}
 \apptocmd{\tableofcontents}{\newpage}{}{}
 
-% Roman numerals in TOC as "IX. Section Title" (inline, bold); body titles stay unnumbered
-\makeatletter
-\newcommand{\dh@toc@subsection@numberline}[1]{#1.\ }
-\AtBeginDocument{%
-  \setcounter{secnumdepth}{2}%
-  \renewcommand{\thesubsection}{\Roman{subsection}}%
-}
-\renewcommand*\l@subsection{\@dottedtocline{2}{0em}{0em}}%
-\let\dh@l@subsection\l@subsection
-\renewcommand*\l@subsection[2]{%
-  \begingroup
-  \bfseries
-  \let\numberline\dh@toc@subsection@numberline
-  \dh@l@subsection{#1}{#2}%
-  \endgroup
-}
-\renewcommand{\contentsname}{Table of Contents}
-% ### questions in TOC (1., 2., …) — less indent than default 3.8em
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{1.5em}{0em}}
-\makeatother
-
-% Each ## part starts on a new page (after the preceding question ends); first after TOC skips extra break
+% Each ## part title starts on a new page (Pandoc maps ## → \subsection; skip first after TOC)
 \newif\iffirstsubsection
 \firstsubsectiontrue
-\newif\iffirstsubsubsection
-\firstsubsubsectiontrue
 \pretocmd{\subsection}{%
   \iffirstsubsection
     \global\firstsubsectionfalse
   \else
     \clearpage
   \fi
-  \global\firstsubsubsectiontrue
 }{}{}
-\pretocmd{\subsubsection}{%
-  \iffirstsubsubsection
-    \global\firstsubsubsectionfalse
-  \else
-    \clearpage
-    \Needspace{8\baselineskip}
-  \fi
-}{}{}
+
+% Keep #### / ##### headings with following content (avoid orphan headings)
+\pretocmd{\subsubsection}{\Needspace{8\baselineskip}}{}{}
+\pretocmd{\paragraph}{\Needspace{6\baselineskip}}{}{}
 
 % Keep code blocks on one page when they fit
 \BeforeBeginEnvironment{Shaded}{\Needspace{10\baselineskip}}
@@ -99,15 +43,6 @@
 
 % Override Pandoc defaults after template loads (header-includes run before Highlighting is defined)
 \AtBeginDocument{%
-  % Underline #### section headings (Pandoc maps #### → \paragraph)
-  \makeatletter
-  \renewcommand\paragraph[1]{%
-    \Needspace{3\baselineskip}%
-    \par\addvspace{0.8ex}%
-    \noindent{\normalfont\normalsize\bfseries\underline{#1}}%
-    \par\addvspace{0.4ex}%
-  }
-  \makeatother
   \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
     breaklines=true,
     breakanywhere=true,

@@ -1,4 +1,4 @@
-What is I2C (Inter-Integrated Circuit), and how is the bus organized? #i2c #embedded
+What is I2C (Inter-Integrated Circuit), and what are it's features? #i2c #embedded
 
 ---
 
@@ -6,28 +6,27 @@ What is I2C (Inter-Integrated Circuit), and how is the bus organized? #i2c #embe
 
 **I2C** is a **two-wire**, **serial**, **synchronous** bus for **short-distance**, **on-board** links between a processor/MCU and low-speed peripherals.
 
-- **SDA (Serial Data)** — carries address, R/W, and data bits (example on the bus: `01100101`).
-- **SCL (Serial Clock)** — timing reference; the **master** toggles the clock so slaves know when to sample SDA.
-- **Pull-ups to Vcc** — SDA and SCL are **open-drain**; resistors pull both lines **high** when idle. Any device may pull a line **low**.
-- **Multi-master, multi-slave** — **Master 1 / Master 2** can share the bus (with **arbitration**); **Slave 1–3** are selected by **unique addresses** (`0x10`, `0x20`, `0x30`).
-- **Connections** — Each device uses **two wires** to SDA and SCL; a wire **crosses** the other line without connecting where the schematic shows a **jump** (hump).
-- **Half duplex** — One bit at a time on SDA; not simultaneous send/receive like SPI.
-
-%%%MOCHI_CARD%%%
-What are the key features of the I2C protocol? #i2c #embedded
-
----
-
-- **Topology:** Multi-master, multi-slave on one bus.
-- **Type:** Serial, synchronous bus.
-- **Wiring:** Half duplex; two wires — **SDA** (data) and **SCL** (clock).
-- **Frequency:** Typically 100 kbps (Standard) to 400 kbps (Fast mode); higher modes exist on some devices.
-- **Addressing:** **7-bit** address-based communication (10-bit extension in some systems).
-- **Bus management:** Supports **arbitration** (multi-master) and **clock stretching** (slave can hold SCL low).
-- **Use case:** Connects low-speed peripherals to processors and microcontrollers.
-- **Range:** Short distance, intra-board communication.
-- **Data:** Byte-oriented protocol; **ACK** after every transmitted byte.
-- **Framing:** Data sent in defined **frames** (start, address, data, stop).
+- **Wiring**
+  - **SDA (Serial Data)** — carries address, R/W, and data bits (e.g. `01100101`)
+  - **SCL (Serial Clock)** — timing reference; the **master** toggles the clock so slaves know when to sample SDA
+  - **Pull-ups to Vcc** — SDA and SCL are **open-drain**; resistors pull both lines **high** when idle; any device may pull a line **low**
+  - **Half duplex** — one bit at a time on SDA; not simultaneous send/receive like SPI
+- **Topology**
+  - **Multi-master, multi-slave** on one bus
+  - Masters share the bus with **arbitration**; slaves are selected by **unique addresses** (e.g. `0x10`, `0x20`, `0x30`)
+- **Addressing**
+  - **7-bit** address-based communication (10-bit extension in some systems)
+- **Frequency**
+  - Typically **100 kbps** (Standard mode) to **400 kbps** (Fast mode); higher modes exist on some devices
+- **Bus management**
+  - **Arbitration** — handles multi-master contention
+  - **Clock stretching** — slave can hold SCL low to slow the master
+- **Data & framing**
+  - **Byte-oriented** protocol; **ACK** after every transmitted byte
+  - Data sent in defined **frames** (start → address → R/W → ACK → data → ACK → … → stop)
+- **Use case & range**
+  - Connects low-speed peripherals to processors and microcontrollers
+  - **Short distance, intra-board** communication
 
 %%%MOCHI_CARD%%%
 How does an I2C transaction work from start to stop? #i2c #embedded
@@ -38,14 +37,26 @@ How does an I2C transaction work from start to stop? #i2c #embedded
 
 **Typical sequence:**
 
-1. **Start condition** — Master pulls **SDA low while SCL is high**, then pulls **SCL low**. Signals the beginning of a transfer; the bus was idle (both lines high).
-2. **Slave address** — Master sends **7 address bits** (MSB first) on SDA, clocked by SCL. Each slave compares the address to its own (e.g. `0x10`, `0x20`, `0x30`).
-3. **R/W bit** — One bit after the address: **0 = write** (master → slave), **1 = read** (slave → master).
-4. **ACK bit** — The **receiver** pulls **SDA low** on the 9th clock pulse to acknowledge. **NACK** (SDA high) means “no device accepted” or “no more data.”
-5. **Data byte(s) + ACK** — Each **8-bit byte** is sent MSB first, followed by an **ACK/NACK** from the receiver. Repeat for every byte in the transfer.
-6. **Stop condition** — Master releases the bus by bringing **SCL high**, then **SDA high** (while SCL is high). Returns the bus to idle.
+1. **Start condition**
+   - Master pulls **SDA low while SCL is high**, then pulls **SCL low**.
+   - Signals the beginning of a transfer; the bus was idle (both lines high).
+2. **Slave address**
+   - Master sends **7 address bits** (MSB first) on SDA, clocked by SCL.
+   - Each slave compares the address to its own (e.g. `0x10`, `0x20`, `0x30`).
+3. **R/W bit**
+   - One bit after the address: **0 = write** (master → slave), **1 = read** (slave → master).
+4. **ACK bit**
+   - The **receiver** pulls **SDA low** on the 9th clock pulse to acknowledge.
+   - **NACK** (SDA high) means "no device accepted" or "no more data."
+5. **Data byte(s) + ACK**
+   - Each **8-bit byte** is sent MSB first, followed by an **ACK/NACK** from the receiver.
+   - Repeat for every byte in the transfer.
+6. **Stop condition**
+   - Master releases the bus by bringing **SCL high**, then **SDA high** (while SCL is high).
+   - Returns the bus to idle.
 
-**Multi-master note:** If two masters start at once, **arbitration** on SDA resolves who keeps the bus; the loser backs off and retries later.
+> **Multi-master note:** If two masters start at once, **arbitration** on SDA resolves who keeps the bus; the loser backs off and retries later.
+
 
 %%%MOCHI_CARD%%%
 What is the structure of an I2C frame, and what is each field for? #i2c #embedded

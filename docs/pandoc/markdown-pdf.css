@@ -16,11 +16,6 @@ pre {
   word-break: break-word;
 }
 
-li > pre {
-  margin-left: 1.5em;
-  margin-right: 0;
-}
-
 body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 11pt;
@@ -37,18 +32,5 @@ h1, h2, h3, h4 {
 }
 
 h2 {
-  page-break-before: auto;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  height: auto;
-}
-
-h4 {
-  text-decoration: underline;
-  font-weight: bold;
+  page-break-before: always;
 }
