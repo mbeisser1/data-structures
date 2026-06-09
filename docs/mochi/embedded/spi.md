@@ -23,7 +23,7 @@ What are the key features of the SPI protocol? #spi #embedded
 - **Daisy chain**
   - One SS/CS line with multiple slaves in series.
 
-![SPI bus - master, slave, SCLK, MOSI, MISO, SS/CS|700](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/spi-bus.png)
+![SPI bus - master, slave, SCLK, MOSI, MISO, SS/CS|450](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/spi-bus.png)
 
 %%%MOCHI_CARD%%%
 What is the function of the SCK (clock) signal in SPI, and how can the clock be configured? #spi #embedded
@@ -71,7 +71,7 @@ Explain the roles of MISO and MOSI in SPI. #spi #embedded
   - The slave sends data back to the master bit by bit, in serial through the MISO line.
   - Data from slave to master is usually sent **LSB first**.
 
-![SPI bus - master, slave, SCLK, MOSI, MISO, SS/CS|700](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/spi-bus.png)
+![SPI bus - master, slave, SCLK, MOSI, MISO, SS/CS|450](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/spi-bus.png)
 
 %%%MOCHI_CARD%%%
 What is the role of SS/CS (Slave Select) in SPI? #spi #embedded
@@ -107,7 +107,7 @@ How does SPI work in daisy-chain mode? #spi #embedded
 - **Latency**
   - Clock cycles needed to reach a slave grow with its **position** in the chain.
 
-![SPI daisy-chain - slaves in series, shared SS/CS|700](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/spi-bus-slave-daisy-chain.png)
+![SPI daisy-chain - slaves in series, shared SS/CS|450](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/spi-bus-slave-daisy-chain.png)
 
 %%%MOCHI_CARD%%%
 What are the main advantages of using the SPI protocol? #spi #embedded
