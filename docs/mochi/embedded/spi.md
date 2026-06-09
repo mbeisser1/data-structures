@@ -8,11 +8,11 @@ What are the key features of the SPI protocol? #spi #embedded
 - **Speed:** High speed; supports up to 1 Mbps.
 - **Bus:** Multiple devices on one bus; only two communicate at a time.
 - **Control:** Master initiates communication; only one master allowed.
-- **Data:** Supports 8–16 bits; four clock modes.
+- **Data:** Supports 8-16 bits; four clock modes.
 - **Daisy chain:** One CS with multiple slaves in series.
 
 ```text
-  +--------+      SCK      +---------+
+  +--------+      SCK       +---------+
   |        |--------------->|         |
   |        |     MOSI       |         |
   | Master |--------------->| Slave 1 |
@@ -23,13 +23,24 @@ What are the key features of the SPI protocol? #spi #embedded
 ```
 
 %%%MOCHI_CARD%%%
-What is the function of the SCK (clock) signal in SPI? #spi #embedded
+What is the function of the SCK (clock) signal in SPI, and how can the clock be configured? #spi #embedded
 
 ---
 
 - **Synchronization:** Aligns master data output with slave sampling.
 - **Speed:** One bit per clock cycle; frequency sets transfer rate.
 - **Initiation:** Always driven by the master, which configures and generates the clock.
+- **CPOL (Clock Polarity)** - sets the clock’s **idle** level (high or low).
+- **CPHA (Clock Phase)** - sets which clock edge samples data.
+
+**SPI clock modes (CPOL + CPHA)**
+
+| Mode  | CPOL | CPHA | Active level | Data sampling |
+|:-----:|:----:|:----:|:------------:|:--------------|
+| **0** | 0    | 0    | High         | Rising edge   |
+| **1** | 0    | 1    | High         | Falling edge  |
+| **2** | 1    | 0    | Low          | Rising edge   |
+| **3** | 1    | 1    | Low          | Falling edge  |
 
 ```text
   Master (SCK)
@@ -41,15 +52,32 @@ What is the function of the SCK (clock) signal in SPI? #spi #embedded
 ```
 
 %%%MOCHI_CARD%%%
-Explain the roles of MISO and SS/CS in SPI. #spi #embedded
+Explain the roles of MISO and MOSI in SPI. #spi #embedded
 
 ---
 
-- **MISO (Master In Slave Out):** Slave → master data line (often LSB first).
-- **SS/CS (Slave Select):**
-  - Master selects a slave by driving its CS line **low**.
-  - Idle state is **high**.
-  - One CS pin per slave (parallel select); one CS with daisy-chained slaves is an alternative.
+- **MOSI (Master Out Slave In)**
+  - The master sends data to the slave bit by bit, in serial through the MOSI line.
+  - The slave receives the data at the MOSI pin. Data from master to slave is usually sent **MSB first**.
+- **MISO (Master In Slave Out)**
+  - The slave sends data back to the master bit by bit, in serial through the MISO line.
+  - Data from slave to master is usually sent **LSB first**.
+
+```text
+  Master                          Slave
+    |  MOSI (master → slave)  --->|
+    |<--- MISO (slave → master)   |
+```
+
+%%%MOCHI_CARD%%%
+What is the role of SS/CS (Slave Select) in SPI? #spi #embedded
+
+---
+
+- **Selection:** The master chooses which slave to talk to by driving that slave’s **CS/SS line low**.
+- **Idle state:** When not transmitting, CS/SS is held **high**.
+- **Multiple CS/SS pins:** The master may have one CS/SS pin per slave - slaves wired **in parallel**.
+- **Single CS/SS pin:** Multiple slaves can share one select line by **daisy-chaining**.
 
 ```text
   Master (CS) ----+---- (CS) Slave 1
@@ -58,11 +86,28 @@ Explain the roles of MISO and SS/CS in SPI. #spi #embedded
 ```
 
 %%%MOCHI_CARD%%%
+How does SPI work in daisy-chain mode? #spi #embedded
+
+---
+
+- **Shared CS/SS:** All slaves tie chip select together; data propagates from one slave to the next.
+- **Common clock:** All slaves receive the same SPI clock at the same time.
+- **Data path:** Master MOSI connects to the first slave; each slave passes data to the next in the chain.
+- **Latency:** Clock cycles needed to reach a slave grow with its **position** in the chain.
+
+```text
+  Master --MOSI--> [Slave 1] --> [Slave 2] --> [Slave 3]
+           --CS/SS--+----------+----------+
+                    (tied together)
+```
+
+%%%MOCHI_CARD%%%
 What are the main advantages of using the SPI protocol? #spi #embedded
 
 ---
 
-- **Full duplex:** Simultaneous communication on MOSI and MISO.
+- **Full duplex:**
+  - Simultaneous communication on MOSI and MISO.
 - **High speed:** Up to about 1 Mbps (device-dependent).
 - **Simplicity:** Straightforward hardware and protocol.
 - **No overhead:** No start/stop bits (unlike UART framing).

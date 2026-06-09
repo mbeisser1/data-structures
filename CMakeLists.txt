@@ -34,3 +34,6 @@ include(CTest)
 add_subdirectory(exception)
 add_subdirectory(alt_vector)
 add_subdirectory(mystruct)
+
+add_executable(main main.cpp)
+target_compile_features(main PRIVATE cxx_std_20)

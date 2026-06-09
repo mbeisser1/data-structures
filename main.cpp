@@ -8,6 +8,10 @@
 #include <functional>
 #include <type_traits>
 #include <memory>
+#include <cstdint>
+#include <limits>
+#include <stdexcept>
+#include <bitset>
 // read iterator
 // write iterator
 // forward iterator
@@ -15,7 +19,25 @@
 // random access iterator
 // contiguous iterator???
 
+// User-defined literal: 42u8i → std::uint8_t (not a type alias).
+constexpr std::uint8_t operator""_u8i(unsigned long long value)
+{
+    if (value > std::numeric_limits<std::uint8_t>::max())
+    {
+        throw std::out_of_range("u8i literal out of range");
+    }
+    return static_cast<std::uint8_t>(value);
+}
 
+constexpr std::uint8_t operator""_u8(unsigned long long value)
+{
+    if(value > std::numeric_limits<std::uint8_t>::max())
+    {
+        throw std::out_of_range("u8 literal out of range :(");
+    }
+
+    return static_cast<std::uint8_t>(value);
+}
 
 namespace foo::bar::baz{
 
@@ -55,14 +77,14 @@ struct Counter
 };
 
 
-void printV(const auto& v)
-{
-    for(auto i : v)
-    {
-         std::cout << i << " ";
-    }
-    std::cout << "\n";
-}
+// void printV(const auto& v)
+// {
+//     for(auto i : v)
+//     {
+//          std::cout << i << " ";
+//     }
+//     std::cout << "\n";
+// }
 
 
 struct Edge
@@ -154,22 +176,38 @@ struct POD
     float y;
 };
 
+template<typename T,
+    typename = std::enable_if_t<std::is_arithmetic_v<T>>,
+    typename = std::enable_if_t<std::is_default_constructible_v<T>>
+    >
+struct Number
+{
+
+};
 
 
 int main()
 {
+    auto n = Number<int>{};
+
     static_assert(std::is_trivial_v<POD>, "Not trivial");
     
+    auto f = [](int i){};
+    std::invoke(f, 1);
+
+    std::bitset<8> bs = {10};
+    std::vector<int> v{};
+    auto it = std::begin(v);
     // std::unique_ptr<std::initializer_list<int>> f = std::make_unique<std::initializer_list<int>({1,2,3,4});
 
     // auto start = std::begin(f);
  
-    auto m = std::map<int,std::string>{};
+    // auto m = std::map<int,std::string>{};
 
-    for(const auto& [k,v] : m)
-    {
+    // for(const auto& [k,v] : m)
+    // {
 
-    }
+    // }
 
     // for(auto i : f)
     // {
@@ -193,6 +231,21 @@ int main()
     // pq.push(31);
 
 
+    auto m = std::map<int, std::string>{};
+    // auto result = m.insert({1, "one"});
+    // std::cout << "inserted = " << result.second << "\n";
+    // std::cout << "value = " << result.first->second << "\n";
+
+    decltype(m)::iterator it{};
+    bool inserted;
+
+    std::tie(it, inserted) = m.insert({1, "one"});
+    std::cout << std::boolalpha << "inserted = " << inserted << "\n";
+    std::cout << "value = " << it->second << "\n";
+
+    constexpr std::uint8_t byte = 255_u8;
+    static_assert(std::is_same_v<decltype(byte), const std::uint8_t>);
+    std::cout << "byte = " << static_cast<unsigned>(byte) << "\n";
 
     return 0;
 }
