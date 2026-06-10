@@ -14,56 +14,35 @@ What is the TCP/IP model, and how does it differ from OSI? #tcpip #networking #e
   - Direction depends on whether you are **sending** (down the stack) or **receiving** (up).
 
 %%%MOCHI_CARD%%%
-How did the TCP/IP model change from the original 4 layers to the updated 5 layers? #tcpip #networking #embedded
+What are the five layers of the TCP/IP model, and what does each represent? #tcpip #networking #embedded
 
 ---
 
-```text
-        ORIGINAL (4)                    UPDATED (5)
-  +---------------------+         +---------------------+
-  | 4 | Application     | <-----> | 5 | Application     |
-  | 3 | Transport       | <-----> | 4 | Transport       |
-  | 2 | Internet        | <-----> | 3 | Network         |  (renamed)
-  | 1 | Link            | <-----> | 2 | Data Link       |  (split)
-  +---------------------+         | 1 | Physical        |  (split)
-                                  +---------------------+
-```
-
-- **Split**
-  - **Link** became **Data Link** + **Physical**.
-- **Rename**
-  - **Internet** layer renamed **Network**.
+| Layer   | Name                 | Represents                                                   | Protocols                                    | Devices                                                      |
+| :-----: | :------------------: | :----------------------------------------------------------: | :------------------------------------------: | :----------------------------------------------------------: |
+| **5**   | Application          | User-facing services and network applications                | HTTP/HTTPS, FTP, DNS                         | Proxy server, load balancer, application gateway             |
+| **4**   | Transport            | End-to-end communication, reliability, and flow control      | TCP, UDP, SCTP                               | Firewall, load balancer (L4)                                 |
+| **3**   | Network (Internet)   | Logical addressing and routing across networks               | IP (IPv4/IPv6), ICMP, ARP                    | Router, layer 3 switch                                       |
+| **2**   | Data Link            | Node-to-node frame delivery; physical addressing             | Ethernet (802.3), Wi-Fi (802.11), PPP        | Switch (L2), bridge, NIC                                     |
+| **1**   | Physical             | Raw bitstream transmission over a physical medium            | DSL, RS-232, OTN                             | Hub, repeater, cable (fiber/copper)                          |
 
 %%%MOCHI_CARD%%%
 How does the 5-layer TCP/IP model map to the 7-layer OSI model? #tcpip #networking #embedded
 
 ---
 
-| TCP/IP (5)  | OSI (7)                              |
-|:-----------:|:-------------------------------------|
-| Application | Application + Presentation + Session |
-| Transport   | Transport                            |
-| Network     | Network                              |
-| Data Link   | Data Link                            |
-| Physical    | Physical                             |
+| TCP/IP (5)    | OSI (7)                                 |
+| :-----------: | :-------------------------------------: |
+| Application   | Application + Presentation + Session    |
+| Transport     | Transport                               |
+| Network       | Network                                 |
+| Data Link     | Data Link                               |
+| Physical      | Physical                                |
 
 - **Bottom four layers**
   - Line up **directly** between TCP/IP and OSI.
 - **Application layer**
   - TCP/IP **Application** = OSI layers **5, 6, and 7** combined.
-
-%%%MOCHI_CARD%%%
-What protocols and devices belong to each layer of the 5-layer TCP/IP model? #tcpip #networking #embedded
-
----
-
-| Layer | Name        | Protocols / tech        | Devices                          |
-|:-----:|:------------|:------------------------|:---------------------------------|
-| **5** | Application | HTTP, FTP, SMTP         | End applications                 |
-| **4** | Transport   | TCP, UDP; port numbers  | -                                |
-| **3** | Network     | IP                      | Routers                          |
-| **2** | Data Link   | Ethernet                | Switches (L3 switches can route) |
-| **1** | Physical    | -                       | Cables, NICs                     |
 
 %%%MOCHI_CARD%%%
 How does encapsulation work in TCP/IP, and what is each layer's PDU called? #tcpip #networking #embedded
@@ -78,12 +57,12 @@ How does encapsulation work in TCP/IP, and what is each layer's PDU called? #tcp
   - L1: transmit **bits** on the wire.
 - **PDU names**
 
-| Layer | PDU name  |
-|:-----:|:---------:|
-| **5** | Data      |
-| **4** | Segment   |
-| **3** | Packet    |
-| **2** | Frame     |
+| Layer   | PDU name   |
+| :-----: | :--------: |
+| **5**   | Data       |
+| **4**   | Segment    |
+| **3**   | Packet     |
+| **2**   | Frame      |
 
 ```text
   Encapsulation stack (sender, top to bottom)
