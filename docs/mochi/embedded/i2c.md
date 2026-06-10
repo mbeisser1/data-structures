@@ -2,7 +2,7 @@ What is I2C (Inter-Integrated Circuit), and what are it's features? #i2c #embedd
 
 ---
 
-![I2C bus - masters, slaves, SDA/SCL|450](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/i2c-bus.png)
+![I2C bus - masters, slaves, SDA/SCL|450](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/img/i2c-bus.png)
 
 **I2C** is a **two-wire**, **serial**, **synchronous** bus for **short-distance**, **on-board** links between a processor/MCU and low-speed peripherals.
 
@@ -81,7 +81,7 @@ What are the I2C start and stop conditions on SDA and SCL? #i2c #embedded
 
 ---
 
-![I2C start and stop waveforms|450](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/i2c-start-stop.png)
+![I2C start and stop waveforms|450](https://raw.githubusercontent.com/mbeisser1/data-structures/master/docs/mochi/embedded/img/i2c-start-stop.png)
 
 **Start condition**
 
