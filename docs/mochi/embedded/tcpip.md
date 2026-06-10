@@ -1,34 +1,110 @@
-What are the layers of the TCP/IP model? #tcpip #networking #embedded
+What is the TCP/IP model, and how does it differ from OSI? #tcpip #networking #embedded
 
 ---
 
-The **TCP/IP model** (DoD / Internet suite) has **four layers**. Top to bottom:
+**TCP/IP** is a model to **standardize computer networking** - same goal as OSI.
 
-| Layer | Also called | Role |
-|-------|-------------|------|
-| **4 — Application** | — | End-user protocols and APIs (HTTP, DNS, SMTP, TLS). |
-| **3 — Transport** | Host-to-host | **TCP** (reliable, connection-oriented) or **UDP** (connectionless). Ports, segmentation, flow control. |
-| **2 — Internet** | Network | **IP** — logical addressing, routing between networks. ICMP, ARP helpers live here. |
-| **1 — Network access** | Link / interface | Framing on a physical link (Ethernet, Wi‑Fi). MAC addresses, switches. |
-
-Data **encapsulates** down the stack (add headers) and **decapsulates** up at the receiver. TCP/IP is the practical stack the Internet runs on; it is often compared to the **OSI 7-layer** reference model.
+- **OSI**
+  - Widely referenced in textbooks and interviews.
+  - **Not used** as the real-world Internet stack.
+- **TCP/IP**
+  - The stack the **Internet actually runs on**.
+- **Layer numbering**
+  - Numbered **bottom-up** (Physical = 1).
+  - Direction depends on whether you are **sending** (down the stack) or **receiving** (up).
 
 %%%MOCHI_CARD%%%
-What are the five layers (name and purpose) used to teach networking alongside TCP/IP? #tcpip #networking #embedded
+How did the TCP/IP model change from the original 4 layers to the updated 5 layers? #tcpip #networking #embedded
 
 ---
 
-A common **5-layer teaching model** maps cleanly to both TCP/IP and OSI:
+```text
+        ORIGINAL (4)                    UPDATED (5)
+  +---------------------+         +---------------------+
+  | 4 | Application     | <-----> | 5 | Application     |
+  | 3 | Transport       | <-----> | 4 | Transport       |
+  | 2 | Internet        | <-----> | 3 | Network         |  (renamed)
+  | 1 | Link            | <-----> | 2 | Data Link       |  (split)
+  +---------------------+         | 1 | Physical        |  (split)
+                                  +---------------------+
+```
 
-| # | Layer | Used for | Example protocols / data |
-|---|--------|----------|---------------------------|
-| **5** | **Application** | User services, app-to-app messages | HTTP, FTP, DNS, SSH |
-| **4** | **Transport** | Reliable or best-effort delivery **host-to-host**; ports | TCP, UDP |
-| **3** | **Network** | **Logical** addressing and **routing** across networks | IP, ICMP |
-| **2** | **Data link** | **Frame** delivery on one **local** segment; MAC addresses | Ethernet, Wi‑Fi (802.11) |
-| **1** | **Physical** | Bits on the medium (voltage, radio, fiber) | Cables, NIC PHY, modulation |
+- **Split**
+  - **Link** became **Data Link** + **Physical**.
+- **Rename**
+  - **Internet** layer renamed **Network**.
 
-- **PDU names (helpful):** Application → *data*; Transport → *segment* (TCP) / *datagram* (UDP); Network → *packet*; Data link → *frame*; Physical → *bits*.
+%%%MOCHI_CARD%%%
+How does the 5-layer TCP/IP model map to the 7-layer OSI model? #tcpip #networking #embedded
+
+---
+
+| TCP/IP (5)  | OSI (7)                              |
+|:-----------:|:-------------------------------------|
+| Application | Application + Presentation + Session |
+| Transport   | Transport                            |
+| Network     | Network                              |
+| Data Link   | Data Link                            |
+| Physical    | Physical                             |
+
+- **Bottom four layers**
+  - Line up **directly** between TCP/IP and OSI.
+- **Application layer**
+  - TCP/IP **Application** = OSI layers **5, 6, and 7** combined.
+
+%%%MOCHI_CARD%%%
+What protocols and devices belong to each layer of the 5-layer TCP/IP model? #tcpip #networking #embedded
+
+---
+
+| Layer | Name        | Protocols / tech        | Devices                          |
+|:-----:|:------------|:------------------------|:---------------------------------|
+| **5** | Application | HTTP, FTP, SMTP         | End applications                 |
+| **4** | Transport   | TCP, UDP; port numbers  | -                                |
+| **3** | Network     | IP                      | Routers                          |
+| **2** | Data Link   | Ethernet                | Switches (L3 switches can route) |
+| **1** | Physical    | -                       | Cables, NICs                     |
+
+%%%MOCHI_CARD%%%
+How does encapsulation work in TCP/IP, and what is each layer's PDU called? #tcpip #networking #embedded
+
+---
+
+- **Encapsulation (sender, top to bottom)**
+  - L5: application **data**.
+  - L4: add **TCP** header (src/dst **ports**, **sequence numbers**) → **segment**.
+  - L3: add **IP** header (src/dst **IP addresses**) → **packet**.
+  - L2: add **Ethernet** header (src/dst **MAC**) + **trailer** (error check) → **frame**.
+  - L1: transmit **bits** on the wire.
+- **PDU names**
+
+| Layer | PDU name  |
+|:-----:|:---------:|
+| **5** | Data      |
+| **4** | Segment   |
+| **3** | Packet    |
+| **2** | Frame     |
+
+```text
+  Encapsulation stack (sender, top to bottom)
+
+  L5  +------------------+
+      |      DATA        |
+      +------------------+
+  L4  +------+------------------+
+      | TCP  |      DATA        |  = SEGMENT
+      +------+------------------+
+  L3  +-----+------+------------------+
+      | IP  | TCP  |      DATA        |  = PACKET
+      +-----+------+------------------+
+  L2  +-----+-----+------+------+-----+
+      | ETH | IP  | TCP  | DATA | ETH |  = FRAME
+      +-----+-----+------+------+-----+
+      ^hdr                          ^trailer
+```
+
+- **Decapsulation (receiver)**
+  - Check destination **MAC** on the frame → **IP** on the packet → **TCP/UDP** on the segment → deliver **data** to the application.
 
 %%%MOCHI_CARD%%%
 What is the TCP three-way handshake sequence? #tcpip #networking #embedded
@@ -37,9 +113,9 @@ What is the TCP three-way handshake sequence? #tcpip #networking #embedded
 
 Before application data flows, **TCP** opens a connection with a **three-way handshake** (client → server example):
 
-1. **SYN** — Client sends **SYN=1**, initial **sequence number** (ISN\(_c\)), desired window/options. State: client **SYN-SENT**.
-2. **SYN-ACK** — Server replies **SYN=1**, **ACK=1**, its own ISN\(_s\), ACK number = ISN\(_c\) + 1. State: server **SYN-RECEIVED**, client **ESTABLISHED** (half-open).
-3. **ACK** — Client sends **ACK=1**, ACK number = ISN\(_s\) + 1. Both sides **ESTABLISHED**; reliable transfer can begin.
+1. **SYN** - Client sends **SYN=1**, initial **sequence number** (ISN\(_c\)), desired window/options. State: client **SYN-SENT**.
+2. **SYN-ACK** - Server replies **SYN=1**, **ACK=1**, its own ISN\(_s\), ACK number = ISN\(_c\) + 1. State: server **SYN-RECEIVED**, client **ESTABLISHED** (half-open).
+3. **ACK** - Client sends **ACK=1**, ACK number = ISN\(_s\) + 1. Both sides **ESTABLISHED**; reliable transfer can begin.
 
 ```text
   Client                          Server
